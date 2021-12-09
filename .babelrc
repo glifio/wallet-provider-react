@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "@babel/preset-typescript": {},
+        "transform-runtime": {
+          "absoluteRuntime": false
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true
+      }
+    ]
+  ]
+}
