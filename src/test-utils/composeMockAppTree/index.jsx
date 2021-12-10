@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { theme, ThemeProvider } from '@glif/react-components'
-import { mockWalletProviderInstance } from '../../__mocks__/@glif/filecoin-wallet-provider'
-import WalletProviderWrapper from '../../WalletProvider'
-import { initialState as walletProviderInitialState } from '../../WalletProvider/state'
+import { mockWalletProviderInstance } from '../../../__mocks__/@glif/filecoin-wallet-provider'
+import WalletProviderWrapper from '../../lib/WalletProvider'
+import { initialState as walletProviderInitialState } from '../../lib/WalletProvider/state'
 import { composeWalletProviderState } from './composeState'
 
 jest.mock('../../lib/WalletProvider')
@@ -39,7 +39,6 @@ const Index = (statePreset = 'preOnboard', options = {}) => {
 
   return {
     Tree,
-    store,
     walletProvider: mockWalletProviderInstance,
     getWalletProviderState
   }

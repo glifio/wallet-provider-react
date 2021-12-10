@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { cleanup } from '@testing-library/react'
 import useWallet from '.'
-import composeMockAppTree from '../../test-utils/composeMockAppTree'
+import composeMockAppTree from '../../../test-utils/composeMockAppTree'
 
 jest.mock('../')
 

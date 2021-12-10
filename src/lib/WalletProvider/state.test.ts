@@ -14,8 +14,8 @@ import reducer, {
   switchWallet,
   updateBalance
 } from './state'
-import { initialLedgerState } from '../utils/ledger/ledgerStateManagement'
-import { IMPORT_MNEMONIC, SINGLE_KEY } from '../constants'
+import { initialLedgerState } from '../../utils/ledger/ledgerStateManagement'
+import { IMPORT_MNEMONIC, SINGLE_KEY } from '../../constants'
 import { WalletProviderAction } from './types'
 
 const mockSubProvider: WalletSubProvider = {

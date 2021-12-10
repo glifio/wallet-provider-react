@@ -1,11 +1,11 @@
 import { FilecoinNumber } from '@glif/filecoin-number'
 import sortAndRemoveWalletDups from '.'
-import createPath from '../createPath'
+import createPath from '../../../utils/createPath'
 import {
   MAINNET_PATH_CODE,
   SINGLE_KEY,
   TESTNET_PATH_CODE
-} from '../../constants'
+} from '../../../constants'
 
 describe('sortAndRemoveWalletDups', () => {
   test('it removes duplicate wallets', () => {

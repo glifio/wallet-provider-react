@@ -1,6 +1,6 @@
 import Filecoin, { errors } from '@glif/filecoin-wallet-provider'
 import connectLedger from './connectLedger'
-import { LEDGER } from '../constants'
+import { LEDGER } from '../../constants'
 import reducer, { initialState } from '../WalletProvider/state'
 
 jest.mock('@glif/filecoin-wallet-provider', () => ({

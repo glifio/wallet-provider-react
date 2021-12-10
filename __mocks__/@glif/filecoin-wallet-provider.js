@@ -1,6 +1,6 @@
 import { FilecoinNumber } from '@glif/filecoin-number'
 import { Message } from '@glif/filecoin-message'
-import { TESTNET } from '../../constants'
+import { TESTNET } from '../../src/constants'
 
 const mockGetAccounts = jest
   .fn()
@@ -28,7 +28,7 @@ const mockSuprovider = {
   sign: jest.fn().mockImplementation(() => 'xxxyyyyzzzz')
 }
 
-const mockRequest = jest.fn().mockImplementation((method) => {
+const mockRequest = jest.fn().mockImplementation(method => {
   switch (method) {
     case 'ChainHead': {
       return { Height: '1000' }
@@ -76,7 +76,7 @@ class MockWalletProvider {
   gasCalcTxFee = jest
     .fn()
     .mockImplementation(async () => new FilecoinNumber('1000000', 'attofil'))
-  gasEstimateMaxFee = jest.fn().mockImplementation(async (message) => ({
+  gasEstimateMaxFee = jest.fn().mockImplementation(async message => ({
     maxFee: new FilecoinNumber('1000000', 'attofil'),
     message: { ...message, GasLimit: 1, GasFeeCap: '1', GasPremium: '1' }
   }))
