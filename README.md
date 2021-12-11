@@ -1,4 +1,4 @@
-# @glif/react-components
+# @glif/wallet-provider-react
 
 Shared @glif/wallet-provider-react components!
 

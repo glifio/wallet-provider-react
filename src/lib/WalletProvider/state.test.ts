@@ -101,10 +101,12 @@ describe('WalletProvider', () => {
       const provider = new Filecoin(mockSubProvider)
       const expectedAction: WalletProviderAction = {
         type: 'CREATE_WALLET_PROVIDER',
-        payload: { provider }
+        payload: { provider, loginOption: 'IMPORT_SINGLE_KEY' }
       }
 
-      expect(createWalletProvider(provider)).toEqual(expectedAction)
+      expect(createWalletProvider(provider, 'IMPORT_SINGLE_KEY')).toEqual(
+        expectedAction
+      )
     })
 
     test('setError', () => {
@@ -313,10 +315,11 @@ describe('WalletProvider', () => {
     test('it creates the wallet provider', () => {
       const nextState = reducer(
         initialState,
-        createWalletProvider(new Filecoin(mockSubProvider))
+        createWalletProvider(new Filecoin(mockSubProvider), 'IMPORT_SINGLE_KEY')
       )
 
       expect(nextState.walletProvider.wallet.type).toEqual('MOCK')
+      expect(nextState.loginOption).toEqual('IMPORT_SINGLE_KEY')
     })
 
     test('it stores wallet error', () => {

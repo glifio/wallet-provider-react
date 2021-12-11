@@ -28,11 +28,13 @@ export const setLoginOption = (
 })
 
 export const createWalletProvider = (
-  provider: Filecoin
+  provider: Filecoin,
+  loginOption: LoginOption
 ): WalletProviderAction => ({
   type: 'CREATE_WALLET_PROVIDER',
   payload: {
-    provider
+    provider,
+    loginOption
   }
 })
 
@@ -114,7 +116,8 @@ export default function reducer(
     case 'CREATE_WALLET_PROVIDER':
       return {
         ...Object.freeze(state),
-        walletProvider: action.payload.provider
+        walletProvider: action.payload.provider,
+        loginOption: action.payload.loginOption
       }
     case 'WALLET_ERROR':
       return { ...Object.freeze(state), error: action.error }
