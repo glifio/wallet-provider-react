@@ -12,9 +12,10 @@ describe('generateRandomWords', () => {
   })
 
   test('it returns ascending set', () => {
-    const vals = [...generateRandomWords(mnemonic, 10).entries()]
+    const vals = [...generateRandomWords(mnemonic, 10).values()]
     let isAscending = true
-    for (let i = 0; i < vals.length; i += 1) {
+
+    for (let i = 0; i < vals.length - 1; i++) {
       isAscending = isAscending && vals[i] <= vals[i + 1]
     }
     expect(isAscending).toBe(true)

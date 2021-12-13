@@ -18,8 +18,8 @@ import Walkthrough from './Walkthrough'
 import Back from './Back'
 import BurnerWalletWarning from '../Warning'
 
-// we pass this optional prop to make testing the core wallet functionality easier
 const Create: FC<{
+  // we pass this optional prop to make testing the core wallet functionality easier
   initialWalkthroughStep: number
   back: () => void
   next: () => void
