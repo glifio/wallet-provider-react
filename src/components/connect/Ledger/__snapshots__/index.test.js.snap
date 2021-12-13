@@ -4,6 +4,28 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
 .c0 {
   min-width: 0;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid;
   border-radius: 4px;
   border-width: 1px;
@@ -17,7 +39,7 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
   overflow: hidden;
 }
 
-.c2 {
+.c3 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -33,7 +55,7 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
   align-items: center;
 }
 
-.c4 {
+.c5 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -57,13 +79,13 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
   justify-content: center;
 }
 
-.c6 {
+.c7 {
   min-width: 0;
   box-sizing: border-box;
   width: 8px;
 }
 
-.c7 {
+.c8 {
   min-width: 0;
   box-sizing: border-box;
   border-color: silver;
@@ -83,7 +105,7 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
   justify-content: space-around;
 }
 
-.c8 {
+.c9 {
   min-width: 0;
   box-sizing: border-box;
   color: #660000;
@@ -97,20 +119,86 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   min-width: 0;
   box-sizing: border-box;
   margin-top: 16px;
   color: #660000;
 }
 
-.c5 {
+.c13 {
+  min-width: 0;
+  box-sizing: border-box;
+  margin-top: 48px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
   font-family: "RT-Alias-Medium","system-ui","Segoe UI","Roboto",Helvetica;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.c9 {
+.c14 {
+  cursor: pointer;
+  border: 1px solid #262626;
+  background-color: transparent;
+  border-color: #262626;
+  color: #262626;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c14:hover {
+  opacity: 0.8;
+}
+
+.c15 {
+  cursor: pointer;
+  border: 1px solid #1AD08F;
+  background-color: #1AD08F;
+  border-color: #1AD08F;
+  color: #08442F;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c15:hover {
+  opacity: 0.8;
+}
+
+.c10 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -118,14 +206,14 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
   margin: 0;
 }
 
-.c11 {
+.c12 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.4;
   font-family: RT-Alias-Grotesk;
 }
 
-.c1 {
+.c2 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -145,7 +233,7 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
   justify-content: space-between;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -158,75 +246,103 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
 
 <div
   class="c0"
-  display="inline-block"
-  overflow="hidden"
+  display="flex"
   width="100%"
 >
-  <ul
+  <div
     class="c1"
-    display="flex"
+    display="inline-block"
+    overflow="hidden"
     width="100%"
   >
-    <div
+    <ul
       class="c2"
       display="flex"
+      width="100%"
     >
-      <li
+      <div
         class="c3"
         display="flex"
       >
-        <div
+        <li
           class="c4"
-          color="status.fail.foreground"
           display="flex"
-          size="6"
         >
-          <h3
+          <div
             class="c5"
+            color="status.fail.foreground"
+            display="flex"
+            size="6"
           >
-            Er
-          </h3>
-        </div>
-      </li>
+            <h3
+              class="c6"
+            >
+              Er
+            </h3>
+          </div>
+        </li>
+        <div
+          class="c7"
+          width="2"
+        />
+        
+      </div>
+    </ul>
+    <div
+      class="c8"
+      display="flex"
+      width="100%"
+    >
       <div
-        class="c6"
-        width="2"
-      />
-      
+        class="c9"
+        color="status.fail.foreground"
+        display="flex"
+      >
+        <h2
+          class="c10"
+          font-family="RT-Alias-Grotesk"
+          font-size="4"
+          font-weight="400"
+        >
+          Oops!
+        </h2>
+      </div>
+      <div
+        class="c11"
+        color="status.fail.foreground"
+      >
+        <p
+          class="c12"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
+        >
+          Is your Ledger device locked or busy?
+        </p>
+      </div>
     </div>
-  </ul>
+  </div>
   <div
-    class="c7"
+    class="c13"
     display="flex"
     width="100%"
   >
-    <div
-      class="c8"
-      color="status.fail.foreground"
-      display="flex"
+    <button
+      class="c14"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <h2
-        class="c9"
-        font-family="RT-Alias-Grotesk"
-        font-size="4"
-        font-weight="400"
-      >
-        Oops!
-      </h2>
-    </div>
-    <div
-      class="c10"
-      color="status.fail.foreground"
+      Back
+    </button>
+    <button
+      class="c15"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <p
-        class="c11"
-        font-family="RT-Alias-Grotesk"
-        font-size="2"
-        font-weight="400"
-      >
-        Is your Ledger device locked or busy?
-      </p>
-    </div>
+      My Ledger device is unlocked & Filecoin app open
+    </button>
   </div>
 </div>
 `;
@@ -235,6 +351,28 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
 .c0 {
   min-width: 0;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid;
   border-radius: 4px;
   border-width: 1px;
@@ -248,7 +386,7 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
   overflow: hidden;
 }
 
-.c2 {
+.c3 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -264,7 +402,7 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
   align-items: center;
 }
 
-.c4 {
+.c5 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -288,13 +426,13 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
   justify-content: center;
 }
 
-.c6 {
+.c7 {
   min-width: 0;
   box-sizing: border-box;
   width: 8px;
 }
 
-.c7 {
+.c8 {
   min-width: 0;
   box-sizing: border-box;
   border-color: silver;
@@ -314,7 +452,7 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
   justify-content: space-around;
 }
 
-.c8 {
+.c9 {
   min-width: 0;
   box-sizing: border-box;
   color: #660000;
@@ -328,20 +466,86 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
   align-items: center;
 }
 
-.c10 {
+.c11 {
   min-width: 0;
   box-sizing: border-box;
   margin-top: 16px;
   color: #660000;
 }
 
-.c5 {
+.c13 {
+  min-width: 0;
+  box-sizing: border-box;
+  margin-top: 48px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
   font-family: "RT-Alias-Medium","system-ui","Segoe UI","Roboto",Helvetica;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.c9 {
+.c14 {
+  cursor: pointer;
+  border: 1px solid #262626;
+  background-color: transparent;
+  border-color: #262626;
+  color: #262626;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c14:hover {
+  opacity: 0.8;
+}
+
+.c15 {
+  cursor: pointer;
+  border: 1px solid #1AD08F;
+  background-color: #1AD08F;
+  border-color: #1AD08F;
+  color: #08442F;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c15:hover {
+  opacity: 0.8;
+}
+
+.c10 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -349,14 +553,14 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
   margin: 0;
 }
 
-.c11 {
+.c12 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.4;
   font-family: RT-Alias-Grotesk;
 }
 
-.c1 {
+.c2 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -376,7 +580,7 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
   justify-content: space-between;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -389,81 +593,131 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
 
 <div
   class="c0"
-  display="inline-block"
-  overflow="hidden"
+  display="flex"
   width="100%"
 >
-  <ul
+  <div
     class="c1"
-    display="flex"
+    display="inline-block"
+    overflow="hidden"
     width="100%"
   >
-    <div
+    <ul
       class="c2"
       display="flex"
+      width="100%"
     >
-      <li
+      <div
         class="c3"
         display="flex"
       >
-        <div
+        <li
           class="c4"
-          color="status.fail.foreground"
           display="flex"
-          size="6"
         >
-          <h3
+          <div
             class="c5"
+            color="status.fail.foreground"
+            display="flex"
+            size="6"
           >
-            Er
-          </h3>
-        </div>
-      </li>
+            <h3
+              class="c6"
+            >
+              Er
+            </h3>
+          </div>
+        </li>
+        <div
+          class="c7"
+          width="2"
+        />
+        
+      </div>
+    </ul>
+    <div
+      class="c8"
+      display="flex"
+      width="100%"
+    >
       <div
-        class="c6"
-        width="2"
-      />
-      
+        class="c9"
+        color="status.fail.foreground"
+        display="flex"
+      >
+        <h2
+          class="c10"
+          font-family="RT-Alias-Grotesk"
+          font-size="4"
+          font-weight="400"
+        >
+          Oops!
+        </h2>
+      </div>
+      <div
+        class="c11"
+        color="status.fail.foreground"
+      >
+        <p
+          class="c12"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
+        >
+          Is your Ledger device plugged in?
+        </p>
+      </div>
     </div>
-  </ul>
+  </div>
   <div
-    class="c7"
+    class="c13"
     display="flex"
     width="100%"
   >
-    <div
-      class="c8"
-      color="status.fail.foreground"
-      display="flex"
+    <button
+      class="c14"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <h2
-        class="c9"
-        font-family="RT-Alias-Grotesk"
-        font-size="4"
-        font-weight="400"
-      >
-        Oops!
-      </h2>
-    </div>
-    <div
-      class="c10"
-      color="status.fail.foreground"
+      Back
+    </button>
+    <button
+      class="c15"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <p
-        class="c11"
-        font-family="RT-Alias-Grotesk"
-        font-size="2"
-        font-weight="400"
-      >
-        Is your Ledger device plugged in?
-      </p>
-    </div>
+      My Ledger device is unlocked & Filecoin app open
+    </button>
   </div>
 </div>
 `;
 
 exports[`Ledger configuration it renders correctly 1`] = `
 .c0 {
+  min-width: 0;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
   min-width: 0;
   box-sizing: border-box;
   border: 1px solid;
@@ -478,7 +732,7 @@ exports[`Ledger configuration it renders correctly 1`] = `
   overflow: hidden;
 }
 
-.c2 {
+.c3 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -494,7 +748,7 @@ exports[`Ledger configuration it renders correctly 1`] = `
   align-items: center;
 }
 
-.c4 {
+.c5 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -517,13 +771,13 @@ exports[`Ledger configuration it renders correctly 1`] = `
   justify-content: center;
 }
 
-.c6 {
+.c7 {
   min-width: 0;
   box-sizing: border-box;
   width: 8px;
 }
 
-.c7 {
+.c8 {
   min-width: 0;
   box-sizing: border-box;
   border-color: silver;
@@ -543,7 +797,7 @@ exports[`Ledger configuration it renders correctly 1`] = `
   justify-content: space-around;
 }
 
-.c8 {
+.c9 {
   min-width: 0;
   box-sizing: border-box;
   color: #262626;
@@ -557,14 +811,80 @@ exports[`Ledger configuration it renders correctly 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   min-width: 0;
   box-sizing: border-box;
   margin-top: 16px;
   color: #262626;
 }
 
-.c9 {
+.c14 {
+  min-width: 0;
+  box-sizing: border-box;
+  margin-top: 48px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c15 {
+  cursor: pointer;
+  border: 1px solid #262626;
+  background-color: transparent;
+  border-color: #262626;
+  color: #262626;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c15:hover {
+  opacity: 0.8;
+}
+
+.c16 {
+  cursor: pointer;
+  border: 1px solid #1AD08F;
+  background-color: #1AD08F;
+  border-color: #1AD08F;
+  color: #08442F;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c16:hover {
+  opacity: 0.8;
+}
+
+.c10 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -572,19 +892,19 @@ exports[`Ledger configuration it renders correctly 1`] = `
   margin: 0;
 }
 
-.c11 {
+.c12 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.4;
   font-family: RT-Alias-Grotesk;
 }
 
-.c5 {
+.c6 {
   width: 40px;
   height: 40px;
 }
 
-.c12 {
+.c13 {
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-transition: 0.18s ease-in-out;
@@ -594,11 +914,11 @@ exports[`Ledger configuration it renders correctly 1`] = `
   font-size: 1.125rem;
 }
 
-.c12:hover {
+.c13:hover {
   border-bottom: 2px solid #5E26FF;
 }
 
-.c1 {
+.c2 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -618,7 +938,7 @@ exports[`Ledger configuration it renders correctly 1`] = `
   justify-content: space-between;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -631,95 +951,123 @@ exports[`Ledger configuration it renders correctly 1`] = `
 
 <div
   class="c0"
-  display="inline-block"
-  overflow="hidden"
+  display="flex"
   width="100%"
 >
-  <ul
+  <div
     class="c1"
-    display="flex"
+    display="inline-block"
+    overflow="hidden"
     width="100%"
   >
-    <div
+    <ul
       class="c2"
       display="flex"
+      width="100%"
     >
-      <li
+      <div
         class="c3"
         display="flex"
       >
-        <div
+        <li
           class="c4"
-          color="#000"
           display="flex"
-          size="6"
         >
-          <svg
+          <div
             class="c5"
-            fill="none"
-            height="40px"
-            viewBox="0 0 24 24"
-            width="40px"
-            xmlns="http://www.w3.org/2000/svg"
+            color="#000"
+            display="flex"
+            size="6"
           >
-            <path
-              clip-rule="evenodd"
-              d="M10.0934 4H17.4067H17.4148C18.8148 4 19.9676 5.15197 19.9676 6.55279V13.866H10.0934V4ZM6.55349 4.00065H7.81386V7.81378H4.00065V6.55344C4.00065 5.15342 5.15345 4.00065 6.55349 4.00065ZM4 10.0934H7.81321V13.9066H4V10.0934ZM17.4479 19.9679H16.1875V16.1869H20.0007V17.4071V17.4151C20.0007 18.8151 18.8487 19.9679 17.4479 19.9679ZM10.0938 16.1869H13.907V20H10.0938V16.1869ZM4 17.4472V16.1869H7.81321V20H6.55284C5.15279 20 4 18.8472 4 17.4472Z"
-              fill="#333333"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-      </li>
+            <svg
+              class="c6"
+              fill="none"
+              height="40px"
+              viewBox="0 0 24 24"
+              width="40px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M10.0934 4H17.4067H17.4148C18.8148 4 19.9676 5.15197 19.9676 6.55279V13.866H10.0934V4ZM6.55349 4.00065H7.81386V7.81378H4.00065V6.55344C4.00065 5.15342 5.15345 4.00065 6.55349 4.00065ZM4 10.0934H7.81321V13.9066H4V10.0934ZM17.4479 19.9679H16.1875V16.1869H20.0007V17.4071V17.4151C20.0007 18.8151 18.8487 19.9679 17.4479 19.9679ZM10.0938 16.1869H13.907V20H10.0938V16.1869ZM4 17.4472V16.1869H7.81321V20H6.55284C5.15279 20 4 18.8472 4 17.4472Z"
+                fill="#333333"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </li>
+        <div
+          class="c7"
+          width="2"
+        />
+        
+      </div>
+    </ul>
+    <div
+      class="c8"
+      display="flex"
+      width="100%"
+    >
       <div
-        class="c6"
-        width="2"
-      />
-      
+        class="c9"
+        color="core.nearblack"
+        display="flex"
+      >
+        <h2
+          class="c10"
+          font-family="RT-Alias-Grotesk"
+          font-size="4"
+          font-weight="400"
+        >
+          Unlock & Open
+        </h2>
+      </div>
+      <div
+        class="c11"
+        color="core.nearblack"
+      >
+        <p
+          class="c12"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
+        >
+          Please unlock your Ledger device and open the Filecoin App
+        </p>
+        <a
+          class="c13"
+          color="core.primary"
+          font-size="2"
+          href="https://reading.supply/@glif/install-the-filecoin-app-on-your-ledger-device-y33vhX"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Click here for installation instructions.
+        </a>
+      </div>
     </div>
-  </ul>
+  </div>
   <div
-    class="c7"
+    class="c14"
     display="flex"
     width="100%"
   >
-    <div
-      class="c8"
-      color="core.nearblack"
-      display="flex"
+    <button
+      class="c15"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <h2
-        class="c9"
-        font-family="RT-Alias-Grotesk"
-        font-size="4"
-        font-weight="400"
-      >
-        Unlock & Open
-      </h2>
-    </div>
-    <div
-      class="c10"
-      color="core.nearblack"
+      Back
+    </button>
+    <button
+      class="c16"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <p
-        class="c11"
-        font-family="RT-Alias-Grotesk"
-        font-size="2"
-        font-weight="400"
-      >
-        Please unlock your Ledger device and open the Filecoin App
-      </p>
-      <a
-        class="c12"
-        color="core.primary"
-        font-size="2"
-        href="https://reading.supply/@glif/install-the-filecoin-app-on-your-ledger-device-y33vhX"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Click here for installation instructions.
-      </a>
-    </div>
+      My Ledger device is unlocked & Filecoin app open
+    </button>
   </div>
 </div>
 `;
@@ -728,6 +1076,28 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
 .c0 {
   min-width: 0;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid;
   border-radius: 4px;
   border-width: 1px;
@@ -741,7 +1111,7 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
   overflow: hidden;
 }
 
-.c2 {
+.c3 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -757,7 +1127,7 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
   align-items: center;
 }
 
-.c4 {
+.c5 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -781,13 +1151,13 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
   justify-content: center;
 }
 
-.c6 {
+.c7 {
   min-width: 0;
   box-sizing: border-box;
   width: 8px;
 }
 
-.c7 {
+.c8 {
   min-width: 0;
   box-sizing: border-box;
   border-color: silver;
@@ -807,7 +1177,7 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
   justify-content: space-around;
 }
 
-.c8 {
+.c9 {
   min-width: 0;
   box-sizing: border-box;
   color: #660000;
@@ -821,20 +1191,86 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
   align-items: center;
 }
 
-.c10 {
+.c11 {
   min-width: 0;
   box-sizing: border-box;
   margin-top: 16px;
   color: #660000;
 }
 
-.c5 {
+.c13 {
+  min-width: 0;
+  box-sizing: border-box;
+  margin-top: 48px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
   font-family: "RT-Alias-Medium","system-ui","Segoe UI","Roboto",Helvetica;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.c9 {
+.c14 {
+  cursor: pointer;
+  border: 1px solid #262626;
+  background-color: transparent;
+  border-color: #262626;
+  color: #262626;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c14:hover {
+  opacity: 0.8;
+}
+
+.c15 {
+  cursor: pointer;
+  border: 1px solid #1AD08F;
+  background-color: #1AD08F;
+  border-color: #1AD08F;
+  color: #08442F;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c15:hover {
+  opacity: 0.8;
+}
+
+.c10 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -842,14 +1278,14 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
   margin: 0;
 }
 
-.c11 {
+.c12 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.4;
   font-family: RT-Alias-Grotesk;
 }
 
-.c1 {
+.c2 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -869,7 +1305,7 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
   justify-content: space-between;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -882,75 +1318,103 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
 
 <div
   class="c0"
-  display="inline-block"
-  overflow="hidden"
+  display="flex"
   width="100%"
 >
-  <ul
+  <div
     class="c1"
-    display="flex"
+    display="inline-block"
+    overflow="hidden"
     width="100%"
   >
-    <div
+    <ul
       class="c2"
       display="flex"
+      width="100%"
     >
-      <li
+      <div
         class="c3"
         display="flex"
       >
-        <div
+        <li
           class="c4"
-          color="status.fail.foreground"
           display="flex"
-          size="6"
         >
-          <h3
+          <div
             class="c5"
+            color="status.fail.foreground"
+            display="flex"
+            size="6"
           >
-            Er
-          </h3>
-        </div>
-      </li>
+            <h3
+              class="c6"
+            >
+              Er
+            </h3>
+          </div>
+        </li>
+        <div
+          class="c7"
+          width="2"
+        />
+        
+      </div>
+    </ul>
+    <div
+      class="c8"
+      display="flex"
+      width="100%"
+    >
       <div
-        class="c6"
-        width="2"
-      />
-      
+        class="c9"
+        color="status.fail.foreground"
+        display="flex"
+      >
+        <h2
+          class="c10"
+          font-family="RT-Alias-Grotesk"
+          font-size="4"
+          font-weight="400"
+        >
+          Oops!
+        </h2>
+      </div>
+      <div
+        class="c11"
+        color="status.fail.foreground"
+      >
+        <p
+          class="c12"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
+        >
+          Is the Filecoin App open on your Ledger device?
+        </p>
+      </div>
     </div>
-  </ul>
+  </div>
   <div
-    class="c7"
+    class="c13"
     display="flex"
     width="100%"
   >
-    <div
-      class="c8"
-      color="status.fail.foreground"
-      display="flex"
+    <button
+      class="c14"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <h2
-        class="c9"
-        font-family="RT-Alias-Grotesk"
-        font-size="4"
-        font-weight="400"
-      >
-        Oops!
-      </h2>
-    </div>
-    <div
-      class="c10"
-      color="status.fail.foreground"
+      Back
+    </button>
+    <button
+      class="c15"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <p
-        class="c11"
-        font-family="RT-Alias-Grotesk"
-        font-size="2"
-        font-weight="400"
-      >
-        Is the Filecoin App open on your Ledger device?
-      </p>
-    </div>
+      My Ledger device is unlocked & Filecoin app open
+    </button>
   </div>
 </div>
 `;
@@ -959,6 +1423,28 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
 .c0 {
   min-width: 0;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid;
   border-radius: 4px;
   border-width: 1px;
@@ -972,7 +1458,7 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
   overflow: hidden;
 }
 
-.c2 {
+.c3 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -988,7 +1474,7 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
   align-items: center;
 }
 
-.c4 {
+.c5 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -1012,13 +1498,13 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
   justify-content: center;
 }
 
-.c6 {
+.c7 {
   min-width: 0;
   box-sizing: border-box;
   width: 8px;
 }
 
-.c7 {
+.c8 {
   min-width: 0;
   box-sizing: border-box;
   border-color: silver;
@@ -1038,7 +1524,7 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
   justify-content: space-around;
 }
 
-.c8 {
+.c9 {
   min-width: 0;
   box-sizing: border-box;
   color: #660000;
@@ -1052,20 +1538,86 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
   align-items: center;
 }
 
-.c10 {
+.c11 {
   min-width: 0;
   box-sizing: border-box;
   margin-top: 16px;
   color: #660000;
 }
 
-.c5 {
+.c13 {
+  min-width: 0;
+  box-sizing: border-box;
+  margin-top: 48px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
   font-family: "RT-Alias-Medium","system-ui","Segoe UI","Roboto",Helvetica;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.c9 {
+.c14 {
+  cursor: pointer;
+  border: 1px solid #262626;
+  background-color: transparent;
+  border-color: #262626;
+  color: #262626;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c14:hover {
+  opacity: 0.8;
+}
+
+.c15 {
+  cursor: pointer;
+  border: 1px solid #1AD08F;
+  background-color: #1AD08F;
+  border-color: #1AD08F;
+  color: #08442F;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c15:hover {
+  opacity: 0.8;
+}
+
+.c10 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -1073,14 +1625,14 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
   margin: 0;
 }
 
-.c11 {
+.c12 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.4;
   font-family: RT-Alias-Grotesk;
 }
 
-.c1 {
+.c2 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1100,7 +1652,7 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
   justify-content: space-between;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1113,83 +1665,111 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
 
 <div
   class="c0"
-  display="inline-block"
-  overflow="hidden"
+  display="flex"
   width="100%"
 >
-  <ul
+  <div
     class="c1"
-    display="flex"
+    display="inline-block"
+    overflow="hidden"
     width="100%"
   >
-    <div
+    <ul
       class="c2"
       display="flex"
+      width="100%"
     >
-      <li
+      <div
         class="c3"
         display="flex"
       >
-        <div
+        <li
           class="c4"
-          color="status.fail.foreground"
           display="flex"
-          size="6"
         >
-          <h3
+          <div
             class="c5"
+            color="status.fail.foreground"
+            display="flex"
+            size="6"
           >
-            Er
-          </h3>
-        </div>
-      </li>
+            <h3
+              class="c6"
+            >
+              Er
+            </h3>
+          </div>
+        </li>
+        <div
+          class="c7"
+          width="2"
+        />
+        
+      </div>
+    </ul>
+    <div
+      class="c8"
+      display="flex"
+      width="100%"
+    >
       <div
-        class="c6"
-        width="2"
-      />
-      
+        class="c9"
+        color="status.fail.foreground"
+        display="flex"
+      >
+        <h2
+          class="c10"
+          font-family="RT-Alias-Grotesk"
+          font-size="4"
+          font-weight="400"
+        >
+          Oops!
+        </h2>
+      </div>
+      <div
+        class="c11"
+        color="status.fail.foreground"
+      >
+        <p
+          class="c12"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
+        >
+          Please quit any other App using your Ledger device.
+        </p>
+        <p
+          class="c12"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
+        >
+          (Most of the time, this is Ledger Live!)
+        </p>
+      </div>
     </div>
-  </ul>
+  </div>
   <div
-    class="c7"
+    class="c13"
     display="flex"
     width="100%"
   >
-    <div
-      class="c8"
-      color="status.fail.foreground"
-      display="flex"
+    <button
+      class="c14"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <h2
-        class="c9"
-        font-family="RT-Alias-Grotesk"
-        font-size="4"
-        font-weight="400"
-      >
-        Oops!
-      </h2>
-    </div>
-    <div
-      class="c10"
-      color="status.fail.foreground"
+      Back
+    </button>
+    <button
+      class="c15"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <p
-        class="c11"
-        font-family="RT-Alias-Grotesk"
-        font-size="2"
-        font-weight="400"
-      >
-        Please quit any other App using your Ledger device.
-      </p>
-      <p
-        class="c11"
-        font-family="RT-Alias-Grotesk"
-        font-size="2"
-        font-weight="400"
-      >
-        (Most of the time, this is Ledger Live!)
-      </p>
-    </div>
+      My Ledger device is unlocked & Filecoin app open
+    </button>
   </div>
 </div>
 `;
@@ -1198,6 +1778,28 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
 .c0 {
   min-width: 0;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid;
   border-radius: 4px;
   border-width: 1px;
@@ -1211,7 +1813,7 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
   overflow: hidden;
 }
 
-.c2 {
+.c3 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -1227,7 +1829,7 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
   align-items: center;
 }
 
-.c4 {
+.c5 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -1251,13 +1853,13 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
   justify-content: center;
 }
 
-.c6 {
+.c7 {
   min-width: 0;
   box-sizing: border-box;
   width: 8px;
 }
 
-.c7 {
+.c8 {
   min-width: 0;
   box-sizing: border-box;
   border-color: silver;
@@ -1277,7 +1879,7 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
   justify-content: space-around;
 }
 
-.c8 {
+.c9 {
   min-width: 0;
   box-sizing: border-box;
   color: #660000;
@@ -1291,20 +1893,86 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   min-width: 0;
   box-sizing: border-box;
   margin-top: 16px;
   color: #660000;
 }
 
-.c5 {
+.c13 {
+  min-width: 0;
+  box-sizing: border-box;
+  margin-top: 48px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
   font-family: "RT-Alias-Medium","system-ui","Segoe UI","Roboto",Helvetica;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.c9 {
+.c14 {
+  cursor: pointer;
+  border: 1px solid #262626;
+  background-color: transparent;
+  border-color: #262626;
+  color: #262626;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c14:hover {
+  opacity: 0.8;
+}
+
+.c15 {
+  cursor: pointer;
+  border: 1px solid #1AD08F;
+  background-color: #1AD08F;
+  border-color: #1AD08F;
+  color: #08442F;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c15:hover {
+  opacity: 0.8;
+}
+
+.c10 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -1312,14 +1980,14 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
   margin: 0;
 }
 
-.c11 {
+.c12 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.4;
   font-family: RT-Alias-Grotesk;
 }
 
-.c1 {
+.c2 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1339,7 +2007,7 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
   justify-content: space-between;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1352,75 +2020,103 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
 
 <div
   class="c0"
-  display="inline-block"
-  overflow="hidden"
+  display="flex"
   width="100%"
 >
-  <ul
+  <div
     class="c1"
-    display="flex"
+    display="inline-block"
+    overflow="hidden"
     width="100%"
   >
-    <div
+    <ul
       class="c2"
       display="flex"
+      width="100%"
     >
-      <li
+      <div
         class="c3"
         display="flex"
       >
-        <div
+        <li
           class="c4"
-          color="status.fail.foreground"
           display="flex"
-          size="6"
         >
-          <h3
+          <div
             class="c5"
+            color="status.fail.foreground"
+            display="flex"
+            size="6"
           >
-            Er
-          </h3>
-        </div>
-      </li>
+            <h3
+              class="c6"
+            >
+              Er
+            </h3>
+          </div>
+        </li>
+        <div
+          class="c7"
+          width="2"
+        />
+        
+      </div>
+    </ul>
+    <div
+      class="c8"
+      display="flex"
+      width="100%"
+    >
       <div
-        class="c6"
-        width="2"
-      />
-      
+        class="c9"
+        color="status.fail.foreground"
+        display="flex"
+      >
+        <h2
+          class="c10"
+          font-family="RT-Alias-Grotesk"
+          font-size="4"
+          font-weight="400"
+        >
+          Oops!
+        </h2>
+      </div>
+      <div
+        class="c11"
+        color="status.fail.foreground"
+      >
+        <p
+          class="c12"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
+        >
+          Is your Ledger device unlocked?
+        </p>
+      </div>
     </div>
-  </ul>
+  </div>
   <div
-    class="c7"
+    class="c13"
     display="flex"
     width="100%"
   >
-    <div
-      class="c8"
-      color="status.fail.foreground"
-      display="flex"
+    <button
+      class="c14"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <h2
-        class="c9"
-        font-family="RT-Alias-Grotesk"
-        font-size="4"
-        font-weight="400"
-      >
-        Oops!
-      </h2>
-    </div>
-    <div
-      class="c10"
-      color="status.fail.foreground"
+      Back
+    </button>
+    <button
+      class="c15"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <p
-        class="c11"
-        font-family="RT-Alias-Grotesk"
-        font-size="2"
-        font-weight="400"
-      >
-        Is your Ledger device unlocked?
-      </p>
-    </div>
+      My Ledger device is unlocked & Filecoin app open
+    </button>
   </div>
 </div>
 `;
@@ -1429,6 +2125,28 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
 .c0 {
   min-width: 0;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid;
   border-radius: 4px;
   border-width: 1px;
@@ -1442,7 +2160,7 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
   overflow: hidden;
 }
 
-.c2 {
+.c3 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -1458,7 +2176,7 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
   align-items: center;
 }
 
-.c4 {
+.c5 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -1482,13 +2200,13 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
   justify-content: center;
 }
 
-.c6 {
+.c7 {
   min-width: 0;
   box-sizing: border-box;
   width: 8px;
 }
 
-.c7 {
+.c8 {
   min-width: 0;
   box-sizing: border-box;
   border-color: silver;
@@ -1508,7 +2226,7 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
   justify-content: space-around;
 }
 
-.c8 {
+.c9 {
   min-width: 0;
   box-sizing: border-box;
   color: #660000;
@@ -1522,20 +2240,86 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
   align-items: center;
 }
 
-.c10 {
+.c11 {
   min-width: 0;
   box-sizing: border-box;
   margin-top: 16px;
   color: #660000;
 }
 
-.c5 {
+.c13 {
+  min-width: 0;
+  box-sizing: border-box;
+  margin-top: 48px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
   font-family: "RT-Alias-Medium","system-ui","Segoe UI","Roboto",Helvetica;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.c9 {
+.c14 {
+  cursor: pointer;
+  border: 1px solid #262626;
+  background-color: transparent;
+  border-color: #262626;
+  color: #262626;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c14:hover {
+  opacity: 0.8;
+}
+
+.c15 {
+  cursor: pointer;
+  border: 1px solid #1AD08F;
+  background-color: #1AD08F;
+  border-color: #1AD08F;
+  color: #08442F;
+  font-size: 1.125rem;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.c15:hover {
+  opacity: 0.8;
+}
+
+.c10 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -1543,14 +2327,14 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
   margin: 0;
 }
 
-.c11 {
+.c12 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.4;
   font-family: RT-Alias-Grotesk;
 }
 
-.c1 {
+.c2 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1570,7 +2354,7 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
   justify-content: space-between;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1583,75 +2367,103 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
 
 <div
   class="c0"
-  display="inline-block"
-  overflow="hidden"
+  display="flex"
   width="100%"
 >
-  <ul
+  <div
     class="c1"
-    display="flex"
+    display="inline-block"
+    overflow="hidden"
     width="100%"
   >
-    <div
+    <ul
       class="c2"
       display="flex"
+      width="100%"
     >
-      <li
+      <div
         class="c3"
         display="flex"
       >
-        <div
+        <li
           class="c4"
-          color="status.fail.foreground"
           display="flex"
-          size="6"
         >
-          <h3
+          <div
             class="c5"
+            color="status.fail.foreground"
+            display="flex"
+            size="6"
           >
-            Er
-          </h3>
-        </div>
-      </li>
+            <h3
+              class="c6"
+            >
+              Er
+            </h3>
+          </div>
+        </li>
+        <div
+          class="c7"
+          width="2"
+        />
+        
+      </div>
+    </ul>
+    <div
+      class="c8"
+      display="flex"
+      width="100%"
+    >
       <div
-        class="c6"
-        width="2"
-      />
-      
+        class="c9"
+        color="status.fail.foreground"
+        display="flex"
+      >
+        <h2
+          class="c10"
+          font-family="RT-Alias-Grotesk"
+          font-size="4"
+          font-weight="400"
+        >
+          Oops!
+        </h2>
+      </div>
+      <div
+        class="c11"
+        color="status.fail.foreground"
+      >
+        <p
+          class="c12"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
+        >
+          Please quit the Filecoin app, and unplug/replug your Ledger device, and try again.
+        </p>
+      </div>
     </div>
-  </ul>
+  </div>
   <div
-    class="c7"
+    class="c13"
     display="flex"
     width="100%"
   >
-    <div
-      class="c8"
-      color="status.fail.foreground"
-      display="flex"
+    <button
+      class="c14"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <h2
-        class="c9"
-        font-family="RT-Alias-Grotesk"
-        font-size="4"
-        font-weight="400"
-      >
-        Oops!
-      </h2>
-    </div>
-    <div
-      class="c10"
-      color="status.fail.foreground"
+      Back
+    </button>
+    <button
+      class="c15"
+      font-size="3"
+      height="6"
+      type="button"
     >
-      <p
-        class="c11"
-        font-family="RT-Alias-Grotesk"
-        font-size="2"
-        font-weight="400"
-      >
-        Please quit the Filecoin app, and unplug/replug your Ledger device, and try again.
-      </p>
-    </div>
+      My Ledger device is unlocked & Filecoin app open
+    </button>
   </div>
 </div>
 `;

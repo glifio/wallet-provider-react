@@ -1,19 +1,19 @@
 import { cleanup, render, screen, act, fireEvent } from '@testing-library/react'
-import {
-  initialState as wpInitialState,
-  initialLedgerState
-} from '@glif/wallet-provider-react'
-import composeMockAppTree from '../../../../test-utils/composeMockAppTree'
-import ConnectLedger from './ConnectLedger'
-import { mockRouterPush } from '../../../../__mocks__/next/router'
-import { flushPromises } from '../../../../test-utils'
-import { PAGE, TESTNET_PATH_CODE } from '../../../../constants'
-import { mockFetchDefaultWallet } from '../../../../test-utils/composeMockAppTree/createWalletProviderContextFuncs'
-import createPath from '../../../../utils/createPath'
+import { initialState as wpInitialState } from '../../../lib/WalletProvider/state'
+import { initialLedgerState } from '../../../utils/ledger'
+import composeMockAppTree from '../../../test-utils/composeMockAppTree'
+import { mockFetchDefaultWallet } from '../../../test-utils/composeMockAppTree/createWalletProviderContextFuncs'
+import ConnectLedger from '.'
+import { flushPromises } from '../../../test-utils'
+import { TESTNET_PATH_CODE } from '../../../constants'
+import createPath from '../../../utils/createPath'
 
 describe('Ledger configuration', () => {
+  let backSpy, nextSpy
   afterEach(() => {
     jest.clearAllMocks()
+    backSpy = jest.fn()
+    nextSpy = jest.fn()
     cleanup()
   })
 
@@ -21,7 +21,7 @@ describe('Ledger configuration', () => {
     const { Tree } = composeMockAppTree('preOnboard')
     const { container } = render(
       <Tree>
-        <ConnectLedger msig={true} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
     expect(screen.getByText(/Unlock & Open/)).toBeInTheDocument()
@@ -48,7 +48,7 @@ describe('Ledger configuration', () => {
     })
     const { container } = render(
       <Tree>
-        <ConnectLedger msig={false} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
     expect(
@@ -76,7 +76,7 @@ describe('Ledger configuration', () => {
     })
     const { container } = render(
       <Tree>
-        <ConnectLedger msig={false} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
     expect(
@@ -100,7 +100,7 @@ describe('Ledger configuration', () => {
     })
     const { container } = render(
       <Tree>
-        <ConnectLedger msig={false} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
     expect(
@@ -124,7 +124,7 @@ describe('Ledger configuration', () => {
     })
     const { container } = render(
       <Tree>
-        <ConnectLedger msig={false} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
     expect(
@@ -148,7 +148,7 @@ describe('Ledger configuration', () => {
     })
     const { container } = render(
       <Tree>
-        <ConnectLedger msig={false} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
     expect(
@@ -174,7 +174,7 @@ describe('Ledger configuration', () => {
     })
     const { container } = render(
       <Tree>
-        <ConnectLedger msig={false} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
     expect(
@@ -190,7 +190,7 @@ describe('Ledger configuration', () => {
       /* container */
     } = render(
       <Tree>
-        <ConnectLedger msig={false} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
 
@@ -207,13 +207,13 @@ describe('Ledger configuration', () => {
     expect(wallet.path).toBe(createPath(TESTNET_PATH_CODE, 0))
   })
 
-  test('it pushes to the right url', async () => {
+  test('it calls next on success', async () => {
     const { Tree } = composeMockAppTree('preOnboard')
     const {
       /* container */
     } = render(
       <Tree>
-        <ConnectLedger msig={false} />
+        <ConnectLedger back={backSpy} next={nextSpy} />
       </Tree>
     )
 
@@ -223,25 +223,6 @@ describe('Ledger configuration', () => {
       )
       await flushPromises()
     })
-    expect(mockRouterPush).toHaveBeenCalledWith(PAGE.WALLET_HOME)
-  })
-
-  test('it pushes to the right url for msig', async () => {
-    const { Tree } = composeMockAppTree('preOnboard')
-    const {
-      /*container*/
-    } = render(
-      <Tree>
-        <ConnectLedger msig={true} />
-      </Tree>
-    )
-
-    await act(async () => {
-      fireEvent.click(
-        screen.getByText('My Ledger device is unlocked & Filecoin app open')
-      )
-      await flushPromises()
-    })
-    expect(mockRouterPush).toHaveBeenCalledWith(PAGE.MSIG_CHOOSE_ACCOUNTS)
+    expect(nextSpy).toHaveBeenCalled()
   })
 })
