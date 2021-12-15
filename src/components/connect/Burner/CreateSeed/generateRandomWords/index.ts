@@ -14,7 +14,10 @@ const generate = (
 }
 
 // Used in onboarding to generate a set of words that the user has to guess in order to prove they copied their seed phrase down
-export default function (mnemonic: string, numRandoms: number): Set<number> {
+export default function generateRandomWords(
+  mnemonic: string,
+  numRandoms: number
+): Set<number> {
   const indexes = new Set([])
   return new Set(
     [
