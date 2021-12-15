@@ -20,7 +20,7 @@ import BurnerWalletWarning from '../Warning'
 
 const Create: FC<{
   // we pass this optional prop to make testing the core wallet functionality easier
-  initialWalkthroughStep: number
+  initialWalkthroughStep?: number
   back: () => void
   next: () => void
 }> = ({ initialWalkthroughStep, back, next }) => {
