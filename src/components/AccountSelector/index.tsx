@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { bool, func, string } from 'prop-types'
+import { bool, func, number, string } from 'prop-types'
 import { useRouter } from 'next/router'
 import {
   AccountCardAlt,
@@ -33,6 +33,7 @@ const AccountSelector = ({
   helperText,
   title,
   coinType,
+  nWalletsToLoad,
   test
 }: {
   onSelectAccount: () => void
@@ -40,6 +41,7 @@ const AccountSelector = ({
   helperText: string
   title: string
   coinType: CoinType
+  nWalletsToLoad: number
   test: boolean
 }) => {
   const wallet = useWallet()
@@ -57,12 +59,12 @@ const AccountSelector = ({
   } = useWalletProvider()
   const router = useRouter()
 
-  const [loadedFirstFiveWallets, setLoadedFirstFiveWallets] = useState(false)
+  const [loadedFirstNWallets, setLoadedFirstNWallets] = useState(false)
 
   // automatically generate the first 5 wallets for the user to select from to avoid confusion for non tech folks
   useEffect(() => {
-    const loadFirstFiveWallets = async () => {
-      if (wallets.length < 5) {
+    const loadFirstNWallets = async () => {
+      if (wallets.length < nWalletsToLoad) {
         try {
           let provider = walletProvider as Filecoin
           if (loginOption === LEDGER) {
@@ -72,7 +74,7 @@ const AccountSelector = ({
           if (provider) {
             const addresses = await provider.wallet.getAccounts(
               wallets.length,
-              5,
+              nWalletsToLoad,
               coinType
             )
 
@@ -99,23 +101,24 @@ const AccountSelector = ({
           setLoadingPage(false)
         }
       } else {
-        setLoadedFirstFiveWallets(true)
+        setLoadedFirstNWallets(true)
         setLoadingPage(false)
       }
     }
 
-    if (!loadedFirstFiveWallets) {
-      setLoadedFirstFiveWallets(true)
-      loadFirstFiveWallets()
+    if (!loadedFirstNWallets) {
+      setLoadedFirstNWallets(true)
+      loadFirstNWallets()
     }
   }, [
     connectLedger,
     walletProvider,
-    loadedFirstFiveWallets,
+    loadedFirstNWallets,
     wallets,
     loginOption,
     walletList,
-    coinType
+    coinType,
+    nWalletsToLoad
   ])
 
   let errorMsg = ''
@@ -255,12 +258,14 @@ AccountSelector.propTypes = {
   helperText: string.isRequired,
   title: string.isRequired,
   test: bool,
-  coinType: COIN_TYPE_PROPTYPE
+  coinType: COIN_TYPE_PROPTYPE,
+  nWalletsToLoad: number
 }
 
 AccountSelector.defaultProps = {
   showSelectedAccount: true,
-  test: false
+  test: false,
+  nWalletsToLoad: 5
 }
 
 export default AccountSelector
