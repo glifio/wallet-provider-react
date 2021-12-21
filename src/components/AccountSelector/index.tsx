@@ -231,6 +231,7 @@ const AccountSelector = ({
                       // so we pass a manual balance to not rely on SWR for testing
                       balance={test ? '1' : null}
                       jsonRpcEndpoint={process.env.LOTUS_NODE_JSONRPC!}
+                      nDefaultWallets={8}
                     />
                   </MenuItem>
                 ))}

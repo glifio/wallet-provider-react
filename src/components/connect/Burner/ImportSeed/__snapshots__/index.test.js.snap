@@ -789,6 +789,7 @@ exports[`Import seed phrase configuration it renders step one correctly 2`] = `
                 class="c19"
                 display="inline-block"
                 height="6"
+                name=""
                 placeholder="Your seed phrase"
                 type="password"
                 value=""

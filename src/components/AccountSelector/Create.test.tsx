@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, act, screen, cleanup, fireEvent } from '@testing-library/react'
 import { ThemeProvider, theme } from '@glif/react-components'
+import { CoinType } from '@glif/filecoin-address'
 
 import Create from './Create'
 import { flushPromises } from '../../test-utils'
@@ -20,6 +21,7 @@ describe('Create Account', () => {
             onClick={mock}
             loading={false}
             nextAccountIndex={nextAccountIdx}
+            defaultCoinType={CoinType.TEST}
             errorMsg=''
           />
         </ThemeProvider>
@@ -41,6 +43,7 @@ describe('Create Account', () => {
             onClick={mock}
             loading={false}
             nextAccountIndex={nextAccountIdx}
+            defaultCoinType={CoinType.TEST}
             errorMsg=''
           />
         </ThemeProvider>

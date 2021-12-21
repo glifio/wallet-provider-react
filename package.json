@@ -1,6 +1,6 @@
 {
   "name": "@glif/wallet-provider-react",
-  "version": "0.0.0-alpha.3",
+  "version": "0.0.0-alpha.4",
   "description": "Wallet and login related react helpers for glif apps",
   "main": "dist/index.js",
   "repository": {
@@ -64,7 +64,7 @@
     "@glif/filecoin-number": "latest",
     "@glif/filecoin-rpc-client": "latest",
     "@glif/filecoin-wallet-provider": "^2.0.0-alpha.8",
-    "@glif/react-components": "^2.0.0-alpha.8",
+    "@glif/react-components": "^2.0.0-alpha.15",
     "@ledgerhq/hw-transport": "^6.11.2",
     "axios": "^0.24.0",
     "bip39": "^3.0.3",
@@ -73,7 +73,7 @@
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "styled-system": "^5.1.5",
-    "swr": "^1.0.1"
+    "swr": "^1.1.1"
   },
   "peerDependencies": {
     "next": ">= 9.0.0",
