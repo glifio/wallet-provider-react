@@ -126,5 +126,6 @@ export const useWalletProvider = () => {
 }
 
 export * from './state'
+export * from './types'
 
 export default WalletProviderWrapper
