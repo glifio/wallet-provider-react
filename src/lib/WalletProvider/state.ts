@@ -1,6 +1,7 @@
 import { FilecoinNumber } from '@glif/filecoin-number'
 import Filecoin from '@glif/filecoin-wallet-provider'
 import { initialLedgerState } from '../../utils/ledger/ledgerStateManagement'
+import { initialMetaMaskState } from '../../utils/metamask'
 import sortAndRemoveWalletDups from './sortAndRemoveWalletDups'
 import updateArrayItem from '../../utils/updateArrayItem'
 import {
@@ -15,6 +16,7 @@ export const initialState: WalletProviderState = {
   walletProvider: null,
   error: '',
   ledger: initialLedgerState,
+  metamask: initialMetaMaskState,
   wallets: [],
   selectedWalletIdx: -1
 }
@@ -255,6 +257,36 @@ export default function reducer(
         ...Object.freeze(state),
         ledger: {
           ...initialLedgerState
+        }
+      }
+
+    case 'METAMASK_RESET_STATE':
+      return {
+        ...Object.freeze(state),
+        metamask: {
+          ...initialMetaMaskState
+        }
+      }
+    case 'METAMASK_CONFIGURED_SUCCESS':
+      return {
+        ...Object.freeze(state),
+        metamask: {
+          extSupportsSnap: true,
+          snapInstalled: true,
+          extInstalled: true,
+          extUnlocked: true,
+          error: false,
+          loading: false
+        }
+      }
+    case 'METAMASK_CONFIGURED_FAIL':
+      return {
+        ...Object.freeze(state),
+        metamask: {
+          ...state.metamask,
+          ...action.payload,
+          error: true,
+          loading: false
         }
       }
     default:
