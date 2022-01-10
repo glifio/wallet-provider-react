@@ -1,29 +1,20 @@
 import { FC, useCallback, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import {
   Box,
   LandingPageContainer,
   LandingPageContentContainer,
   devices,
-  space
+  space,
+  IconMetaMaskFlask
 } from '@glif/react-components'
-import Filecoin, { MetaMaskProvider } from '@glif/filecoin-wallet-provider'
-import { CoinType } from '@glif/filecoin-address'
-import Image from 'next/image'
-import {
-  enableFilecoinSnap,
-  isMetamaskSnapsSupported,
-  hasMetaMask
-  // isSnapInstalled
-} from '@glif/filsnap-adapter-test'
-import createPath, { coinTypeCode } from '../../../utils/createPath'
-import MMLogo from '../../../../public/MM.jpeg'
 import { HelperText } from './Helper'
 import {
   useWalletProvider,
   createWalletProvider
 } from '../../../lib/WalletProvider'
-import { metamaskConfigurationFail, isUnlocked } from '../../../utils/metamask'
+
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 const LandingPageContentContainerStyled = styled(LandingPageContentContainer)`
   @media (min-width: ${devices.tablet}) {
@@ -34,81 +25,44 @@ const LandingPageContentContainerStyled = styled(LandingPageContentContainer)`
   }
 `
 
-const isSnapInstalled = async (): Promise<boolean> => {
-  return true
-}
+const transitionIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(1.25)
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.35)
+  }
+`
+
+const MMFadeIn = styled.div`
+  opacity: 0;
+  animation-name: ${transitionIn};
+  animation-delay: 0.25s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+`
 
 const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
   next,
   back
 }) => {
-  const { dispatch, state, fetchDefaultWallet, walletList } =
+  const { dispatch, state, connectMetaMask, fetchDefaultWallet, walletList } =
     useWalletProvider()
-
-  console.log(state.metamask)
   const fetchMetaMaskState = useCallback(async () => {
-    dispatch({ type: 'METAMASK_RESET_STATE' })
-    const mmInstalled = await hasMetaMask()
-    if (!mmInstalled) {
-      dispatch(metamaskConfigurationFail({ extInstalled: false }))
-      return
+    const provider = await connectMetaMask()
+    if (provider) {
+      dispatch(createWalletProvider(provider, 'METAMASK'))
+      const wallet = await fetchDefaultWallet(provider)
+      walletList([wallet])
+      // avoid screen blips
+      await sleep(500)
+      next()
     }
-    const mmSnapsSupported = await isMetamaskSnapsSupported()
-    if (!mmSnapsSupported) {
-      dispatch(
-        metamaskConfigurationFail({
-          extInstalled: true,
-          extSupportsSnap: false
-        })
-      )
-      return
-    }
-
-    const mmUnlocked = await isUnlocked()
-    if (!mmUnlocked) {
-      dispatch(
-        metamaskConfigurationFail({
-          extInstalled: true,
-          extSupportsSnap: true,
-          extUnlocked: false
-        })
-      )
-      return
-    }
-
-    const filSnapInstalled = await isSnapInstalled()
-    if (!filSnapInstalled) {
-      dispatch(
-        metamaskConfigurationFail({
-          extSupportsSnap: true,
-          extInstalled: true,
-          snapInstalled: false
-        })
-      )
-      return
-    }
-
-    const mm = await enableFilecoinSnap(
-      {
-        network: 'f',
-        derivationPath: createPath(coinTypeCode(CoinType.MAIN), 3)
-      },
-      'local:http://localhost:8081'
-    )
-
-    const snap = await mm.getFilecoinSnapApi()
-
-    const provider = new Filecoin(new MetaMaskProvider({ snap }), {
-      apiAddress: process.env.LOTUS_NODE_JSONRPC
-    })
-
-    dispatch({ type: 'METAMASK_CONFIGURED_SUCCESS' })
-
-    dispatch(createWalletProvider(provider, 'METAMASK'))
-    const wallet = await fetchDefaultWallet(provider)
-    walletList([wallet])
-    next()
-  }, [dispatch, walletList, fetchDefaultWallet, next])
+  }, [dispatch, walletList, fetchDefaultWallet, next, connectMetaMask])
   useEffect(() => {
     if (state.metamask.loading) fetchMetaMaskState()
   }, [fetchMetaMaskState, state.metamask.loading])
@@ -121,7 +75,9 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
           display='flex'
           justifyContent='center'
         >
-          <Image src={MMLogo} alt='metamask_logo' />
+          <MMFadeIn>
+            <IconMetaMaskFlask height='231' width='245' />
+          </MMFadeIn>
         </Box>
         <Box
           height='100%'

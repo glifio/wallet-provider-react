@@ -1,14 +1,6 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import {
-  ButtonV2,
-  space,
-  fontSize,
-  H2,
-  P,
-  Loading,
-  Box
-} from '@glif/react-components'
+import { ButtonV2, space, fontSize, H2, P } from '@glif/react-components'
 import {
   MetaMaskState,
   METAMASK_STATE_PROPTYPES
@@ -16,16 +8,13 @@ import {
 
 const Connecting: FC = () => {
   return (
-    <Box display='flex' flexDirection='column' alignItems='center'>
-      <Loading />
-      <Title
-        css={`
-          margin-top: ${space()};
-        `}
-      >
-        Connecting to FILSnap
-      </Title>
-    </Box>
+    <Title
+      css={`
+        margin-top: ${space()};
+      `}
+    >
+      Connecting to FILSnap
+    </Title>
   )
 }
 
