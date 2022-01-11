@@ -131,7 +131,6 @@ const ConnectLedger: FC<{ next: () => void; back: () => void }> = ({
           loading={!ledger.userImportFailure && loading}
           showStepper={false}
           Icon={IconLedger}
-          // @ts-expect-error
           error={!!error}
         />
         <Helper otherError={uncaughtError} {...ledger} />

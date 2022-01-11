@@ -3,14 +3,14 @@ import Filecoin, {
   LedgerProvider,
   errors as walletProviderErrors
 } from '@glif/filecoin-wallet-provider'
-import { clearError, resetLedgerState } from './state'
-import { WalletProviderAction } from './types'
+import { clearError, resetLedgerState } from '../state'
+import { WalletProviderAction } from '../types'
 import transportWrapperSingleton from './transportWrapperSingleton'
 import {
   LEDGER_VERSION_MAJOR,
   LEDGER_VERSION_MINOR,
   LEDGER_VERSION_PATCH
-} from '../../constants'
+} from '../../../constants'
 
 const connectWithLedger = async (
   dispatch: Dispatch<WalletProviderAction>,

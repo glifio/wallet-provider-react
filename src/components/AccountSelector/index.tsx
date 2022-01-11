@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { bool, func, number, string } from 'prop-types'
 import { useRouter } from 'next/router'
 import {
@@ -12,15 +12,13 @@ import {
   LoadingScreen,
   ButtonClose
 } from '@glif/react-components'
-import Filecoin from '@glif/filecoin-wallet-provider'
 import { CoinType } from '@glif/filecoin-address'
 
 import { useWalletProvider, Wallet } from '../../lib/WalletProvider'
 import useWallet from '../../lib/WalletProvider/useWallet'
-import { hasLedgerError, reportLedgerConfigError } from '../../utils/ledger'
 import HelperText from './HelperText'
 import Create from './Create'
-import { LEDGER, TESTNET_PATH_CODE } from '../../constants'
+import { TESTNET_PATH_CODE } from '../../constants'
 
 import createPath, { coinTypeCode } from '../../utils/createPath'
 import reportError from '../../utils/reportError'
@@ -49,13 +47,12 @@ const AccountSelector = ({
   const [loadingPage, setLoadingPage] = useState(true)
   const [uncaughtError, setUncaughtError] = useState('')
   const {
-    ledger,
-    connectLedger,
     walletProvider,
     walletList,
     switchWallet,
-    loginOption,
-    wallets
+    getProvider,
+    wallets,
+    walletError
   } = useWalletProvider()
   const router = useRouter()
 
@@ -66,10 +63,7 @@ const AccountSelector = ({
     const loadFirstNWallets = async () => {
       if (wallets.length < nWalletsToLoad) {
         try {
-          let provider = walletProvider as Filecoin
-          if (loginOption === LEDGER) {
-            provider = await connectLedger()
-          }
+          const provider = await getProvider()
 
           if (provider) {
             const addresses = await provider.wallet.getAccounts(
@@ -111,29 +105,25 @@ const AccountSelector = ({
       loadFirstNWallets()
     }
   }, [
-    connectLedger,
+    getProvider,
     walletProvider,
     loadedFirstNWallets,
     wallets,
-    loginOption,
     walletList,
     coinType,
     nWalletsToLoad
   ])
 
-  let errorMsg = ''
-
-  if (hasLedgerError({ ...ledger, otherError: uncaughtError })) {
-    errorMsg = reportLedgerConfigError({ ...ledger, otherError: uncaughtError })
-  }
+  const errorMsg = useMemo(() => {
+    if (walletError()) return walletError()
+    if (uncaughtError) return uncaughtError
+    return ''
+  }, [uncaughtError, walletError])
 
   const fetchNextAccount = async (index: number, ct: CoinType) => {
     setLoadingAccounts(true)
     try {
-      let provider = walletProvider as Filecoin
-      if (loginOption === LEDGER) {
-        provider = await connectLedger()
-      }
+      const provider = await getProvider()
 
       if (provider) {
         const [address] = await provider.wallet.getAccounts(

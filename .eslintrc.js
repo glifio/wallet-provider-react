@@ -27,11 +27,12 @@ module.exports = {
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     'import/no-anonymous-default-export': 0,
-    'no-unused-vars': [
+    '@typescript-eslint/no-unused-vars': [
       'error',
       {
         argsIgnorePattern: '^_'
       }
-    ]
+    ],
+    'no-unused-vars': 'off'
   }
 }

@@ -5,6 +5,7 @@ import {
   LedgerActionType,
   LedgerState
 } from '../../utils/ledger/ledgerStateManagement'
+import { MetaMaskState, MetaMaskActionType } from '../../utils/metamask'
 
 export type WalletActionType =
   | 'SET_LOGIN_OPTION'
@@ -20,10 +21,11 @@ export type LoginOption =
   | 'IMPORT_MNEMONIC'
   | 'CREATE_MNEMONIC'
   | 'IMPORT_SINGLE_KEY'
+  | 'METAMASK'
   | 'LEDGER'
 
 export type WalletProviderAction = {
-  type: WalletActionType | LedgerActionType
+  type: WalletActionType | LedgerActionType | MetaMaskActionType
   error?: string
   payload?: any
 }
@@ -38,6 +40,7 @@ export type WalletProviderState = {
   loginOption: LoginOption
   walletProvider: Filecoin | null
   ledger: LedgerState
+  metamask: MetaMaskState
   wallets: Wallet[]
   selectedWalletIdx: number
   error: string

@@ -14,7 +14,6 @@ export const composeWalletProviderState = (
     | 'postOnboardLowBal'
     | 'postOnboardWithError'
     | 'selectedOtherWallet'
-    | 'pendingMsigCreate'
 ) => {
   switch (preset) {
     case 'postOnboard': {
@@ -61,7 +60,8 @@ export const composeWalletProviderState = (
           }
         ],
         selectedWalletIdx: 0,
-        loginOption: IMPORT_SINGLE_KEY
+        loginOption: IMPORT_SINGLE_KEY,
+        error: 'ERROR'
       })
     }
     case 'selectedOtherWallet': {

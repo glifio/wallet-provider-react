@@ -20,10 +20,10 @@ const InputPrivateKey: FC<{ next: () => void; back: () => void }> = ({
   next,
   back
 }) => {
-  const { dispatch, fetchDefaultWallet, setLoginOption } = useWalletProvider()
+  const { dispatch, fetchDefaultWallet, setLoginOption, walletList } =
+    useWalletProvider()
   const [privateKey, setPrivateKey] = useState('')
   const [privateKeyError, setPrivateKeyError] = useState('')
-  const { walletList } = useWalletProvider()
   const [loadingNextScreen, setLoadingNextScreen] = useState(false)
   const [acceptedWarning, setAcceptedWarning] = useState(false)
 

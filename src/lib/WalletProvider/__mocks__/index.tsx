@@ -20,7 +20,8 @@ const WalletProviderWrapper = ({
   )
 
   const mockWalletProviderContextFuncs = createMockWalletProviderContextFuncs(
-    options?.walletProviderDispatch || walletProviderDispatch
+    options?.walletProviderDispatch || walletProviderDispatch,
+    initialState
   )
 
   return (

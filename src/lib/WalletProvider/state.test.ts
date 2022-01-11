@@ -17,6 +17,7 @@ import reducer, {
 import { initialLedgerState } from '../../utils/ledger/ledgerStateManagement'
 import { IMPORT_MNEMONIC, SINGLE_KEY } from '../../constants'
 import { WalletProviderAction } from './types'
+import { initialMetaMaskState } from '../../utils/metamask'
 
 const mockSubProvider: WalletSubProvider = {
   type: 'MOCK',
@@ -599,6 +600,46 @@ describe('WalletProvider', () => {
           type: 'LEDGER_BAD_VERSION'
         })
         expect(ledger.badVersion).toBe(true)
+      })
+    })
+
+    describe('metamask state handlers', () => {
+      test('it sets metamask configured success', () => {
+        const nextState = reducer(initialState, {
+          type: 'METAMASK_CONFIGURED_SUCCESS'
+        })
+        expect(nextState.metamask.extSupportsSnap).toBe(true)
+        expect(nextState.metamask.snapInstalled).toBe(true)
+
+        expect(nextState.metamask.extInstalled).toBe(true)
+        expect(nextState.metamask.extUnlocked).toBe(true)
+        expect(nextState.metamask.snapEnabled).toBe(true)
+        expect(nextState.metamask.error).toBe(false)
+        expect(nextState.metamask.loading).toBe(false)
+      })
+
+      test('it resets metamask state', () => {
+        const nextState = reducer(initialState, {
+          type: 'METAMASK_CONFIGURED_SUCCESS'
+        })
+
+        expect(
+          JSON.stringify(
+            reducer(nextState, {
+              type: 'METAMASK_RESET_STATE'
+            }).metamask
+          )
+        ).toBe(JSON.stringify(initialMetaMaskState))
+      })
+
+      test('it sets metamask failure states properly', () => {
+        const nextState = reducer(initialState, {
+          type: 'METAMASK_CONFIGURED_FAIL',
+          payload: { extUnlocked: false }
+        })
+        expect(nextState.metamask.extUnlocked).toBe(false)
+        expect(nextState.metamask.error).toBe(true)
+        expect(nextState.metamask.loading).toBe(false)
       })
     })
   })

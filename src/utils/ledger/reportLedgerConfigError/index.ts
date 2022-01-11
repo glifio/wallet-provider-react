@@ -42,7 +42,7 @@ export const hasLedgerError = ({
   badVersion,
   transportSupported,
   otherError
-}: LedgerState & { otherError: string }): boolean =>
+}: LedgerState & { otherError?: string }): boolean =>
   !transportSupported ||
   connectedFailure ||
   locked ||
