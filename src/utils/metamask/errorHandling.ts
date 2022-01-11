@@ -46,6 +46,8 @@ export const reportMetaMaskError = (state: MetaMaskState): string => {
     else if (!state.extSupportsSnap)
       return 'Please upgrade MetaMask to the latest version to continue.'
     else if (!state.snapInstalled) return 'Please install FILSnap to continue.'
+    else if (!state.snapEnabled)
+      return 'Please enable FILSnap in MetaMask to continue.'
   }
 
   return ''

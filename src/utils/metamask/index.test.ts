@@ -3,6 +3,20 @@ import { metaMaskEnable, MetaMaskState, reportMetaMaskError } from '.'
 
 const adapterModule = '@glif/filsnap-adapter-test'
 
+interface MetaMaskWindowProvider {
+  isUnlocked: () => boolean
+}
+
+interface Ethereum {
+  _metamask: MetaMaskWindowProvider
+}
+
+declare global {
+  interface Window {
+    ethereum: Ethereum
+  }
+}
+
 describe('metamask error handling', () => {
   describe('metaMaskEnable', () => {
     beforeEach(() => {
@@ -61,7 +75,7 @@ describe('metamask error handling', () => {
       }
     })
 
-    test.skip('it throws a MetaMaskFilSnapNotInstalledError when snap is not installed', async () => {
+    test('it throws a MetaMaskFilSnapNotInstalledError when snap is not installed', async () => {
       jest
         .spyOn(require(adapterModule), 'hasMetaMask')
         .mockImplementation(() => true)
@@ -93,6 +107,7 @@ describe('metamask error handling', () => {
         extUnlocked: false,
         snapInstalled: false,
         extSupportsSnap: false,
+        snapEnabled: false,
         loading: false,
         error: true
       }
@@ -106,6 +121,7 @@ describe('metamask error handling', () => {
         extUnlocked: false,
         snapInstalled: false,
         extSupportsSnap: false,
+        snapEnabled: false,
         loading: false,
         error: true
       }
@@ -120,6 +136,7 @@ describe('metamask error handling', () => {
         extSupportsSnap: false,
         snapInstalled: false,
         loading: false,
+        snapEnabled: false,
         error: true
       }
       const errString = reportMetaMaskError(state)
@@ -135,6 +152,21 @@ describe('metamask error handling', () => {
         snapInstalled: false,
         extSupportsSnap: true,
         loading: false,
+        snapEnabled: false,
+        error: true
+      }
+      const errString = reportMetaMaskError(state)
+      expect(errString).toBe('Please install FILSnap to continue.')
+    })
+
+    test('it reports snap disabled errors', () => {
+      const state: MetaMaskState = {
+        extInstalled: true,
+        extUnlocked: true,
+        snapInstalled: false,
+        extSupportsSnap: true,
+        loading: false,
+        snapEnabled: false,
         error: true
       }
       const errString = reportMetaMaskError(state)
