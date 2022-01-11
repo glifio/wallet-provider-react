@@ -273,6 +273,7 @@ export default function reducer(
         metamask: {
           extSupportsSnap: true,
           snapInstalled: true,
+          snapEnabled: true,
           extInstalled: true,
           extUnlocked: true,
           error: false,

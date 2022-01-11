@@ -68,9 +68,15 @@ describe('metamask onboarding', () => {
   describe('helper text', () => {
     const onRetry = jest.fn()
     const back = jest.fn()
+    const connectFILSnap = jest.fn()
     test('it renders loading', () => {
       render(
-        <HelperText {...initialMetaMaskState} onRetry={onRetry} back={back} />
+        <HelperText
+          {...initialMetaMaskState}
+          onRetry={onRetry}
+          back={back}
+          connectFILSnap={connectFILSnap}
+        />
       )
 
       expect(screen.getByText(/Connecting to FILSnap/)).toBeInTheDocument()
@@ -86,7 +92,12 @@ describe('metamask onboarding', () => {
       }
       render(
         <Tree>
-          <HelperText {...state} onRetry={onRetry} back={back} />
+          <HelperText
+            {...state}
+            onRetry={onRetry}
+            back={back}
+            connectFILSnap={connectFILSnap}
+          />
         </Tree>
       )
 
@@ -103,7 +114,12 @@ describe('metamask onboarding', () => {
       }
       render(
         <Tree>
-          <HelperText {...state} onRetry={onRetry} back={back} />
+          <HelperText
+            {...state}
+            onRetry={onRetry}
+            back={back}
+            connectFILSnap={connectFILSnap}
+          />
         </Tree>
       )
 
@@ -121,7 +137,12 @@ describe('metamask onboarding', () => {
       }
       render(
         <Tree>
-          <HelperText {...state} onRetry={onRetry} back={back} />
+          <HelperText
+            {...state}
+            onRetry={onRetry}
+            back={back}
+            connectFILSnap={connectFILSnap}
+          />
         </Tree>
       )
 
@@ -130,7 +151,7 @@ describe('metamask onboarding', () => {
       ).toBeInTheDocument()
     })
 
-    test('it renders extension does not support snaps', () => {
+    test('it renders extension snap not installed', () => {
       const { Tree } = composeMockAppTree('preOnboard')
 
       const state = {
@@ -142,11 +163,41 @@ describe('metamask onboarding', () => {
       }
       render(
         <Tree>
-          <HelperText {...state} onRetry={onRetry} back={back} />
+          <HelperText
+            {...state}
+            onRetry={onRetry}
+            back={back}
+            connectFILSnap={connectFILSnap}
+          />
         </Tree>
       )
 
-      expect(screen.getByText(/Install snap/)).toBeInTheDocument()
+      expect(screen.getByText(/FILSnap not detected/)).toBeInTheDocument()
+    })
+
+    test('it renders snap disabled', () => {
+      const { Tree } = composeMockAppTree('preOnboard')
+
+      const state = {
+        ...initialMetaMaskState,
+        extInstalled: true,
+        extUnlocked: true,
+        extSupportsSnap: true,
+        snapInstalled: true,
+        loading: false
+      }
+      render(
+        <Tree>
+          <HelperText
+            {...state}
+            onRetry={onRetry}
+            back={back}
+            connectFILSnap={connectFILSnap}
+          />
+        </Tree>
+      )
+
+      expect(screen.getByText(/FILSnap disabled!/)).toBeInTheDocument()
     })
 
     test('it calls the spy when try again is clicked', () => {
@@ -159,7 +210,12 @@ describe('metamask onboarding', () => {
       }
       render(
         <Tree>
-          <HelperText {...state} onRetry={onRetry} back={back} />
+          <HelperText
+            {...state}
+            onRetry={onRetry}
+            back={back}
+            connectFILSnap={connectFILSnap}
+          />
         </Tree>
       )
 

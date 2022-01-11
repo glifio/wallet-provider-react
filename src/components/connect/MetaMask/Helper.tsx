@@ -27,13 +27,19 @@ const Title = styled(H2).attrs(() => ({
 }))``
 
 export const HelperText: FC<
-  MetaMaskState & { onRetry: () => void; back: () => void }
+  MetaMaskState & {
+    onRetry: () => void
+    back: () => void
+    connectFILSnap: () => void
+  }
 > = ({
   extInstalled,
   extSupportsSnap,
   snapInstalled,
   loading,
   extUnlocked,
+  snapEnabled,
+  connectFILSnap,
   onRetry,
   back
 }) => {
@@ -139,7 +145,62 @@ export const HelperText: FC<
         </ButtonV2>
       </>
     )
-  if (!snapInstalled) return <Title>Install snap</Title>
+
+  if (!snapInstalled)
+    return (
+      <>
+        <Title>FILSnap not detected!</Title>
+        <ButtonV2
+          css={`
+            margin-top: ${space('large')};
+          `}
+          large
+          onClick={connectFILSnap}
+        >
+          Connect FILSnap
+        </ButtonV2>
+        <ButtonV2
+          css={`
+            margin-top: ${space('large')};
+          `}
+          small
+          onClick={back}
+        >
+          Back
+        </ButtonV2>
+      </>
+    )
+  if (!snapEnabled)
+    return (
+      <>
+        <Title>FILSnap disabled!</Title>
+        <P
+          css={`
+            margin-bottom: ${space('arge')};
+          `}
+        >
+          Please enable FILSnap in your MetaMask settings to continue.
+        </P>
+        <ButtonV2
+          css={`
+            margin-top: ${space('large')};
+          `}
+          small
+          onClick={onRetry}
+        >
+          Try again
+        </ButtonV2>
+        <ButtonV2
+          css={`
+            margin-top: ${space('large')};
+          `}
+          small
+          onClick={back}
+        >
+          Back
+        </ButtonV2>
+      </>
+    )
   return <Connecting />
 }
 

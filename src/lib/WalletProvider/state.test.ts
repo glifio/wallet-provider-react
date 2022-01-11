@@ -613,6 +613,7 @@ describe('WalletProvider', () => {
 
         expect(nextState.metamask.extInstalled).toBe(true)
         expect(nextState.metamask.extUnlocked).toBe(true)
+        expect(nextState.metamask.snapEnabled).toBe(true)
         expect(nextState.metamask.error).toBe(false)
         expect(nextState.metamask.loading).toBe(false)
       })

@@ -13,6 +13,7 @@ import {
   useWalletProvider,
   createWalletProvider
 } from '../../../lib/WalletProvider'
+import { connectFILSnap as _connectFILSnap } from '../../../utils/metamask'
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -52,6 +53,7 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
 }) => {
   const { dispatch, state, connectMetaMask, fetchDefaultWallet, walletList } =
     useWalletProvider()
+
   const fetchMetaMaskState = useCallback(async () => {
     const provider = await connectMetaMask()
     if (provider) {
@@ -63,9 +65,16 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
       next()
     }
   }, [dispatch, walletList, fetchDefaultWallet, next, connectMetaMask])
+
   useEffect(() => {
     if (state.metamask.loading) fetchMetaMaskState()
   }, [fetchMetaMaskState, state.metamask.loading])
+
+  const connectFILSnap = useCallback(async () => {
+    await _connectFILSnap(process.env.FIL_SNAP_HOST! as string)
+    await fetchMetaMaskState()
+  }, [fetchMetaMaskState])
+
   return (
     <LandingPageContainer>
       <LandingPageContentContainerStyled>
@@ -91,6 +100,7 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
             {...state.metamask}
             onRetry={fetchMetaMaskState}
             back={back}
+            connectFILSnap={connectFILSnap}
           />
         </Box>
       </LandingPageContentContainerStyled>

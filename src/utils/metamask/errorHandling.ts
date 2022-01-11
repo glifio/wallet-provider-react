@@ -1,28 +1,12 @@
 import { errors as walletProviderErrors } from '@glif/filecoin-wallet-provider'
 import {
   isMetamaskSnapsSupported,
-  hasMetaMask
-  // isSnapInstalled
+  hasMetaMask,
+  isSnapInstalled
 } from '@glif/filsnap-adapter-test'
 import { MetaMaskState } from './state'
 
-const isSnapInstalled = async (): Promise<boolean> => {
-  return true
-}
-
-interface MetaMaskWindowProvider {
-  isUnlocked: () => boolean
-}
-
-interface Ethereum {
-  _metamask: MetaMaskWindowProvider
-}
-
-declare global {
-  interface Window {
-    ethereum: Ethereum
-  }
-}
+const SNAP_HOST = process.env.FIL_SNAP_HOST! as string
 
 export const isUnlocked = async (): Promise<boolean> => {
   return window.ethereum._metamask.isUnlocked()
@@ -49,8 +33,7 @@ export const metaMaskEnable = async (): Promise<void> => {
   if (!mmUnlocked) {
     throw new MetaMaskLockedError()
   }
-
-  const filSnapInstalled = await isSnapInstalled()
+  const filSnapInstalled = await isSnapInstalled(SNAP_HOST)
   if (!filSnapInstalled) {
     throw new MetaMaskFilSnapNotInstalledError()
   }

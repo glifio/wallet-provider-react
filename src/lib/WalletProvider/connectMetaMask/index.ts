@@ -4,13 +4,14 @@ import Filecoin, {
   errors as walletProviderErrors
 } from '@glif/filecoin-wallet-provider'
 import { CoinType } from '@glif/filecoin-address'
-import { enableFilecoinSnap } from '@glif/filsnap-adapter-test'
 import { WalletProviderAction } from '../types'
 import { clearError } from '../state'
 import {
   metamaskConfigurationFail,
   metaMaskEnable
 } from '../../../utils/metamask'
+import { MetamaskFilecoinSnap } from '@glif/filsnap-adapter-test/build/snap'
+import { SnapConfig } from '@chainsafe/filsnap-types'
 
 const COIN_TYPE = process.env.COIN_TYPE! as CoinType
 const RPC_URL = process.env.LOTUS_NODE_JSONRPC! as string
@@ -34,18 +35,17 @@ export default async function connectMetaMask(
       }) as Filecoin & { wallet: MetaMaskProvider }
     }
 
-    const mm = await enableFilecoinSnap(
-      {
-        network: COIN_TYPE,
-        rpc: {
-          token: '',
-          url: RPC_URL
-        }
-      },
-      SNAP_HOST
-    )
+    const mm = new MetamaskFilecoinSnap(SNAP_HOST)
 
+    const snapConfig: Partial<SnapConfig> = {
+      network: COIN_TYPE,
+      rpc: {
+        token: '',
+        url: RPC_URL
+      }
+    }
     const snap = await mm.getFilecoinSnapApi()
+    await snap.configure(snapConfig)
 
     const provider = new Filecoin(new MetaMaskProvider({ snap }), {
       apiAddress: process.env.LOTUS_NODE_JSONRPC
@@ -82,6 +82,7 @@ export default async function connectMetaMask(
           metamaskConfigurationFail({
             extSupportsSnap: true,
             extInstalled: true,
+            extUnlocked: true,
             snapInstalled: false
           })
         )
@@ -89,6 +90,18 @@ export default async function connectMetaMask(
         dispatch(metamaskConfigurationFail({}))
       }
     } else {
+      if (err.code === -32603) {
+        dispatch(
+          metamaskConfigurationFail({
+            extSupportsSnap: true,
+            extInstalled: true,
+            extUnlocked: true,
+            snapEnabled: false,
+            snapInstalled: true
+          })
+        )
+        return
+      }
       console.log('UNHANDLED METAMASK ERROR', err.message)
       dispatch(metamaskConfigurationFail({}))
     }

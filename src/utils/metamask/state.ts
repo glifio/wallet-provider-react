@@ -5,6 +5,7 @@ export const initialMetaMaskState = {
   extUnlocked: false,
   extSupportsSnap: false,
   snapInstalled: false,
+  snapEnabled: false,
   error: false,
   loading: true
 }
@@ -30,6 +31,7 @@ export const METAMASK_STATE_PROPTYPES = {
   extInstalled: bool.isRequired,
   extSupportsSnap: bool.isRequired,
   snapInstalled: bool.isRequired,
+  snapEnabled: bool.isRequired,
   extUnlocked: bool.isRequired,
   loading: bool.isRequired,
   error: bool.isRequired
