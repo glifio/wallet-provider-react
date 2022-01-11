@@ -27,7 +27,6 @@ export default async function connectMetaMask(
     await metaMaskEnable()
 
     if (metamaskSubprovider) {
-      console.log('reusing', metamaskSubprovider)
       dispatch({ type: 'METAMASK_CONFIGURED_SUCCESS' })
 
       return new Filecoin(metamaskSubprovider, {
