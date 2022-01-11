@@ -34,9 +34,10 @@ export default (walletProviderDispatch, state) => ({
       walletProviderDispatch(setLoginOption(loginOption))
     ),
   connectLedger: jest.fn().mockImplementation(() => mockWalletProviderInstance),
-  connectMetaMask: jest
-    .fn()
-    .mockImplementation(() => mockWalletProviderInstance),
+  connectMetaMask: jest.fn().mockImplementation(() => {
+    walletProviderDispatch({ type: 'METAMASK_CONFIGURED_SUCCESS' })
+    return mockWalletProviderInstance
+  }),
   getProvider: jest.fn().mockImplementation(() => mockWalletProviderInstance),
   resetLedgerState: jest.fn().mockImplementation(() => {
     walletProviderDispatch(resetLedgerState())
