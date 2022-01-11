@@ -1,4 +1,4 @@
-import { cleanup, render, screen, act } from '@testing-library/react'
+import { cleanup, render, screen, act, fireEvent } from '@testing-library/react'
 import composeMockAppTree from '../../../test-utils/composeMockAppTree'
 import { mockFetchDefaultWallet } from '../../../test-utils/composeMockAppTree/createWalletProviderContextFuncs'
 import ConnectMetaMask from '.'
@@ -130,7 +130,7 @@ describe('metamask onboarding', () => {
       ).toBeInTheDocument()
     })
 
-    test.only('it renders extension does not support snaps', () => {
+    test('it renders extension does not support snaps', () => {
       const { Tree } = composeMockAppTree('preOnboard')
 
       const state = {
@@ -147,6 +147,27 @@ describe('metamask onboarding', () => {
       )
 
       expect(screen.getByText(/Install snap/)).toBeInTheDocument()
+    })
+
+    test('it calls the spy when try again is clicked', () => {
+      const { Tree } = composeMockAppTree('preOnboard')
+
+      const state = {
+        ...initialMetaMaskState,
+        extInstalled: true,
+        loading: false
+      }
+      render(
+        <Tree>
+          <HelperText {...state} onRetry={onRetry} back={back} />
+        </Tree>
+      )
+
+      act(() => {
+        fireEvent.click(screen.getByText(/Try again/))
+      })
+
+      expect(onRetry).toHaveBeenCalled()
     })
   })
 })
