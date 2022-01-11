@@ -27,6 +27,9 @@ export default async function connectMetaMask(
     await metaMaskEnable()
 
     if (metamaskSubprovider) {
+      console.log('reusing', metamaskSubprovider)
+      dispatch({ type: 'METAMASK_CONFIGURED_SUCCESS' })
+
       return new Filecoin(metamaskSubprovider, {
         apiAddress: process.env.LOTUS_NODE_JSONRPC
       }) as Filecoin & { wallet: MetaMaskProvider }

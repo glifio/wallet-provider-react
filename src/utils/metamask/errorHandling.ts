@@ -57,7 +57,13 @@ export const metaMaskEnable = async (): Promise<void> => {
 }
 
 export const reportMetaMaskError = (state: MetaMaskState): string => {
-  if (!state.extInstalled) return 'Please install MetaMask to continue.'
-  else if (!state.extUnlocked) return 'Your MetaMask is locked!'
-  else if (!state.snapInstalled) return 'Please install FILSnap to continue.'
+  if (state.error) {
+    if (!state.extInstalled) return 'Please install MetaMask to continue.'
+    else if (!state.extUnlocked) return 'Your MetaMask is locked!'
+    else if (!state.extSupportsSnap)
+      return 'Please upgrade MetaMask to the latest version to continue.'
+    else if (!state.snapInstalled) return 'Please install FILSnap to continue.'
+  }
+
+  return ''
 }

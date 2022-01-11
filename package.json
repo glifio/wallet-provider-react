@@ -64,6 +64,7 @@
     "@glif/filecoin-address": "latest",
     "@glif/filecoin-number": "latest",
     "@glif/filecoin-rpc-client": "latest",
+    "@glif/filecoin-wallet-provider": "^2.0.0-alpha.11",
     "@glif/filsnap-adapter-test": "latest",
     "@glif/react-components": "latest",
     "@ledgerhq/hw-transport": "^6.11.2",

@@ -16,6 +16,7 @@ import reducer, {
   initialState,
   setLoginOption,
   setError,
+  clearError,
   resetLedgerState,
   resetState,
   walletList,
@@ -131,6 +132,7 @@ const WalletProviderWrapper = ({ children }) => {
         ),
         resetWalletError: useCallback(() => {
           dispatch(resetLedgerState())
+          dispatch(clearError())
           dispatch({ type: 'METAMASK_RESET_STATE' })
         }, [dispatch]),
         resetState: useCallback(() => dispatch(resetState()), [dispatch]),
@@ -147,6 +149,10 @@ const WalletProviderWrapper = ({ children }) => {
           [dispatch]
         ),
         walletError: useCallback((): string | null => {
+          if (state?.error) {
+            return state.error
+          }
+
           if (state?.loginOption === 'LEDGER') {
             if (hasLedgerError(state?.ledger)) {
               return reportLedgerConfigError(state?.ledger)
@@ -161,7 +167,7 @@ const WalletProviderWrapper = ({ children }) => {
             return null
           }
           return null
-        }, [state?.ledger, state?.metamask, state?.loginOption])
+        }, [state?.ledger, state?.metamask, state?.loginOption, state?.error])
       }}
     >
       {children}
