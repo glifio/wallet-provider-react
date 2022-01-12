@@ -1,6 +1,6 @@
 {
   "name": "@glif/wallet-provider-react",
-  "version": "0.0.0-alpha.5",
+  "version": "0.0.0-alpha.7",
   "description": "Wallet and login related react helpers for glif apps",
   "main": "dist/index.js",
   "repository": {
@@ -16,6 +16,7 @@
     "build": "run-s clean build:*",
     "build:babel": "./node_modules/.bin/babel src --out-dir dist --extensions \".ts,.tsx,.js,.jsx\" --source-maps --ignore 'src/**/*.test.jsx','src/**/*.test.tsx','src/**/*.test.ts','src/**/*.test.js','src/test-utils/**/*'",
     "build:types": "./node_modules/.bin/tsc --emitDeclarationOnly",
+    "prepare": "npm run build",
     "watch": "npm run clean && run-p watch:*",
     "watch:babel": "npm run build:babel -- --watch",
     "start": "npm run watch",
@@ -86,7 +87,6 @@
     "styled-components": ">=5.2.1"
   },
   "files": [
-    "dist",
-    "public"
+    "dist"
   ]
 }
