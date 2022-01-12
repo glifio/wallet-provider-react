@@ -54,7 +54,11 @@ export const HelperText: FC<
           `}
         >
           Please{' '}
-          <a href='https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en'>
+          <a
+            target='_blank'
+            rel='noreferrer noopener'
+            href='https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en'
+          >
             install MetaMask
           </a>{' '}
           to get started

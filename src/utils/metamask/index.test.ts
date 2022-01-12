@@ -1,7 +1,7 @@
 import { errors } from '@glif/filecoin-wallet-provider'
 import { metaMaskEnable, MetaMaskState, reportMetaMaskError } from '.'
 
-const adapterModule = '@glif/filsnap-adapter-test'
+const adapterModule = '@chainsafe/filsnap-adapter'
 
 interface MetaMaskWindowProvider {
   isUnlocked: () => boolean

@@ -1,7 +1,7 @@
 import Filecoin, { errors } from '@glif/filecoin-wallet-provider'
 import connectMetaMask from '.'
 import { WalletProviderAction } from '../types'
-const adapterModule = '@glif/filsnap-adapter-test/build/snap'
+const adapterModule = '@chainsafe/filsnap-adapter/build/snap'
 
 const mmSnapApiMock = jest.fn().mockImplementation(() => {
   return { configure: () => {} }
@@ -89,6 +89,7 @@ describe('connectMetaMask', () => {
       const errCall = findErrorDispatchCall(dispatchSpy)
       expect(errCall.type).toBe('METAMASK_CONFIGURED_FAIL')
       expect(errCall.payload.extInstalled).toBeTruthy()
+      expect(errCall.payload.extUnlocked).toBeTruthy()
       expect(errCall.payload.extSupportsSnap).toBeFalsy()
     })
 

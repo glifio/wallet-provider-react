@@ -3,7 +3,7 @@ import {
   isMetamaskSnapsSupported,
   hasMetaMask,
   isSnapInstalled
-} from '@glif/filsnap-adapter-test'
+} from '@chainsafe/filsnap-adapter'
 import { MetaMaskState } from './state'
 
 const SNAP_HOST = process.env.FIL_SNAP_HOST! as string

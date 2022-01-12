@@ -10,7 +10,7 @@ import {
   metamaskConfigurationFail,
   metaMaskEnable
 } from '../../../utils/metamask'
-import { MetamaskFilecoinSnap } from '@glif/filsnap-adapter-test/build/snap'
+import { MetamaskFilecoinSnap } from '@chainsafe/filsnap-adapter/build/snap'
 import { SnapConfig } from '@chainsafe/filsnap-types'
 
 const COIN_TYPE = process.env.COIN_TYPE! as CoinType
@@ -64,6 +64,7 @@ export default async function connectMetaMask(
         dispatch(
           metamaskConfigurationFail({
             extInstalled: true,
+            extUnlocked: true,
             extSupportsSnap: false
           })
         )
