@@ -34,7 +34,7 @@ export const metaMaskEnable = async (): Promise<void> => {
     throw new MetaMaskLockedError()
   }
 
-  const filSnapInstalled = await isSnapInstalled(`wallet_snap_${SNAP_HOST}`)
+  const filSnapInstalled = await isSnapInstalled(SNAP_HOST)
   if (!filSnapInstalled) {
     throw new MetaMaskFilSnapNotInstalledError()
   }

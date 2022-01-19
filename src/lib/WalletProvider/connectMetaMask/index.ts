@@ -10,7 +10,7 @@ import {
   metamaskConfigurationFail,
   metaMaskEnable
 } from '../../../utils/metamask'
-import { MetamaskFilecoinSnap } from '@chainsafe/filsnap-adapter/build/snap'
+import { MetamaskFilecoinSnap } from '@chainsafe/filsnap-adapter'
 import { SnapConfig } from '@chainsafe/filsnap-types'
 
 const COIN_TYPE = process.env.COIN_TYPE! as CoinType

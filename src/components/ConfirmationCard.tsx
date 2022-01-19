@@ -72,22 +72,55 @@ const OtherWalletTypeConfirm = () => {
   )
 }
 
-const MetaMaskConfirm = () => {
+const MetaMaskConfirm = ({ msig }: { msig: boolean }) => {
   return (
     <>
-      <Text color='core.nearblack'>
-        To complete the transaction, please review the{' '}
-        <TextHighlight>recipient</TextHighlight> and{' '}
-        <TextHighlight>amount</TextHighlight> in{' '}
-        <TextHighlight>MetaMask</TextHighlight>. If the details match what you
-        see in Glif, click &quot;Approve&quot;.
-      </Text>
-      <Text>
-        <TextHighlight>Remember:</TextHighlight> Transactions are{' '}
-        <TextHighlight>final once sent.</TextHighlight>
-      </Text>
+      {msig ? (
+        <>
+          <Text color='core.nearblack'>
+            To create your Safe, please review the
+            <TextHighlight>accept the transaction in MetaMask.</TextHighlight>
+          </Text>
+          <Text>
+            <TextHighlight>Remember:</TextHighlight> Transactions are{' '}
+            <TextHighlight>final once sent.</TextHighlight>
+          </Text>
+          <StyledATag
+            width='fit-content'
+            fontSize={2}
+            display='inline-block'
+            target='_blank'
+            rel='noopener noreferrer'
+            href=''
+          >
+            What should I see on in MetaMask?
+          </StyledATag>
+        </>
+      ) : (
+        <>
+          <Text color='core.nearblack'>
+            To complete the transaction, please review the{' '}
+            <TextHighlight>recipient</TextHighlight> and{' '}
+            <TextHighlight>amount</TextHighlight> in{' '}
+            <TextHighlight>MetaMask</TextHighlight>. If the details match what
+            you see in Glif, click &quot;Approve&quot;.
+          </Text>
+          <Text>
+            <TextHighlight>Remember:</TextHighlight> Transactions are{' '}
+            <TextHighlight>final once sent.</TextHighlight>
+          </Text>
+        </>
+      )}
     </>
   )
+}
+
+MetaMaskConfirm.propTypes = {
+  msig: PropTypes.bool
+}
+
+MetaMaskConfirm.defaultProps = {
+  msig: false
 }
 
 const ConfirmationCard = ({
@@ -153,7 +186,7 @@ const ConfirmationCard = ({
             </Box>
           </Box>
           {walletType === LEDGER && <LedgerConfirm msig={msig} />}
-          {walletType === METAMASK && <MetaMaskConfirm />}
+          {walletType === METAMASK && <MetaMaskConfirm msig={msig} />}
           {walletType !== LEDGER && walletType !== METAMASK && (
             <OtherWalletTypeConfirm />
           )}
