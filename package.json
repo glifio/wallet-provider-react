@@ -71,7 +71,7 @@
     "@glif/react-components": "latest",
     "@ledgerhq/hw-transport": "^6.11.2",
     "@zondax/filecoin-signing-tools": "^0.18.2",
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "bip39": "^3.0.3",
     "dayjs": "^1.9.6",
     "lodash.clonedeep": "^4.5.0",
