@@ -150,6 +150,21 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
   font-size: 1.5rem;
 }
 
+.c10 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
+.c12 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
 .c14 {
   cursor: pointer;
   border: 1px solid #262626;
@@ -196,21 +211,6 @@ exports[`Ledger configuration it renders busy error in the UI correctly 1`] = `
 
 .c15:hover {
   opacity: 0.8;
-}
-
-.c10 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-}
-
-.c12 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
 }
 
 .c2 {
@@ -497,6 +497,21 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
   font-size: 1.5rem;
 }
 
+.c10 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
+.c12 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
 .c14 {
   cursor: pointer;
   border: 1px solid #262626;
@@ -543,21 +558,6 @@ exports[`Ledger configuration it renders connectedFailure ledger error in the UI
 
 .c15:hover {
   opacity: 0.8;
-}
-
-.c10 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-}
-
-.c12 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
 }
 
 .c2 {
@@ -836,6 +836,21 @@ exports[`Ledger configuration it renders correctly 1`] = `
   justify-content: space-between;
 }
 
+.c10 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
+.c12 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
 .c15 {
   cursor: pointer;
   border: 1px solid #262626;
@@ -882,21 +897,6 @@ exports[`Ledger configuration it renders correctly 1`] = `
 
 .c16:hover {
   opacity: 0.8;
-}
-
-.c10 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-}
-
-.c12 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
 }
 
 .c6 {
@@ -1222,6 +1222,21 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
   font-size: 1.5rem;
 }
 
+.c10 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
+.c12 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
 .c14 {
   cursor: pointer;
   border: 1px solid #262626;
@@ -1268,21 +1283,6 @@ exports[`Ledger configuration it renders filecoinAppNotOpen error in the UI corr
 
 .c15:hover {
   opacity: 0.8;
-}
-
-.c10 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-}
-
-.c12 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
 }
 
 .c2 {
@@ -1569,6 +1569,21 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
   font-size: 1.5rem;
 }
 
+.c10 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
+.c12 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
 .c14 {
   cursor: pointer;
   border: 1px solid #262626;
@@ -1615,21 +1630,6 @@ exports[`Ledger configuration it renders inUseByAnotherApp ledger error correctl
 
 .c15:hover {
   opacity: 0.8;
-}
-
-.c10 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-}
-
-.c12 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
 }
 
 .c2 {
@@ -1924,6 +1924,21 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
   font-size: 1.5rem;
 }
 
+.c10 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
+.c12 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
 .c14 {
   cursor: pointer;
   border: 1px solid #262626;
@@ -1970,21 +1985,6 @@ exports[`Ledger configuration it renders locked ledger error correctly 1`] = `
 
 .c15:hover {
   opacity: 0.8;
-}
-
-.c10 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-}
-
-.c12 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
 }
 
 .c2 {
@@ -2271,6 +2271,21 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
   font-size: 1.5rem;
 }
 
+.c10 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
+.c12 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
 .c14 {
   cursor: pointer;
   border: 1px solid #262626;
@@ -2317,21 +2332,6 @@ exports[`Ledger configuration it renders replug error correctly 1`] = `
 
 .c15:hover {
   opacity: 0.8;
-}
-
-.c10 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-}
-
-.c12 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
 }
 
 .c2 {

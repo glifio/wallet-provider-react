@@ -1,13 +1,6 @@
 import { FC, useCallback, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
-import {
-  Box,
-  LandingPageContainer,
-  LandingPageContentContainer,
-  devices,
-  space,
-  IconMetaMaskFlask
-} from '@glif/react-components'
+import { Box, IconMetaMaskFlask } from '@glif/react-components'
 import { HelperText } from './Helper'
 import {
   useWalletProvider,
@@ -16,15 +9,6 @@ import {
 import { connectFILSnap as _connectFILSnap } from '../../../utils/metamask'
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
-
-const LandingPageContentContainerStyled = styled(LandingPageContentContainer)`
-  @media (min-width: ${devices.tablet}) {
-    grid-template-rows: none;
-    grid-template-areas: 'icon content';
-    min-height: 60vh;
-    padding-bottom: ${space()};
-  }
-`
 
 const transitionIn = keyframes`
   from {
@@ -76,35 +60,34 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
   }, [fetchMetaMaskState])
 
   return (
-    <LandingPageContainer>
-      <LandingPageContentContainerStyled>
-        <Box
-          width='100%'
-          alignSelf='center'
-          display='flex'
-          justifyContent='center'
-        >
-          <MMFadeIn>
-            <IconMetaMaskFlask height='231' width='245' />
-          </MMFadeIn>
-        </Box>
-        <Box
-          height='100%'
-          alignSelf='center'
-          display='flex'
-          flexDirection='column'
-          justifyContent='center'
-          alignItems='center'
-        >
-          <HelperText
-            {...state.metamask}
-            onRetry={fetchMetaMaskState}
-            back={back}
-            connectFILSnap={connectFILSnap}
-          />
-        </Box>
-      </LandingPageContentContainerStyled>
-    </LandingPageContainer>
+    <Box
+      display='flex'
+      flexDirection='row'
+      justifyContent='space-around'
+      flexWrap='wrap'
+      width='100%'
+    >
+      <Box alignSelf='center' display='flex' justifyContent='center'>
+        <MMFadeIn>
+          <IconMetaMaskFlask height='231' width='245' />
+        </MMFadeIn>
+      </Box>
+      <Box
+        height='100%'
+        alignSelf='center'
+        display='flex'
+        flexDirection='column'
+        justifyContent='center'
+        alignItems='center'
+      >
+        <HelperText
+          {...state.metamask}
+          onRetry={fetchMetaMaskState}
+          back={back}
+          connectFILSnap={connectFILSnap}
+        />
+      </Box>
+    </Box>
   )
 }
 

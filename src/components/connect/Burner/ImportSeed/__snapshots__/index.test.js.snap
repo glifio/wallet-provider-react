@@ -155,6 +155,22 @@ exports[`Import seed phrase configuration it renders step one correctly 1`] = `
   font-size: 1.5rem;
 }
 
+.c7 {
+  color: #661800;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
+.c9 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
 .c12 {
   cursor: pointer;
   border: 1px solid #262626;
@@ -201,22 +217,6 @@ exports[`Import seed phrase configuration it renders step one correctly 1`] = `
 
 .c13:hover {
   opacity: 0.8;
-}
-
-.c7 {
-  color: #661800;
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-}
-
-.c9 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
 }
 
 .c10 {
@@ -501,6 +501,31 @@ exports[`Import seed phrase configuration it renders step one correctly 2`] = `
   font-size: 1.5rem;
 }
 
+.c8 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+  margin-top: 16px;
+}
+
+.c9 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: RT-Alias-Grotesk;
+}
+
+.c17 {
+  color: #262626;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1;
+  font-family: RT-Alias-Grotesk;
+  margin: 0;
+}
+
 .c12 {
   cursor: pointer;
   border: 1px solid #1AD08F;
@@ -574,31 +599,6 @@ exports[`Import seed phrase configuration it renders step one correctly 2`] = `
 
 .c22:hover {
   opacity: 1;
-}
-
-.c8 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
-  margin-top: 16px;
-}
-
-.c9 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.4;
-  font-family: RT-Alias-Grotesk;
-}
-
-.c17 {
-  color: #262626;
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1;
-  font-family: RT-Alias-Grotesk;
-  margin: 0;
 }
 
 .c19 {
