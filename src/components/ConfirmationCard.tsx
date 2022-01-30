@@ -291,7 +291,7 @@ type ConfirmationCardProps = {
   loading: boolean
   method: number
   msig: boolean
-  approvalsUntilExecution: number
+  approvalsUntilExecution?: number
 }
 
 const ConfirmationCard = ({
