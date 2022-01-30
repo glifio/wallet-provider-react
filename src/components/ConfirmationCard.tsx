@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { typography } from 'styled-system'
-import PropTypes from 'prop-types'
+import PropTypes, { number } from 'prop-types'
 import {
   Box,
   Card,
@@ -11,48 +11,214 @@ import {
   StyledATag,
   Loading as LoaderGlyph
 } from '@glif/react-components'
+import { LoginOption } from '../lib/WalletProvider/types'
 import {
   LEDGER,
   IMPORT_MNEMONIC,
   CREATE_MNEMONIC,
   IMPORT_SINGLE_KEY,
-  METAMASK
+  METAMASK,
+  MSIG_METHOD
 } from '../constants'
 
 const TextHighlight = styled.span.attrs(() => ({
   fontSize: 'inherit'
 }))`
-  text-decoration: underline;
+  font-weight: bold;
   ${typography}
 `
 
-const LedgerConfirm = ({ msig }) => {
+const ReviewTx = ({ loginOption }: { loginOption: LoginOption }) => {
+  if (loginOption === 'LEDGER')
+    return (
+      <>
+        {' '}
+        <TextHighlight>
+          review the details on your Ledger Device, and then accept the
+          transaction.
+        </TextHighlight>
+      </>
+    )
+  else if (loginOption === 'METAMASK')
+    return (
+      <>
+        {' '}
+        <TextHighlight>accept the transaction in MetaMask.</TextHighlight>
+      </>
+    )
+  return <></>
+}
+
+const MsigHelperText = ({
+  method,
+  loginOption,
+  approvalsUntilExecution
+}: {
+  method: MSIG_METHOD
+  loginOption: LoginOption
+  approvalsUntilExecution: number
+}) => {
+  let PreText = () => <></>
+
+  switch (method) {
+    case MSIG_METHOD.WITHDRAW:
+      PreText = () => (
+        <Text color='core.nearblack'>
+          To create a proposal to withdraw Filecoin from your Safe, please
+          <ReviewTx loginOption={loginOption} />
+        </Text>
+      )
+      break
+    case MSIG_METHOD.CONSTRUCTOR:
+      PreText = () => (
+        <Text color='core.nearblack'>
+          To create your Safe, please
+          <ReviewTx loginOption={loginOption} />
+        </Text>
+      )
+      break
+
+    case MSIG_METHOD.APPROVE: {
+      PreText = () => (
+        <>
+          <Text color='core.nearblack'>
+            To approve this proposal, please
+            <ReviewTx loginOption={loginOption} />
+          </Text>
+          {approvalsUntilExecution === 1 ? (
+            <Text>
+              <TextHighlight>
+                Approving this transaction will cause it to execute.
+              </TextHighlight>
+            </Text>
+          ) : (
+            <Text>
+              After you approve this transaction, {approvalsUntilExecution - 1}{' '}
+              more signature
+              {`${
+                approvalsUntilExecution - 1 > 1 ? 's are needed' : ' is needed'
+              }`}{' '}
+              for it to execute.
+            </Text>
+          )}
+        </>
+      )
+      break
+    }
+
+    case MSIG_METHOD.CANCEL:
+      PreText = () => (
+        <Text color='core.nearblack'>
+          To cancel this proposal, please
+          <ReviewTx loginOption={loginOption} />
+        </Text>
+      )
+      break
+
+    case MSIG_METHOD.ADD_SIGNER:
+      PreText = () => (
+        <Text color='core.nearblack'>
+          To create a proposal to a add a signer to your Safe, please
+          <ReviewTx loginOption={loginOption} />
+        </Text>
+      )
+      break
+
+    case MSIG_METHOD.REMOVE_SIGNER:
+      PreText = () => (
+        <Text color='core.nearblack'>
+          To create a proposal to remove a signer from your Safe, please
+          <ReviewTx loginOption={loginOption} />
+        </Text>
+      )
+      break
+
+    case MSIG_METHOD.SWAP_SIGNER:
+      PreText = () => (
+        <Text color='core.nearblack'>
+          To create a proposal to swap signers of your Safe, please
+          <ReviewTx loginOption={loginOption} />
+        </Text>
+      )
+      break
+
+    case MSIG_METHOD.CHANGE_NUM_APPROVALS_THRESHOLD:
+      PreText = () => (
+        <Text color='core.nearblack'>
+          To create a proposal to change the number of required approvals of
+          your Safe, please
+          <ReviewTx loginOption={loginOption} />
+        </Text>
+      )
+      break
+  }
+
   return (
     <>
-      <Text color='core.nearblack'>
-        To send the transaction, please{' '}
-        <TextHighlight>
-          confirm the transfer on your Ledger device.
-        </TextHighlight>
+      <PreText />
+      <Text>
+        <TextHighlight>Remember:</TextHighlight> Transactions are{' '}
+        <TextHighlight>final once sent.</TextHighlight>
       </Text>
-      {msig && (
+      {loginOption === 'LEDGER' && (
         <StyledATag
           width='fit-content'
           fontSize={2}
           display='inline-block'
           target='_blank'
           rel='noopener noreferrer'
-          href='https://reading.supply/@glif/what-to-look-for-on-your-ledger-device-when-submitting-a-multi-sig-transaction-gQXIX6'
+          href=''
         >
-          What should I see on my Ledger device?
+          What should I see on my Ledger Device?
+        </StyledATag>
+      )}
+      {loginOption === 'METAMASK' && (
+        <StyledATag
+          width='fit-content'
+          fontSize={2}
+          display='inline-block'
+          target='_blank'
+          rel='noopener noreferrer'
+          href=''
+        >
+          What should I see in MetaMask?
         </StyledATag>
       )}
     </>
   )
 }
 
+const LedgerConfirm = ({ msig, method, approvalsUntilExecution }) => {
+  if (!msig) {
+    return (
+      <>
+        <Text color='core.nearblack'>
+          To send the transaction, please{' '}
+          <TextHighlight>
+            confirm the transfer on your Ledger device.
+          </TextHighlight>
+        </Text>
+        <Text>
+          <TextHighlight>Remember:</TextHighlight> Transactions are{' '}
+          <TextHighlight>final once sent.</TextHighlight>
+        </Text>
+      </>
+    )
+  }
+
+  return (
+    <MsigHelperText
+      loginOption={'LEDGER'}
+      method={method}
+      approvalsUntilExecution={approvalsUntilExecution}
+    />
+  )
+}
+
 LedgerConfirm.propTypes = {
-  msig: PropTypes.bool.isRequired
+  msig: PropTypes.bool.isRequired,
+  method: PropTypes.number.isRequired,
+  approvalsUntilExecution: PropTypes.number.isRequired
 }
 
 const OtherWalletTypeConfirm = () => {
@@ -72,64 +238,71 @@ const OtherWalletTypeConfirm = () => {
   )
 }
 
-const MetaMaskConfirm = ({ msig }: { msig: boolean }) => {
+const MetaMaskConfirm = ({
+  msig,
+  method,
+  approvalsUntilExecution
+}: {
+  msig: boolean
+  method: number
+  approvalsUntilExecution: number
+}) => {
+  if (!msig) {
+    return (
+      <>
+        <Text color='core.nearblack'>
+          To complete the transaction, please review the{' '}
+          <TextHighlight>recipient</TextHighlight> and{' '}
+          <TextHighlight>amount</TextHighlight> in{' '}
+          <TextHighlight>MetaMask</TextHighlight>. If the details match what you
+          see in Glif, click &quot;Approve&quot;.
+        </Text>
+        <Text>
+          <TextHighlight>Remember:</TextHighlight> Transactions are{' '}
+          <TextHighlight>final once sent.</TextHighlight>
+        </Text>
+      </>
+    )
+  }
+
   return (
-    <>
-      {msig ? (
-        <>
-          <Text color='core.nearblack'>
-            To create your Safe, please review the
-            <TextHighlight>accept the transaction in MetaMask.</TextHighlight>
-          </Text>
-          <Text>
-            <TextHighlight>Remember:</TextHighlight> Transactions are{' '}
-            <TextHighlight>final once sent.</TextHighlight>
-          </Text>
-          <StyledATag
-            width='fit-content'
-            fontSize={2}
-            display='inline-block'
-            target='_blank'
-            rel='noopener noreferrer'
-            href=''
-          >
-            What should I see on in MetaMask?
-          </StyledATag>
-        </>
-      ) : (
-        <>
-          <Text color='core.nearblack'>
-            To complete the transaction, please review the{' '}
-            <TextHighlight>recipient</TextHighlight> and{' '}
-            <TextHighlight>amount</TextHighlight> in{' '}
-            <TextHighlight>MetaMask</TextHighlight>. If the details match what
-            you see in Glif, click &quot;Approve&quot;.
-          </Text>
-          <Text>
-            <TextHighlight>Remember:</TextHighlight> Transactions are{' '}
-            <TextHighlight>final once sent.</TextHighlight>
-          </Text>
-        </>
-      )}
-    </>
+    <MsigHelperText
+      method={method}
+      loginOption='METAMASK'
+      approvalsUntilExecution={approvalsUntilExecution}
+    />
   )
 }
 
 MetaMaskConfirm.propTypes = {
-  msig: PropTypes.bool
+  msig: PropTypes.bool,
+  method: PropTypes.number.isRequired,
+  approvalsUntilExecution: PropTypes.number.isRequired
 }
 
 MetaMaskConfirm.defaultProps = {
   msig: false
 }
 
+type ConfirmationCardProps = {
+  loginOption: LoginOption
+  currentStep: number
+  totalSteps: number
+  loading: boolean
+  method: number
+  msig: boolean
+  approvalsUntilExecution: number
+}
+
 const ConfirmationCard = ({
-  walletType,
+  loginOption,
   currentStep,
   totalSteps,
   loading,
-  msig
-}) => {
+  method,
+  msig,
+  approvalsUntilExecution
+}: ConfirmationCardProps) => {
   return (
     <>
       {loading ? (
@@ -185,11 +358,25 @@ const ConfirmationCard = ({
               />
             </Box>
           </Box>
-          {walletType === LEDGER && <LedgerConfirm msig={msig} />}
-          {walletType === METAMASK && <MetaMaskConfirm msig={msig} />}
-          {walletType !== LEDGER && walletType !== METAMASK && (
-            <OtherWalletTypeConfirm />
-          )}
+          <Box textAlign='center'>
+            {loginOption === LEDGER && (
+              <LedgerConfirm
+                msig={msig}
+                method={method}
+                approvalsUntilExecution={approvalsUntilExecution}
+              />
+            )}
+            {loginOption === METAMASK && (
+              <MetaMaskConfirm
+                msig={msig}
+                method={method}
+                approvalsUntilExecution={approvalsUntilExecution}
+              />
+            )}
+            {loginOption !== LEDGER && loginOption !== METAMASK && (
+              <OtherWalletTypeConfirm />
+            )}
+          </Box>
         </Card>
       )}
     </>
@@ -199,21 +386,25 @@ const ConfirmationCard = ({
 ConfirmationCard.propTypes = {
   currentStep: PropTypes.number,
   totalSteps: PropTypes.number,
-  walletType: PropTypes.oneOf([
+  loginOption: PropTypes.oneOf([
     LEDGER,
     IMPORT_MNEMONIC,
     CREATE_MNEMONIC,
     IMPORT_SINGLE_KEY
   ]).isRequired,
   loading: PropTypes.bool.isRequired,
-  msig: PropTypes.bool
+  msig: PropTypes.bool,
+  method: number,
+  approvalsUntilExecution: number
 }
 
 ConfirmationCard.defaultProps = {
   // defaults fit criteria for normal send flow
   currentStep: 2,
   totalSteps: 2,
-  msig: false
+  msig: false,
+  method: 0,
+  approvalsUntilExecution: 0
 }
 
 export default ConfirmationCard

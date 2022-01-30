@@ -54,7 +54,8 @@ export enum PAGE {
 }
 
 export enum MSIG_METHOD {
-  CONSTRUCTOR = 1,
+  WITHDRAW,
+  CONSTRUCTOR,
   PROPOSE,
   APPROVE,
   CANCEL,

@@ -32,7 +32,8 @@ const AccountSelector = ({
   title,
   coinType,
   nWalletsToLoad,
-  test
+  test,
+  back
 }: {
   onSelectAccount: () => void
   showSelectedAccount: boolean
@@ -41,6 +42,7 @@ const AccountSelector = ({
   coinType: CoinType
   nWalletsToLoad: number
   test: boolean
+  back?: () => void
 }) => {
   const wallet = useWallet()
   const [loadingAccounts, setLoadingAccounts] = useState(false)
@@ -152,7 +154,7 @@ const AccountSelector = ({
       <ButtonClose
         role='button'
         type='button'
-        onClick={router.back}
+        onClick={back || router.back}
         position='absolute'
         top='0'
         right='0'

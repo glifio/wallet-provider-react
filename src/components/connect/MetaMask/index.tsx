@@ -38,21 +38,42 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
   const { dispatch, state, connectMetaMask, fetchDefaultWallet, walletList } =
     useWalletProvider()
 
+  const _next = useCallback(
+    async (time = 500) => {
+      // avoid screen blips
+      await sleep(time)
+      next()
+    },
+    [next]
+  )
+
   const fetchMetaMaskState = useCallback(async () => {
     const provider = await connectMetaMask()
     if (provider) {
       dispatch(createWalletProvider(provider, 'METAMASK'))
       const wallet = await fetchDefaultWallet(provider)
       walletList([wallet])
-      // avoid screen blips
-      await sleep(500)
-      next()
+      await _next()
     }
-  }, [dispatch, walletList, fetchDefaultWallet, next, connectMetaMask])
+  }, [dispatch, walletList, fetchDefaultWallet, _next, connectMetaMask])
 
   useEffect(() => {
     if (state.metamask.loading) fetchMetaMaskState()
-  }, [fetchMetaMaskState, state.metamask.loading])
+    // user clicked back...
+    else if (
+      !state.metamask.loading &&
+      !state.metamask.error &&
+      state.wallets.length > 0
+    ) {
+      _next(1200)
+    }
+  }, [
+    fetchMetaMaskState,
+    state.metamask.loading,
+    state.wallets.length,
+    state.metamask.error,
+    _next
+  ])
 
   const connectFILSnap = useCallback(async () => {
     await _connectFILSnap(process.env.FIL_SNAP_HOST! as string)

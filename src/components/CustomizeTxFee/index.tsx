@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { FilecoinNumber } from '@glif/filecoin-number'
-import { Message } from '@glif/filecoin-message'
+import { LotusMessage, Message } from '@glif/filecoin-message'
 import { Box, Text, Input, Button, StyledATag } from '@glif/react-components'
-import { useWalletProvider } from '../../lib/WalletProvider'
-import useWallet from '../../lib/WalletProvider/useWallet'
 
-import { FILECOIN_NUMBER_PROP } from '../../customPropTypes'
+import { Wallet } from '../../lib/WalletProvider/types'
+import { ADDRESS_PROPTYPE, FILECOIN_NUMBER_PROP } from '../../customPropTypes'
 
 const Helper = ({
   error,
@@ -88,6 +87,32 @@ const friendlifyError = err => {
   return err.message
 }
 
+type GasInfo = {
+  estimatedTransactionFee: FilecoinNumber
+  gasPremium: FilecoinNumber
+  gasFeeCap: FilecoinNumber
+  gasLimit: FilecoinNumber
+}
+
+type CustomizeFeeProps = {
+  message: LotusMessage
+  gasInfo: GasInfo
+  setGasInfo: Dispatch<SetStateAction<GasInfo>>
+  setFrozen: Dispatch<SetStateAction<boolean>>
+  setError: Dispatch<SetStateAction<string>>
+  feeMustBeLessThanThisAmount: FilecoinNumber
+  gasEstimateMaxFee: (
+    msg: LotusMessage
+  ) => Promise<{ maxFee: FilecoinNumber; message: LotusMessage }>
+  gasEstimateMessageGas: (
+    msg: LotusMessage,
+    maxFee?: string
+  ) => Promise<Message>
+  wallet: Wallet
+  error?: string
+  disabled?: boolean
+}
+
 const CustomizeFee = ({
   message,
   gasInfo,
@@ -96,8 +121,11 @@ const CustomizeFee = ({
   error,
   setError,
   feeMustBeLessThanThisAmount,
+  gasEstimateMaxFee,
+  gasEstimateMessageGas,
+  wallet,
   disabled
-}) => {
+}: CustomizeFeeProps) => {
   const [mounted, setMounted] = useState(false)
   const [dirty, setDirty] = useState(false)
   const [loadingFee, setLoadingFee] = useState(false)
@@ -105,15 +133,13 @@ const CustomizeFee = ({
   const [localTxFee, setLocalTxFee] = useState(
     new FilecoinNumber('0', 'attofil')
   )
-  const { walletProvider } = useWalletProvider()
-  const wallet = useWallet()
 
   useEffect(() => {
     const estimate = async () => {
       try {
         setLoadingFee(true)
         setFrozen(true)
-        const res = await walletProvider.gasEstimateMaxFee(message)
+        const res = await gasEstimateMaxFee(message)
         setLocalTxFee(res.maxFee)
         setGasInfo({
           gasPremium: new FilecoinNumber(res.message.GasPremium, 'attofil'),
@@ -144,7 +170,7 @@ const CustomizeFee = ({
     gasInfo,
     message,
     setGasInfo,
-    walletProvider,
+    gasEstimateMaxFee,
     mounted,
     setMounted,
     setError,
@@ -174,7 +200,7 @@ const CustomizeFee = ({
       setFrozen(true)
       setSavingNewFee(true)
       const msgWithGas = (
-        await walletProvider.gasEstimateMessageGas(
+        await gasEstimateMessageGas(
           msgWithoutGas.toLotusType(),
           localTxFee.toAttoFil()
         )
@@ -269,6 +295,13 @@ CustomizeFee.propTypes = {
   }),
   setFrozen: PropTypes.func.isRequired,
   feeMustBeLessThanThisAmount: FILECOIN_NUMBER_PROP,
+  gasEstimateMaxFee: PropTypes.func.isRequired,
+  gasEstimateMessageGas: PropTypes.func.isRequired,
+  wallet: PropTypes.shape({
+    address: ADDRESS_PROPTYPE,
+    balance: FILECOIN_NUMBER_PROP,
+    path: PropTypes.string
+  }).isRequired,
   error: PropTypes.string.isRequired,
   setError: PropTypes.func.isRequired,
   disabled: PropTypes.bool
