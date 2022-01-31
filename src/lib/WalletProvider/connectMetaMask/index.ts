@@ -4,23 +4,23 @@ import Filecoin, {
   errors as walletProviderErrors
 } from '@glif/filecoin-wallet-provider'
 import { CoinType } from '@glif/filecoin-address'
+import { MetamaskFilecoinSnap } from '@chainsafe/filsnap-adapter'
+import { SnapConfig } from '@chainsafe/filsnap-types'
+
 import { WalletProviderAction } from '../types'
 import { clearError } from '../state'
 import {
   metamaskConfigurationFail,
   metaMaskEnable
 } from '../../../utils/metamask'
-import { MetamaskFilecoinSnap } from '@chainsafe/filsnap-adapter'
-import { SnapConfig } from '@chainsafe/filsnap-types'
-
-const COIN_TYPE = process.env.COIN_TYPE! as CoinType
-const RPC_URL = process.env.LOTUS_NODE_JSONRPC! as string
-const SNAP_HOST = process.env.FIL_SNAP_HOST! as string
+import { FILSNAP } from '../../../constants'
 
 export default async function connectMetaMask(
   dispatch: Dispatch<WalletProviderAction>,
   // if one already exists... use it
-  metamaskSubprovider?: MetaMaskProvider
+  metamaskSubprovider: MetaMaskProvider,
+  coinType: CoinType,
+  lotusApiAddr: string
 ): Promise<Filecoin & { wallet: MetaMaskProvider }> {
   try {
     dispatch(clearError())
@@ -31,24 +31,24 @@ export default async function connectMetaMask(
       dispatch({ type: 'METAMASK_CONFIGURED_SUCCESS' })
 
       return new Filecoin(metamaskSubprovider, {
-        apiAddress: process.env.LOTUS_NODE_JSONRPC
+        apiAddress: lotusApiAddr
       }) as Filecoin & { wallet: MetaMaskProvider }
     }
 
-    const mm = new MetamaskFilecoinSnap(SNAP_HOST)
+    const mm = new MetamaskFilecoinSnap(FILSNAP)
 
     const snapConfig: Partial<SnapConfig> = {
-      network: COIN_TYPE,
+      network: coinType,
       rpc: {
         token: '',
-        url: RPC_URL
+        url: lotusApiAddr
       }
     }
     const snap = await mm.getFilecoinSnapApi()
     await snap.configure(snapConfig)
 
     const provider = new Filecoin(new MetaMaskProvider({ snap }), {
-      apiAddress: process.env.LOTUS_NODE_JSONRPC
+      apiAddress: lotusApiAddr
     }) as Filecoin & { wallet: MetaMaskProvider }
 
     dispatch({ type: 'METAMASK_CONFIGURED_SUCCESS' })

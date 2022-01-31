@@ -7,26 +7,26 @@ import connectWithLedger from './connectLedger'
 import { LoginOption, WalletProviderAction } from './types'
 import { Dispatch } from 'react'
 
-const COIN_TYPE = process.env.COIN_TYPE! as CoinType
-
 // a helper function for getting the default wallet associated with the wallet provider
 const fetchDefaultWallet = async (
   dispatch: Dispatch<WalletProviderAction>,
   loginOption: LoginOption,
-  walletProvider: Filecoin
+  walletProvider: Filecoin,
+  coinType: CoinType
 ) => {
   dispatch(clearError())
   let provider = walletProvider
   if (loginOption === LEDGER) {
     provider = await connectWithLedger(
       dispatch,
-      walletProvider.wallet as LedgerProvider
+      walletProvider.wallet as LedgerProvider,
+      walletProvider.jsonRpcEngine.apiAddress
     )
   }
 
-  const [defaultAddress] = await provider.wallet.getAccounts(0, 1, COIN_TYPE)
+  const [defaultAddress] = await provider.wallet.getAccounts(0, 1, coinType)
   const balance = await provider.getBalance(defaultAddress)
-  let path = createPath(coinTypeCode(COIN_TYPE), 0)
+  let path = createPath(coinTypeCode(coinType), 0)
 
   if (loginOption === 'IMPORT_SINGLE_KEY') path = ''
   return {

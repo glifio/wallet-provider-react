@@ -31,7 +31,8 @@ const Create: FC<{
   const [canContinue, setCanContinue] = useState(false)
   const [importSeedError, setImportSeedError] = useState(false)
   const [acceptedWarning, setAcceptedWarning] = useState(false)
-  const { dispatch, fetchDefaultWallet, walletList } = useWalletProvider()
+  const { dispatch, fetchDefaultWallet, walletList, lotusApiAddr } =
+    useWalletProvider()
 
   const nextStep = () => {
     setImportSeedError(false)
@@ -50,7 +51,7 @@ const Create: FC<{
     const instantiateProvider = async () => {
       try {
         const provider = new Filecoin(new HDWalletProvider(mnemonic), {
-          apiAddress: process.env.LOTUS_NODE_JSONRPC
+          apiAddress: lotusApiAddr
         })
         dispatch(createWalletProvider(provider, 'CREATE_MNEMONIC'))
         const wallet = await fetchDefaultWallet(provider)
@@ -71,7 +72,8 @@ const Create: FC<{
     walkthroughStep,
     loading,
     walletList,
-    next
+    next,
+    lotusApiAddr
   ])
 
   return (

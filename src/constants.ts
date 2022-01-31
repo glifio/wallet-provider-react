@@ -11,10 +11,7 @@ export const LEDGER = 'LEDGER'
 export const METAMASK = 'METAMASK'
 
 /* API ENDPOINTS */
-export const FILSCAN = 'https://api.filscan.io:8700/v0/filscan'
-export const FILSCAN_JSONRPC = 'https://api.filscan.io:8700/rpc/v1'
-export const FILSCOUT = 'https://filscoutv3api.ipfsunion.cn'
-export const FILFOX = 'https://filfox.info/api'
+export const FILSNAP = 'npm:@chainsafe/filsnap'
 
 /* NETWORK VARS */
 export const MAINNET = 'f'

@@ -76,7 +76,7 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
   ])
 
   const connectFILSnap = useCallback(async () => {
-    await _connectFILSnap(process.env.FIL_SNAP_HOST! as string)
+    await _connectFILSnap()
     await fetchMetaMaskState()
   }, [fetchMetaMaskState])
 
