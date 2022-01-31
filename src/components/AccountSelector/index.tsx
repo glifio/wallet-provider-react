@@ -21,9 +21,9 @@ import Create from './Create'
 import { TESTNET_PATH_CODE } from '../../constants'
 
 import createPath, { coinTypeCode } from '../../utils/createPath'
-import reportError from '../../utils/reportError'
 import converAddrToFPrefix from '../../utils/convertAddrToFPrefix'
 import { COIN_TYPE_PROPTYPE } from '../../customPropTypes'
+import { errorLogger } from '../../logger'
 
 const AccountSelector = ({
   onSelectAccount,
@@ -33,6 +33,7 @@ const AccountSelector = ({
   coinType,
   nWalletsToLoad,
   test,
+  isProd,
   back
 }: {
   onSelectAccount: () => void
@@ -42,6 +43,7 @@ const AccountSelector = ({
   coinType: CoinType
   nWalletsToLoad: number
   test: boolean
+  isProd: boolean
   back?: () => void
 }) => {
   const wallet = useWallet()
@@ -54,7 +56,8 @@ const AccountSelector = ({
     switchWallet,
     getProvider,
     wallets,
-    walletError
+    walletError,
+    lotusApiAddr
   } = useWalletProvider()
   const router = useRouter()
 
@@ -92,7 +95,12 @@ const AccountSelector = ({
             setLoadingPage(false)
           }
         } catch (err) {
-          reportError(14, false, err.message, err.stack)
+          errorLogger.error(
+            err instanceof Error
+              ? err.message
+              : 'Error loading first N Wallets',
+            'AccountSelector'
+          )
           setUncaughtError(err.message)
           setLoadingPage(false)
         }
@@ -143,7 +151,10 @@ const AccountSelector = ({
         walletList([w])
       }
     } catch (err) {
-      reportError(15, false, err.message, err.stack)
+      errorLogger.error(
+        err instanceof Error ? err.message : 'Error fetching next account',
+        'AccountSelector'
+      )
       setUncaughtError(err.message)
     }
     setLoadingAccounts(false)
@@ -214,7 +225,7 @@ const AccountSelector = ({
                         showSelectedAccount && w.address === wallet.address
                       }
                       legacy={
-                        process.env.IS_PROD &&
+                        isProd &&
                         w.path.split('/')[2] === `${TESTNET_PATH_CODE}'`
                       }
                       path={w.path}
@@ -222,7 +233,7 @@ const AccountSelector = ({
                       // its hard to mock SWR + balance fetcher in the AccountCardAlt
                       // so we pass a manual balance to not rely on SWR for testing
                       balance={test ? '1' : null}
-                      jsonRpcEndpoint={process.env.LOTUS_NODE_JSONRPC!}
+                      jsonRpcEndpoint={lotusApiAddr}
                       nDefaultWallets={nWalletsToLoad}
                     />
                   </MenuItem>
@@ -252,13 +263,16 @@ AccountSelector.propTypes = {
   title: string.isRequired,
   test: bool,
   coinType: COIN_TYPE_PROPTYPE,
-  nWalletsToLoad: number
+  nWalletsToLoad: number,
+  back: func,
+  isProd: bool
 }
 
 AccountSelector.defaultProps = {
   showSelectedAccount: true,
   test: false,
-  nWalletsToLoad: 5
+  nWalletsToLoad: 5,
+  isProd: false
 }
 
 export default AccountSelector

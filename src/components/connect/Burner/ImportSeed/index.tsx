@@ -21,7 +21,7 @@ const InputMnemonic: FC<{ next: () => void; back: () => void }> = ({
   next,
   back
 }) => {
-  const { dispatch, fetchDefaultWallet } = useWalletProvider()
+  const { dispatch, fetchDefaultWallet, lotusApiAddr } = useWalletProvider()
   const [mnemonic, setMnemonic] = useState('')
   const [mnemonicError, setMnemonicError] = useState('')
   const [loadingNextScreen, setLoadingNextScreen] = useState(false)
@@ -36,7 +36,7 @@ const InputMnemonic: FC<{ next: () => void; back: () => void }> = ({
       const isValid = validateMnemonic(trimmed)
       if (isValid) {
         const provider = new Filecoin(new HDWalletProvider(mnemonic), {
-          apiAddress: process.env.LOTUS_NODE_JSONRPC
+          apiAddress: lotusApiAddr
         })
         dispatch(createWalletProvider(provider, 'IMPORT_MNEMONIC'))
         const wallet = await fetchDefaultWallet(provider)

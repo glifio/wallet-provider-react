@@ -15,7 +15,8 @@ import {
 const connectWithLedger = async (
   dispatch: Dispatch<WalletProviderAction>,
   // if one already exists... use it
-  ledgerSubProvider?: LedgerProvider
+  ledgerSubProvider: LedgerProvider,
+  lotusApiAddr: string
 ): Promise<Filecoin & { wallet: LedgerProvider }> => {
   dispatch(clearError())
   dispatch(resetLedgerState())
@@ -76,7 +77,7 @@ const connectWithLedger = async (
   }
 
   return new Filecoin(subProvider, {
-    apiAddress: process.env.LOTUS_NODE_JSONRPC
+    apiAddress: lotusApiAddr
   }) as Filecoin & { wallet: LedgerProvider }
 }
 

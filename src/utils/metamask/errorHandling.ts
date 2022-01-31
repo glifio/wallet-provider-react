@@ -5,8 +5,7 @@ import {
   isSnapInstalled
 } from '@chainsafe/filsnap-adapter'
 import { MetaMaskState } from './state'
-
-const SNAP_HOST = process.env.FIL_SNAP_HOST! as string
+import { FILSNAP } from '../../constants'
 
 export const isUnlocked = async (): Promise<boolean> => {
   return window.ethereum._metamask.isUnlocked()
@@ -34,7 +33,7 @@ export const metaMaskEnable = async (): Promise<void> => {
     throw new MetaMaskLockedError()
   }
 
-  const filSnapInstalled = await isSnapInstalled(SNAP_HOST)
+  const filSnapInstalled = await isSnapInstalled(FILSNAP)
   if (!filSnapInstalled) {
     throw new MetaMaskFilSnapNotInstalledError()
   }

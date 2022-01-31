@@ -5,18 +5,18 @@ import { FilecoinNumber } from '@glif/filecoin-number'
 import useSWR, { SWRConfiguration } from 'swr'
 
 import { useWalletProvider } from '../WalletProvider'
-import reportError from '../../utils/reportError'
+import { errorLogger } from '../../logger'
 
 export const useBalancePoller = (
   swrOptions: SWRConfiguration = { refreshInterval: 10000 }
 ) => {
-  const { selectedWalletIdx, updateBalance } = useWalletProvider()
+  const { selectedWalletIdx, updateBalance, lotusApiAddr } = useWalletProvider()
   const wallet = useWallet()
   const fetcher = useCallback(
     async (address: string, prevBalance: FilecoinNumber, walletIdx: number) => {
       try {
         const lCli = new LotusRPCEngine({
-          apiAddress: process.env.LOTUS_NODE_JSONRPC
+          apiAddress: lotusApiAddr
         })
         const latestBalance = new FilecoinNumber(
           await lCli.request<string>('WalletBalance', address),
@@ -28,10 +28,13 @@ export const useBalancePoller = (
 
         return latestBalance
       } catch (err) {
-        reportError(4, false, err.message, err.stack)
+        errorLogger.error(
+          err instanceof Error ? err.message : 'Error fetching balance',
+          'useBalancePoller'
+        )
       }
     },
-    [updateBalance]
+    [updateBalance, lotusApiAddr]
   )
 
   const { data } = useSWR(

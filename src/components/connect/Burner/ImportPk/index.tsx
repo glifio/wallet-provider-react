@@ -20,8 +20,13 @@ const InputPrivateKey: FC<{ next: () => void; back: () => void }> = ({
   next,
   back
 }) => {
-  const { dispatch, fetchDefaultWallet, setLoginOption, walletList } =
-    useWalletProvider()
+  const {
+    dispatch,
+    fetchDefaultWallet,
+    setLoginOption,
+    walletList,
+    lotusApiAddr
+  } = useWalletProvider()
   const [privateKey, setPrivateKey] = useState('')
   const [privateKeyError, setPrivateKeyError] = useState('')
   const [loadingNextScreen, setLoadingNextScreen] = useState(false)
@@ -32,7 +37,7 @@ const InputPrivateKey: FC<{ next: () => void; back: () => void }> = ({
       setLoadingNextScreen(true)
       setPrivateKey('')
       const provider = new Filecoin(new SECP256K1KeyProvider(privateKey), {
-        apiAddress: process.env.LOTUS_NODE_JSONRPC
+        apiAddress: lotusApiAddr
       })
       dispatch(createWalletProvider(provider, 'IMPORT_SINGLE_KEY'))
       const wallet = await fetchDefaultWallet(provider)
