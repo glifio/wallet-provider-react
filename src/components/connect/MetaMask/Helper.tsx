@@ -48,11 +48,7 @@ export const HelperText: FC<
     return (
       <>
         <Title>MetaMask not installed!</Title>
-        <P
-          css={`
-            margin-bottom: ${space('arge')};
-          `}
-        >
+        <P mb={space('large')}>
           Please{' '}
           <a
             target='_blank'
@@ -64,19 +60,13 @@ export const HelperText: FC<
           to get started
         </P>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={onRetry}
         >
           Try again
         </ButtonV2>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={back}
         >
           Back
@@ -87,27 +77,17 @@ export const HelperText: FC<
     return (
       <>
         <Title>MetaMask locked!</Title>
-        <P
-          css={`
-            margin-bottom: ${space('arge')};
-          `}
-        >
+        <P mb={space('large')}>
           Please unlock MetaMask to get started
         </P>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={onRetry}
         >
           Try again
         </ButtonV2>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={back}
         >
           Back
@@ -130,19 +110,13 @@ export const HelperText: FC<
           to get started
         </P>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={onRetry}
         >
           Try again
         </ButtonV2>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={back}
         >
           Back
@@ -155,19 +129,14 @@ export const HelperText: FC<
       <>
         <Title>FILSnap not detected!</Title>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
           large
+          mt={space('large')}
           onClick={connectFILSnap}
         >
           Connect FILSnap
         </ButtonV2>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={back}
         >
           Back
@@ -186,19 +155,13 @@ export const HelperText: FC<
           Please enable FILSnap in your MetaMask settings to continue.
         </P>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={onRetry}
         >
           Try again
         </ButtonV2>
         <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
+          mt={space('large')}
           onClick={back}
         >
           Back
