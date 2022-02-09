@@ -57,7 +57,7 @@ export const HelperText: FC<
           <a
             target='_blank'
             rel='noreferrer noopener'
-            href='https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en'
+            href='https://metamask.io/flask/'
           >
             install MetaMask
           </a>{' '}
@@ -123,11 +123,8 @@ export const HelperText: FC<
             margin-bottom: ${space('arge')};
           `}
         >
-          Please{' '}
-          <a href='https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en'>
-            upgrade MetaMask
-          </a>{' '}
-          to get started
+          Please <a href='https://metamask.io/flask/'>upgrade MetaMask</a> to
+          get started
         </P>
         <ButtonV2
           css={`
