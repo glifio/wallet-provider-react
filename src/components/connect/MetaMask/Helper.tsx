@@ -68,7 +68,7 @@ export const HelperText: FC<
             margin-top: ${space('large')};
           `}
           small
-          onClick={onRetry}
+          onClick={() => (window.location.href = window.location.href)}
         >
           Try again
         </ButtonV2>

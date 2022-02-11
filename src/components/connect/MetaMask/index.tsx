@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Box, IconMetaMaskFlask } from '@glif/react-components'
 import { HelperText } from './Helper'
@@ -35,6 +35,7 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
   next,
   back
 }) => {
+  const [fetchingState, setFetchingState] = useState(false)
   const { dispatch, state, connectMetaMask, fetchDefaultWallet, walletList } =
     useWalletProvider()
 
@@ -53,12 +54,16 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
       dispatch(createWalletProvider(provider, 'METAMASK'))
       const wallet = await fetchDefaultWallet(provider)
       walletList([wallet])
+      setFetchingState(false)
       await _next()
     }
   }, [dispatch, walletList, fetchDefaultWallet, _next, connectMetaMask])
 
   useEffect(() => {
-    if (state.metamask.loading) fetchMetaMaskState()
+    if (state.metamask.loading && !state.metamask.error && !fetchingState) {
+      setFetchingState(true)
+      fetchMetaMaskState()
+    }
     // user clicked back...
     else if (
       !state.metamask.loading &&
@@ -72,6 +77,7 @@ const ConnectMM: FC<{ next: () => void; back: () => void }> = ({
     state.metamask.loading,
     state.wallets.length,
     state.metamask.error,
+    fetchingState,
     _next
   ])
 
