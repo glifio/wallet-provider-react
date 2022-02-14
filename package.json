@@ -1,6 +1,6 @@
 {
   "name": "@glif/wallet-provider-react",
-  "version": "0.0.0-alpha.15",
+  "version": "0.0.0-alpha.16",
   "description": "Wallet and login related react helpers for glif apps",
   "main": "dist/index.js",
   "repository": {
