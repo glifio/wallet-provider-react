@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import { ButtonV2, space, fontSize, H2, P } from '@glif/react-components'
+import { ButtonV2, space, fontSize, P } from '@glif/react-components'
 import {
   MetaMaskState,
   METAMASK_STATE_PROPTYPES
@@ -18,13 +18,11 @@ const Connecting: FC = () => {
   )
 }
 
-const Title = styled(H2).attrs(() => ({
-  marginTop: 0,
-  marginBottom: '1em',
-  fontWeight: 'normal',
-  fontSize: fontSize('large'),
-  lineHeight: '1.3em'
-}))``
+const Title = styled.h2`
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-size: ${fontSize('large')};
+`
 
 export const HelperText: FC<
   MetaMaskState & {
@@ -48,11 +46,7 @@ export const HelperText: FC<
     return (
       <>
         <Title>MetaMask not installed!</Title>
-        <P
-          css={`
-            margin-bottom: ${space('arge')};
-          `}
-        >
+        <P mb={space('large')}>
           Please{' '}
           <a
             target='_blank'
@@ -63,22 +57,10 @@ export const HelperText: FC<
           </a>{' '}
           to get started
         </P>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={() => (window.location.href = window.location.href)}
-        >
+        <ButtonV2 mt={space('large')} onClick={() => window.location.reload()}>
           Try again
         </ButtonV2>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={back}
-        >
+        <ButtonV2 mt={space('large')} onClick={back}>
           Back
         </ButtonV2>
       </>
@@ -87,29 +69,11 @@ export const HelperText: FC<
     return (
       <>
         <Title>MetaMask locked!</Title>
-        <P
-          css={`
-            margin-bottom: ${space('arge')};
-          `}
-        >
-          Please unlock MetaMask to get started
-        </P>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={onRetry}
-        >
+        <P mb={space('large')}>Please unlock MetaMask to get started</P>
+        <ButtonV2 mt={space('large')} onClick={onRetry}>
           Try again
         </ButtonV2>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={back}
-        >
+        <ButtonV2 mt={space('large')} onClick={back}>
           Back
         </ButtonV2>
       </>
@@ -126,22 +90,10 @@ export const HelperText: FC<
           Please <a href='https://metamask.io/flask/'>upgrade MetaMask</a> to
           get started
         </P>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={onRetry}
-        >
+        <ButtonV2 mt={space('large')} onClick={onRetry}>
           Try again
         </ButtonV2>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={back}
-        >
+        <ButtonV2 mt={space('large')} onClick={back}>
           Back
         </ButtonV2>
       </>
@@ -151,22 +103,10 @@ export const HelperText: FC<
     return (
       <>
         <Title>FILSnap not detected!</Title>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          large
-          onClick={connectFILSnap}
-        >
+        <ButtonV2 large mt={space('large')} onClick={connectFILSnap}>
           Connect FILSnap
         </ButtonV2>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={back}
-        >
+        <ButtonV2 mt={space('large')} onClick={back}>
           Back
         </ButtonV2>
       </>
@@ -182,22 +122,10 @@ export const HelperText: FC<
         >
           Please enable FILSnap in your MetaMask settings to continue.
         </P>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={onRetry}
-        >
+        <ButtonV2 mt={space('large')} onClick={onRetry}>
           Try again
         </ButtonV2>
-        <ButtonV2
-          css={`
-            margin-top: ${space('large')};
-          `}
-          small
-          onClick={back}
-        >
+        <ButtonV2 mt={space('large')} onClick={back}>
           Back
         </ButtonV2>
       </>

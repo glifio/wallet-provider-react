@@ -61,24 +61,18 @@ exports[`metamask onboarding it renders loading state 1`] = `
   align-items: center;
 }
 
-.c6 {
-  font-size: 26px;
-  font-weight: 600;
-  text-rendering: optimizeLegibility;
-  line-height: inherit;
-  font-weight: normal;
-  font-size: 28px;
-  line-height: 1.3em;
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-
 .c3 {
   mix-blend-mode: color-dodge;
 }
 
 .c4 {
   mix-blend-mode: overlay;
+}
+
+.c6 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-size: 28px;
 }
 
 .c7 {
@@ -522,8 +516,6 @@ exports[`metamask onboarding it renders loading state 1`] = `
   >
     <h2
       class="c6 c7"
-      font-size="28px"
-      font-weight="normal"
     >
       Connecting to FILSnap
     </h2>
