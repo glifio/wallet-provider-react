@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import { ButtonV2, space, fontSize, H2, P } from '@glif/react-components'
+import { ButtonV2, space, fontSize, P } from '@glif/react-components'
 import {
   MetaMaskState,
   METAMASK_STATE_PROPTYPES
@@ -18,13 +18,11 @@ const Connecting: FC = () => {
   )
 }
 
-const Title = styled(H2).attrs(() => ({
-  marginTop: 0,
-  marginBottom: '1em',
-  fontWeight: 'normal',
-  fontSize: fontSize('large'),
-  lineHeight: '1.3em'
-}))``
+const Title = styled.h2`
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-size: ${fontSize('large')};
+`;
 
 export const HelperText: FC<
   MetaMaskState & {
