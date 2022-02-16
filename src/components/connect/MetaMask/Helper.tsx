@@ -22,7 +22,7 @@ const Title = styled.h2`
   margin-top: 0;
   margin-bottom: 1em;
   font-size: ${fontSize('large')};
-`;
+`
 
 export const HelperText: FC<
   MetaMaskState & {
@@ -57,7 +57,7 @@ export const HelperText: FC<
           </a>{' '}
           to get started
         </P>
-        <ButtonV2 mt={space('large')} onClick={() => (window.location.reload())}>
+        <ButtonV2 mt={space('large')} onClick={() => window.location.reload()}>
           Try again
         </ButtonV2>
         <ButtonV2 mt={space('large')} onClick={back}>
