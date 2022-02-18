@@ -1,6 +1,5 @@
 import { FC } from 'react'
-import styled from 'styled-components'
-import { ButtonV2, space, fontSize, P } from '@glif/react-components'
+import { ButtonV2, space, P } from '@glif/react-components'
 import {
   MetaMaskState,
   METAMASK_STATE_PROPTYPES
@@ -8,21 +7,11 @@ import {
 
 const Connecting: FC = () => {
   return (
-    <Title
-      css={`
-        margin-top: ${space()};
-      `}
-    >
+    <h2>
       Connecting to FILSnap
-    </Title>
+    </h2>
   )
 }
-
-const Title = styled.h2`
-  margin-top: 0;
-  margin-bottom: 1em;
-  font-size: ${fontSize('large')};
-`
 
 export const HelperText: FC<
   MetaMaskState & {
@@ -45,7 +34,7 @@ export const HelperText: FC<
   if (!extInstalled)
     return (
       <>
-        <Title>MetaMask not installed!</Title>
+        <h2>MetaMask not installed!</h2>
         <P mb={space('large')}>
           Please{' '}
           <a
@@ -68,7 +57,7 @@ export const HelperText: FC<
   if (!extUnlocked)
     return (
       <>
-        <Title>MetaMask locked!</Title>
+        <h2>MetaMask locked!</h2>
         <P mb={space('large')}>Please unlock MetaMask to get started</P>
         <ButtonV2 mt={space('large')} onClick={onRetry}>
           Try again
@@ -81,7 +70,7 @@ export const HelperText: FC<
   if (!extSupportsSnap)
     return (
       <>
-        <Title>MetaMask doesn&apos;t support Snaps!</Title>
+        <h2>MetaMask doesn&apos;t support Snaps!</h2>
         <P
           css={`
             margin-bottom: ${space('arge')};
@@ -102,7 +91,7 @@ export const HelperText: FC<
   if (!snapInstalled)
     return (
       <>
-        <Title>FILSnap not detected!</Title>
+        <h2>FILSnap not detected!</h2>
         <ButtonV2 large mt={space('large')} onClick={connectFILSnap}>
           Connect FILSnap
         </ButtonV2>
@@ -114,7 +103,7 @@ export const HelperText: FC<
   if (!snapEnabled)
     return (
       <>
-        <Title>FILSnap disabled!</Title>
+        <h2>FILSnap disabled!</h2>
         <P
           css={`
             margin-bottom: ${space('arge')};
