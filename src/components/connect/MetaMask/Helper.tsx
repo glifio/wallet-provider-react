@@ -6,11 +6,7 @@ import {
 } from '../../../utils/metamask'
 
 const Connecting: FC = () => {
-  return (
-    <h2>
-      Connecting to FILSnap
-    </h2>
-  )
+  return <h2>Connecting to FILSnap</h2>
 }
 
 export const HelperText: FC<
