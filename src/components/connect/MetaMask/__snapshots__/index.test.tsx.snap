@@ -69,16 +69,6 @@ exports[`metamask onboarding it renders loading state 1`] = `
   mix-blend-mode: overlay;
 }
 
-.c6 {
-  margin-top: 0;
-  margin-bottom: 1em;
-  font-size: 28px;
-}
-
-.c7 {
-  margin-top: 10px;
-}
-
 .c2 {
   opacity: 0;
   -webkit-animation-name: QSrYq;
@@ -514,9 +504,7 @@ exports[`metamask onboarding it renders loading state 1`] = `
     display="flex"
     height="100%"
   >
-    <h2
-      class="c6 c7"
-    >
+    <h2>
       Connecting to FILSnap
     </h2>
   </div>
