@@ -34,7 +34,7 @@ const ReviewTx = ({ loginOption }: { loginOption: LoginOption }) => {
       <>
         {' '}
         <TextHighlight>
-          review the details on your Ledger Device, and then accept the
+          review the details on your Ledger Device, and then approve the
           transaction.
         </TextHighlight>
       </>
@@ -43,7 +43,7 @@ const ReviewTx = ({ loginOption }: { loginOption: LoginOption }) => {
     return (
       <>
         {' '}
-        <TextHighlight>accept the transaction in MetaMask.</TextHighlight>
+        <TextHighlight>approve the transaction in MetaMask.</TextHighlight>
       </>
     )
   return <></>
