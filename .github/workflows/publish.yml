@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ env.node_version }}
 
-      - run: npm i
+      - run: npm ci
 
       # Run tests and cleanup
       - run: npm test # block publishing on
