@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { bool, func, number, string } from 'prop-types'
-import { useRouter } from 'next/router'
 import {
   AccountCardAlt,
   Box,
@@ -9,8 +8,7 @@ import {
   Title,
   Menu,
   MenuItem,
-  LoadingScreen,
-  ButtonClose
+  LoadingScreen
 } from '@glif/react-components'
 import { CoinType } from '@glif/filecoin-address'
 
@@ -33,8 +31,7 @@ const AccountSelector = ({
   coinType,
   nWalletsToLoad,
   test,
-  isProd,
-  back
+  isProd
 }: {
   onSelectAccount: () => void
   showSelectedAccount: boolean
@@ -44,7 +41,6 @@ const AccountSelector = ({
   nWalletsToLoad: number
   test: boolean
   isProd: boolean
-  back?: () => void
 }) => {
   const wallet = useWallet()
   const [loadingAccounts, setLoadingAccounts] = useState(false)
@@ -59,7 +55,6 @@ const AccountSelector = ({
     walletError,
     lotusApiAddr
   } = useWalletProvider()
-  const router = useRouter()
 
   const [loadedFirstNWallets, setLoadedFirstNWallets] = useState(false)
 
@@ -162,16 +157,6 @@ const AccountSelector = ({
 
   return (
     <>
-      <ButtonClose
-        role='button'
-        type='button'
-        onClick={back || router.back}
-        position='absolute'
-        top='0'
-        right='0'
-        mt={4}
-        mr={4}
-      />
       <Box display='flex' flexDirection='column' justifyItems='center'>
         {loadingPage ? (
           <LoadingScreen height='100vh' />
@@ -264,7 +249,6 @@ AccountSelector.propTypes = {
   test: bool,
   coinType: COIN_TYPE_PROPTYPE,
   nWalletsToLoad: number,
-  back: func,
   isProd: bool
 }
 
