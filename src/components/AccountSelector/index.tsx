@@ -6,8 +6,6 @@ import {
   Card,
   Glyph,
   Title,
-  Menu,
-  MenuItem,
   LoadingScreen,
   space
 } from '@glif/react-components'
@@ -169,6 +167,7 @@ const AccountSelector = ({
   return (
     <>
       <Card
+        display='block'
         border='none'
         width='100%'
         mb={space()}
@@ -189,46 +188,41 @@ const AccountSelector = ({
           <HelperText text={helperText} />
         </Box>
       </Card>
-      <Menu>
-        <WalletTiles>
-          {wallets.map((w, i) => (
-            <MenuItem key={w.address}>
-              <AccountCardAlt
-                alignItems='center'
-                onClick={() => {
-                  switchWallet(i)
-                  onSelectAccount()
-                }}
-                address={w.address}
-                index={Number(w.path.split('/')[5])}
-                selected={
-                  showSelectedAccount && w.address === wallet.address
-                }
-                legacy={
-                  isProd &&
-                  w.path.split('/')[2] === `${TESTNET_PATH_CODE}'`
-                }
-                path={w.path}
-                // This is a hack to make testing the UI easier
-                // its hard to mock SWR + balance fetcher in the AccountCardAlt
-                // so we pass a manual balance to not rely on SWR for testing
-                balance={test ? '1' : null}
-                jsonRpcEndpoint={lotusApiAddr}
-                nDefaultWallets={nWalletsToLoad}
-              />
-            </MenuItem>
-          ))}
-          <MenuItem>
-            <Create
-              errorMsg={errorMsg}
-              nextAccountIndex={wallets.length}
-              onClick={fetchNextAccount}
-              loading={loadingAccounts}
-              defaultCoinType={coinType}
-            />
-          </MenuItem>
-        </WalletTiles>
-      </Menu>
+      <WalletTiles>
+        {wallets.map((w, i) => (
+          <AccountCardAlt
+            key={w.address}
+            alignItems='center'
+            onClick={() => {
+              switchWallet(i)
+              onSelectAccount()
+            }}
+            address={w.address}
+            index={Number(w.path.split('/')[5])}
+            selected={
+              showSelectedAccount && w.address === wallet.address
+            }
+            legacy={
+              isProd &&
+              w.path.split('/')[2] === `${TESTNET_PATH_CODE}'`
+            }
+            path={w.path}
+            // This is a hack to make testing the UI easier
+            // its hard to mock SWR + balance fetcher in the AccountCardAlt
+            // so we pass a manual balance to not rely on SWR for testing
+            balance={test ? '1' : null}
+            jsonRpcEndpoint={lotusApiAddr}
+            nDefaultWallets={nWalletsToLoad}
+          />
+        ))}
+        <Create
+          errorMsg={errorMsg}
+          nextAccountIndex={wallets.length}
+          onClick={fetchNextAccount}
+          loading={loadingAccounts}
+          defaultCoinType={coinType}
+        />
+      </WalletTiles>
     </>
   )
 }
