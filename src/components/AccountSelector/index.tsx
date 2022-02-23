@@ -8,9 +8,11 @@ import {
   Title,
   Menu,
   MenuItem,
-  LoadingScreen
+  LoadingScreen,
+  space
 } from '@glif/react-components'
 import { CoinType } from '@glif/filecoin-address'
+import styled from 'styled-components'
 
 import { useWalletProvider, Wallet } from '../../lib/WalletProvider'
 import useWallet from '../../lib/WalletProvider/useWallet'
@@ -22,6 +24,12 @@ import createPath, { coinTypeCode } from '../../utils/createPath'
 import converAddrToFPrefix from '../../utils/convertAddrToFPrefix'
 import { COIN_TYPE_PROPTYPE } from '../../customPropTypes'
 import { errorLogger } from '../../logger'
+
+const WalletTiles = styled.div`
+  display: grid;
+  gap: ${space()};
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+`
 
 const AccountSelector = ({
   onSelectAccount,
@@ -155,88 +163,72 @@ const AccountSelector = ({
     setLoadingAccounts(false)
   }
 
+  if (loadingPage)
+    return <LoadingScreen height='100vh' />
+
   return (
     <>
-      <Box display='flex' flexDirection='column' justifyItems='center'>
-        {loadingPage ? (
-          <LoadingScreen height='100vh' />
-        ) : (
-          <Box
-            display='flex'
-            flexDirection='column'
-            alignItems='center'
-            alignSelf='center'
-            maxWidth={19}
-            p={4}
-          >
-            <Card
-              display='flex'
-              flexDirection='column'
-              justifyContent='space-between'
-              border='none'
-              width='100%'
-              my={2}
-              maxWidth={16}
-              backgroundColor='blue.muted700'
-            >
-              <Box display='flex' alignItems='center'>
-                <Glyph
-                  acronym='Ac'
-                  bg='core.primary'
-                  borderColor='core.primary'
-                  color='core.white'
-                />
-                <Title ml={2} color='core.primary'>
-                  {title}
-                </Title>
-              </Box>
-              <Box mt={3}>
-                <HelperText text={helperText} />
-              </Box>
-            </Card>
-            <Menu>
-              <Box display='flex' flexWrap='wrap' justifyContent='center'>
-                {wallets.map((w, i) => (
-                  <MenuItem key={w.address}>
-                    <AccountCardAlt
-                      alignItems='center'
-                      onClick={() => {
-                        switchWallet(i)
-                        onSelectAccount()
-                      }}
-                      address={w.address}
-                      index={Number(w.path.split('/')[5])}
-                      selected={
-                        showSelectedAccount && w.address === wallet.address
-                      }
-                      legacy={
-                        isProd &&
-                        w.path.split('/')[2] === `${TESTNET_PATH_CODE}'`
-                      }
-                      path={w.path}
-                      // This is a hack to make testing the UI easier
-                      // its hard to mock SWR + balance fetcher in the AccountCardAlt
-                      // so we pass a manual balance to not rely on SWR for testing
-                      balance={test ? '1' : null}
-                      jsonRpcEndpoint={lotusApiAddr}
-                      nDefaultWallets={nWalletsToLoad}
-                    />
-                  </MenuItem>
-                ))}
-                <MenuItem>
-                  <Create
-                    errorMsg={errorMsg}
-                    nextAccountIndex={wallets.length}
-                    onClick={fetchNextAccount}
-                    loading={loadingAccounts}
-                    defaultCoinType={coinType}
-                  />
-                </MenuItem>
-              </Box>
-            </Menu>
-          </Box>
-        )}
-      </Box>
+      <Card
+        border='none'
+        width='100%'
+        mb={space()}
+        backgroundColor='blue.muted700'
+      >
+        <Box display='flex' alignItems='center'>
+          <Glyph
+            acronym='Ac'
+            bg='core.primary'
+            borderColor='core.primary'
+            color='core.white'
+          />
+          <Title ml={2} color='core.primary'>
+            {title}
+          </Title>
+        </Box>
+        <Box mt={5}>
+          <HelperText text={helperText} />
+        </Box>
+      </Card>
+      <Menu>
+        <WalletTiles>
+          {wallets.map((w, i) => (
+            <MenuItem key={w.address}>
+              <AccountCardAlt
+                alignItems='center'
+                onClick={() => {
+                  switchWallet(i)
+                  onSelectAccount()
+                }}
+                address={w.address}
+                index={Number(w.path.split('/')[5])}
+                selected={
+                  showSelectedAccount && w.address === wallet.address
+                }
+                legacy={
+                  isProd &&
+                  w.path.split('/')[2] === `${TESTNET_PATH_CODE}'`
+                }
+                path={w.path}
+                // This is a hack to make testing the UI easier
+                // its hard to mock SWR + balance fetcher in the AccountCardAlt
+                // so we pass a manual balance to not rely on SWR for testing
+                balance={test ? '1' : null}
+                jsonRpcEndpoint={lotusApiAddr}
+                nDefaultWallets={nWalletsToLoad}
+              />
+            </MenuItem>
+          ))}
+          <MenuItem>
+            <Create
+              errorMsg={errorMsg}
+              nextAccountIndex={wallets.length}
+              onClick={fetchNextAccount}
+              loading={loadingAccounts}
+              defaultCoinType={coinType}
+            />
+          </MenuItem>
+        </WalletTiles>
+      </Menu>
     </>
   )
 }
