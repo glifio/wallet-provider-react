@@ -161,8 +161,7 @@ const AccountSelector = ({
     setLoadingAccounts(false)
   }
 
-  if (loadingPage)
-    return <LoadingScreen height='100vh' />
+  if (loadingPage) return <LoadingScreen height='100vh' />
 
   return (
     <>
@@ -199,13 +198,8 @@ const AccountSelector = ({
             }}
             address={w.address}
             index={Number(w.path.split('/')[5])}
-            selected={
-              showSelectedAccount && w.address === wallet.address
-            }
-            legacy={
-              isProd &&
-              w.path.split('/')[2] === `${TESTNET_PATH_CODE}'`
-            }
+            selected={showSelectedAccount && w.address === wallet.address}
+            legacy={isProd && w.path.split('/')[2] === `${TESTNET_PATH_CODE}'`}
             path={w.path}
             // This is a hack to make testing the UI easier
             // its hard to mock SWR + balance fetcher in the AccountCardAlt

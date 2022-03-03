@@ -12,6 +12,7 @@
     "test:lint": "eslint --ext .jsx,.js,.ts,.tsx ./src",
     "test:jest": "jest --coverage",
     "test-watch": "jest --watch",
+    "lint-fix": "npm run test:lint -- --fix",
     "clean": "rimraf dist/* && mkdirp dist",
     "build": "run-s clean build:*",
     "build:babel": "babel src --out-dir dist --extensions \".ts,.tsx,.js,.jsx\" --source-maps --ignore 'src/**/*.test.jsx','src/**/*.test.tsx','src/**/*.test.ts','src/**/*.test.js','src/test-utils/**/*'",
