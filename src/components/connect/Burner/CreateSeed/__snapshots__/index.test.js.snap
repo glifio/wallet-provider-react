@@ -20,29 +20,6 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
 .c1 {
   min-width: 0;
   box-sizing: border-box;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-.c2 {
-  min-width: 0;
-  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -60,7 +37,7 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   align-content: center;
 }
 
-.c3 {
+.c2 {
   min-width: 0;
   box-sizing: border-box;
   border: 1px solid;
@@ -84,7 +61,7 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   justify-content: flex-start;
 }
 
-.c4 {
+.c3 {
   min-width: 0;
   box-sizing: border-box;
   padding: 16px;
@@ -103,7 +80,7 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   justify-content: space-between;
 }
 
-.c5 {
+.c4 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -127,7 +104,7 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   justify-content: center;
 }
 
-.c8 {
+.c7 {
   min-width: 0;
   box-sizing: border-box;
   padding-left: 16px;
@@ -136,7 +113,7 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   padding-bottom: 24px;
 }
 
-.c11 {
+.c10 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -149,13 +126,13 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   justify-content: space-between;
 }
 
-.c6 {
+.c5 {
   font-family: "RT-Alias-Medium","system-ui","Segoe UI","Roboto",Helvetica;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.c7 {
+.c6 {
   color: #661800;
   font-size: 1.5rem;
   font-weight: 400;
@@ -164,14 +141,14 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   margin: 0;
 }
 
-.c9 {
+.c8 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.4;
   font-family: RT-Alias-Grotesk;
 }
 
-.c12 {
+.c11 {
   cursor: pointer;
   border: 1px solid #262626;
   background-color: transparent;
@@ -191,11 +168,11 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   border-radius: 4px;
 }
 
-.c12:hover {
+.c11:hover {
   opacity: 0.8;
 }
 
-.c13 {
+.c12 {
   cursor: pointer;
   border: 1px solid #1AD08F;
   background-color: #1AD08F;
@@ -215,11 +192,11 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   border-radius: 4px;
 }
 
-.c13:hover {
+.c12:hover {
   opacity: 0.8;
 }
 
-.c10 {
+.c9 {
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-transition: 0.18s ease-in-out;
@@ -229,7 +206,7 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
   font-size: 1.25rem;
 }
 
-.c10:hover {
+.c9:hover {
   border-bottom: 2px solid #5E26FF;
 }
 
@@ -245,84 +222,78 @@ exports[`Create seed phrase configuration it renders the warning correctly 1`] =
     <div
       class="c2"
       display="flex"
+      overflow="hidden"
       width="100%"
     >
       <div
         class="c3"
         display="flex"
-        overflow="hidden"
-        width="100%"
       >
         <div
           class="c4"
+          color="status.warning.foreground"
           display="flex"
+          size="6"
         >
-          <div
+          <h3
             class="c5"
-            color="status.warning.foreground"
-            display="flex"
-            size="6"
           >
-            <h3
-              class="c6"
-            >
-              Wn
-            </h3>
-          </div>
-          <h2
-            class="c7"
-            color="status.warning.foreground"
-            font-family="RT-Alias-Grotesk"
-            font-size="4"
-            font-weight="400"
-          >
-            Warning
-          </h2>
+            Wn
+          </h3>
         </div>
-        <div
-          class="c8"
+        <h2
+          class="c6"
+          color="status.warning.foreground"
+          font-family="RT-Alias-Grotesk"
+          font-size="4"
+          font-weight="400"
         >
-          <p
-            class="c9"
-            font-family="RT-Alias-Grotesk"
-            font-size="2"
-            font-weight="400"
-          >
-            We do not recommend you use this burner wallet to hold or transact significant sums of Filecoin. For significant sums, Glif Sender should be used with a non-burner wallet.
-          </p>
-          <a
-            class="c10"
-            color="core.primary"
-            font-size="3"
-            href="https://coinsutra.com/security-risks-bitcoin-wallets/"
-            rel="noopener"
-            target="_blank"
-          >
-            Why isn't it secure?
-          </a>
-        </div>
+          Warning
+        </h2>
       </div>
       <div
-        class="c11"
-        display="flex"
+        class="c7"
       >
-        <button
-          class="c12"
-          font-size="3"
-          height="6"
-          type="button"
+        <p
+          class="c8"
+          font-family="RT-Alias-Grotesk"
+          font-size="2"
+          font-weight="400"
         >
-          Back
-        </button>
-        <button
-          class="c13"
+          We do not recommend you use this burner wallet to hold or transact significant sums of Filecoin. For significant sums, Glif Sender should be used with a non-burner wallet.
+        </p>
+        <a
+          class="c9"
+          color="core.primary"
           font-size="3"
-          height="6"
-          type="button"
+          href="https://coinsutra.com/security-risks-bitcoin-wallets/"
+          rel="noopener"
+          target="_blank"
         >
-          I Understand
-        </button>
+          Why isn't it secure?
+        </a>
       </div>
+    </div>
+    <div
+      class="c10"
+      display="flex"
+    >
+      <button
+        class="c11"
+        font-size="3"
+        height="6"
+        type="button"
+      >
+        Back
+      </button>
+      <button
+        class="c12"
+        font-size="3"
+        height="6"
+        type="button"
+      >
+        I Understand
+      </button>
     </div>
   </div>
 </div>
@@ -332,6 +303,11 @@ exports[`Create seed phrase configuration it sends the user to wallet view, with
 .c0 {
   min-width: 0;
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -393,6 +369,8 @@ exports[`Create seed phrase configuration it sends the user to wallet view, with
 <div
   class="c0"
   display="flex"
+  height="100%"
+  width="100%"
 >
   <span
     class="c1"

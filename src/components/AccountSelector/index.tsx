@@ -191,7 +191,6 @@ const AccountSelector = ({
         {wallets.map((w, i) => (
           <AccountCardAlt
             key={w.address}
-            alignItems='center'
             onClick={() => {
               switchWallet(i)
               onSelectAccount()
