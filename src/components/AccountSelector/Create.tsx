@@ -21,9 +21,8 @@ const LoadingCard = () => (
     display='flex'
     flexWrap='wrap'
     alignContent='flex-start'
-    width={11}
+    width='100%'
     height={11}
-    m={2}
     bg='core.transparent'
     borderColor='core.primary'
     color='core.primary'
@@ -74,13 +73,12 @@ const Create = ({
       display='flex'
       flexDirection='column'
       justifyContent='space-between'
-      width={11}
+      width='100%'
       height={11}
       border={1}
       borderRadius={2}
       px={3}
       py={3}
-      m={2}
       bg='hsla(0, 0%, 90%, 0)'
       color='colors.core.black'
     >
@@ -92,7 +90,6 @@ const Create = ({
           flexDirection='row'
           alignItems='center'
           justifyContent='center'
-          maxWidth={11}
         >
           <Label width='50%'>Account index</Label>
           <Input.RawNumberInput
@@ -127,7 +124,7 @@ const Create = ({
           network={coinType}
         />
         {coinType === 't' ? (
-          <Text p={0} m={0} fontSize='15px' textAlign='left'>
+          <Text p={0} m={0} mt={1} fontSize='15px' textAlign='left'>
             {'*Not recommended'}
           </Text>
         ) : (
