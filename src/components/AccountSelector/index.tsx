@@ -21,7 +21,7 @@ import { TESTNET_PATH_CODE } from '../../constants'
 import createPath, { coinTypeCode } from '../../utils/createPath'
 import converAddrToFPrefix from '../../utils/convertAddrToFPrefix'
 import { COIN_TYPE_PROPTYPE } from '../../customPropTypes'
-import { errorLogger } from '../../logger'
+import { logger } from '../../logger'
 
 const WalletTiles = styled.div`
   display: grid;
@@ -96,7 +96,7 @@ const AccountSelector = ({
             setLoadingPage(false)
           }
         } catch (err) {
-          errorLogger.error(
+          logger.error(
             err instanceof Error
               ? err.message
               : 'Error loading first N Wallets',
@@ -152,7 +152,7 @@ const AccountSelector = ({
         walletList([w])
       }
     } catch (err) {
-      errorLogger.error(
+      logger.error(
         err instanceof Error ? err.message : 'Error fetching next account',
         'AccountSelector'
       )
