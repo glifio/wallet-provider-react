@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ButtonV2, space, P } from '@glif/react-components'
+import { ButtonV2, space, SmartLink } from '@glif/react-components'
 import {
   MetaMaskState,
   METAMASK_STATE_PROPTYPES
@@ -31,17 +31,13 @@ export const HelperText: FC<
     return (
       <>
         <h2>MetaMask not installed!</h2>
-        <P mb={space('large')}>
+        <p>
           Please{' '}
-          <a
-            target='_blank'
-            rel='noreferrer noopener'
-            href='https://metamask.io/flask/'
-          >
+          <SmartLink href='https://metamask.io/flask/'>
             install MetaMask
-          </a>{' '}
+          </SmartLink>{' '}
           to get started
-        </P>
+        </p>
         <ButtonV2 mt={space('large')} onClick={() => window.location.reload()}>
           Try again
         </ButtonV2>
@@ -54,7 +50,7 @@ export const HelperText: FC<
     return (
       <>
         <h2>MetaMask locked!</h2>
-        <P mb={space('large')}>Please unlock MetaMask to get started</P>
+        <p>Please unlock MetaMask to get started</p>
         <ButtonV2 mt={space('large')} onClick={onRetry}>
           Try again
         </ButtonV2>
@@ -67,14 +63,13 @@ export const HelperText: FC<
     return (
       <>
         <h2>MetaMask doesn&apos;t support Snaps!</h2>
-        <P
-          css={`
-            margin-bottom: ${space('arge')};
-          `}
-        >
-          Please <a href='https://metamask.io/flask/'>upgrade MetaMask</a> to
-          get started
-        </P>
+        <p>
+          Please{' '}
+          <SmartLink href='https://metamask.io/flask/'>
+            upgrade MetaMask
+          </SmartLink>{' '}
+          to get started
+        </p>
         <ButtonV2 mt={space('large')} onClick={onRetry}>
           Try again
         </ButtonV2>
@@ -100,13 +95,7 @@ export const HelperText: FC<
     return (
       <>
         <h2>FILSnap disabled!</h2>
-        <P
-          css={`
-            margin-bottom: ${space('arge')};
-          `}
-        >
-          Please enable FILSnap in your MetaMask settings to continue.
-        </P>
+        <p>Please enable FILSnap in your MetaMask settings to continue.</p>
         <ButtonV2 mt={space('large')} onClick={onRetry}>
           Try again
         </ButtonV2>
