@@ -5,7 +5,7 @@ import { FilecoinNumber } from '@glif/filecoin-number'
 import useSWR, { SWRConfiguration } from 'swr'
 
 import { useWalletProvider } from '../WalletProvider'
-import { errorLogger } from '../../logger'
+import { logger } from '../../logger'
 
 export const useBalancePoller = (
   swrOptions: SWRConfiguration = { refreshInterval: 10000 }
@@ -28,7 +28,7 @@ export const useBalancePoller = (
 
         return latestBalance
       } catch (err) {
-        errorLogger.error(
+        logger.error(
           err instanceof Error ? err.message : 'Error fetching balance',
           'useBalancePoller'
         )
