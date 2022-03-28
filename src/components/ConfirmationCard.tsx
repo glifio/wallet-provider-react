@@ -167,7 +167,7 @@ const MsigHelperText = ({
           display='inline-block'
           target='_blank'
           rel='noopener noreferrer'
-          href=''
+          href='https://blog.glif.io/using-glif-with-a-ledger-device/'
         >
           What should I see on my Ledger Device?
         </StyledATag>
@@ -179,7 +179,7 @@ const MsigHelperText = ({
           display='inline-block'
           target='_blank'
           rel='noopener noreferrer'
-          href=''
+          href='https://blog.glif.io/using-glif-with-metamask/'
         >
           What should I see in MetaMask?
         </StyledATag>
