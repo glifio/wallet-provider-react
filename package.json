@@ -64,8 +64,8 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
-    "@chainsafe/filsnap-adapter": "^2.0.1",
-    "@chainsafe/filsnap-types": "^2.0.0",
+    "@chainsafe/filsnap-adapter": "^2.1.0",
+    "@chainsafe/filsnap-types": "^2.1.0",
     "@glif/filecoin-address": "latest",
     "@glif/filecoin-message": "latest",
     "@glif/filecoin-number": "latest",
