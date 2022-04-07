@@ -65,11 +65,11 @@
   },
   "dependencies": {
     "@chainsafe/filsnap-adapter": "^2.1.0",
-    "@chainsafe/filsnap-types": "^2.1.0",
+    "@chainsafe/filsnap-types": "^2.1.2",
     "@glif/filecoin-address": "latest",
     "@glif/filecoin-message": "latest",
     "@glif/filecoin-number": "latest",
-    "@glif/filecoin-rpc-client": "latest",
+    "@glif/filecoin-rpc-client": "^2.0.0-beta.0",
     "@glif/logger": "^2.0.0-alpha.16",
     "@ledgerhq/hw-transport": "^6.11.2",
     "@zondax/filecoin-signing-tools": "^0.18.6",
