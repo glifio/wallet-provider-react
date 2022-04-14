@@ -25,9 +25,6 @@ export const LEDGER_VERSION_MAJOR = 0
 export const LEDGER_VERSION_MINOR = 18
 export const LEDGER_VERSION_PATCH = 2
 
-/* STYLE CONSTANTS */
-export const SCREEN_MAX_WIDTH = 1440
-
 /* PAGES */
 /* eslint-disable no-unused-vars */
 export enum PAGE {
@@ -63,6 +60,3 @@ export enum MSIG_METHOD {
   LOCK_BALANCE
 }
 /* eslint-enable */
-
-// todo #responsiveDesign: decide how to do responsive design
-export const RESPONSIVE_BREAKPOINT = 1024
