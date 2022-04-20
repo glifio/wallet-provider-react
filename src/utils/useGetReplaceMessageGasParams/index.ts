@@ -39,11 +39,13 @@ export const useGetReplaceMessageGasParams = (
     if (message) {
       setLoading(true)
       getGasParams(message)
-        .then((g: ProviderGasParams) => setGasParams({
-          gasFeeCap: new FilecoinNumber(g.gasFeeCap, 'attofil'),
-          gasPremium: new FilecoinNumber(g.gasPremium, 'attofil'),
-          gasLimit: new FilecoinNumber(g.gasLimit, 'attofil')
-        }))
+        .then((g: ProviderGasParams) =>
+          setGasParams({
+            gasFeeCap: new FilecoinNumber(g.gasFeeCap, 'attofil'),
+            gasPremium: new FilecoinNumber(g.gasPremium, 'attofil'),
+            gasLimit: new FilecoinNumber(g.gasLimit, 'attofil')
+          })
+        )
         .catch((e: Error) => setError(e))
         .finally(() => setLoading(false))
     }
