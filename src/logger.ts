@@ -1,17 +1,23 @@
-import { Logger } from '@glif/logger'
-import pjson from '../package.json'
+import { Logger, LogLevel } from '@glif/logger'
 
-const SENTRY_DSN = process.env.NEXT_PUBLIC_SENTRY_DSN! as string
-const SENTRY_ENV = process.env.NEXT_PUBLIC_SENTRY_ENV! as string
-const ENABLE_SENTRY = process.env.NEXT_PUBLIC_ENABLE_SENTRY! as string
+const IS_PROD: boolean = !!process.env.NEXT_PUBLIC_IS_PROD
+const SENTRY_DSN: string = process.env.NEXT_PUBLIC_SENTRY_DSN || ''
+const SENTRY_ENV: string = process.env.NEXT_PUBLIC_SENTRY_ENV || ''
+const PACKAGE_NAME: string =
+  process.env.NEXT_PUBLIC_PACKAGE_NAME || 'wallet-provider-react'
+const PACKAGE_VERSION: string =
+  process.env.NEXT_PUBLIC_PACKAGE_VERSION || '?.?.?'
 
 export const logger = new Logger({
-  sentryTraces: 0,
+  consoleEnabled: true,
+  consoleLevel: LogLevel.DEBUG,
+  sentryEnabled: IS_PROD,
+  sentryLevel: LogLevel.WARN,
   sentryDsn: SENTRY_DSN,
   sentryEnv: SENTRY_ENV,
-  sentryEnabled: !!ENABLE_SENTRY,
-  packageName: pjson.name,
-  packageVersion: pjson.version
+  sentryTraces: 0,
+  packageName: PACKAGE_NAME,
+  packageVersion: PACKAGE_VERSION
 })
 
 const getCurrentTimeFormatted = () => {
