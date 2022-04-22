@@ -2,10 +2,17 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { FilecoinNumber } from '@glif/filecoin-number'
 import { LotusMessage, Message } from '@glif/filecoin-message'
-import { Box, Text, Input, Button, StyledATag } from '@glif/react-components'
+import {
+  Box,
+  Text,
+  Input,
+  Button,
+  StyledATag,
+  ADDRESS_PROPTYPE,
+  FILECOIN_NUMBER_PROPTYPE
+} from '@glif/react-components'
 
 import { Wallet } from '../../lib/WalletProvider/types'
-import { ADDRESS_PROPTYPE, FILECOIN_NUMBER_PROP } from '../../customPropTypes'
 
 const Helper = ({
   error,
@@ -288,18 +295,18 @@ CustomizeFee.propTypes = {
   message: PropTypes.object.isRequired,
   setGasInfo: PropTypes.func.isRequired,
   gasInfo: PropTypes.shape({
-    estimatedTransactionFee: FILECOIN_NUMBER_PROP,
-    gasPremium: FILECOIN_NUMBER_PROP,
-    gasFeeCap: FILECOIN_NUMBER_PROP,
-    gasLimit: FILECOIN_NUMBER_PROP
+    estimatedTransactionFee: FILECOIN_NUMBER_PROPTYPE.isRequired,
+    gasPremium: FILECOIN_NUMBER_PROPTYPE.isRequired,
+    gasFeeCap: FILECOIN_NUMBER_PROPTYPE.isRequired,
+    gasLimit: FILECOIN_NUMBER_PROPTYPE.isRequired
   }),
   setFrozen: PropTypes.func.isRequired,
-  feeMustBeLessThanThisAmount: FILECOIN_NUMBER_PROP,
+  feeMustBeLessThanThisAmount: FILECOIN_NUMBER_PROPTYPE.isRequired,
   gasEstimateMaxFee: PropTypes.func.isRequired,
   gasEstimateMessageGas: PropTypes.func.isRequired,
   wallet: PropTypes.shape({
-    address: ADDRESS_PROPTYPE,
-    balance: FILECOIN_NUMBER_PROP,
+    address: ADDRESS_PROPTYPE.isRequired,
+    balance: FILECOIN_NUMBER_PROPTYPE.isRequired,
     path: PropTypes.string
   }).isRequired,
   error: PropTypes.string.isRequired,
