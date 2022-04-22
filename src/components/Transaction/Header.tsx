@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import { FilecoinNumber } from '@glif/filecoin-number'
-import truncateAddress from '../../utils/truncateAddress'
-import makeFriendlyBalance from '../../utils/makeFriendlyBalance'
 import {
   ADDRESS_PROPTYPE,
   FILECOIN_NUMBER_PROPTYPE
-} from '../../customPropTypes'
+} from '@glif/react-components'
+
+import truncateAddress from '../../utils/truncateAddress'
+import makeFriendlyBalance from '../../utils/makeFriendlyBalance'
 
 const Header = styled.header`
   display: flex;

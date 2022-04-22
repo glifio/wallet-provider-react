@@ -1,6 +1,5 @@
 import { FilecoinNumber } from '@glif/filecoin-number'
-import { FILECOIN_NUMBER_PROPTYPE } from '../../customPropTypes'
-import { SmartLink } from '../Link/SmartLink'
+import { FILECOIN_NUMBER_PROPTYPE, SmartLink } from '@glif/react-components'
 
 export const TransactionMaxFee = ({ maxFee }: TransactionMaxFeeProps) => {
   return (

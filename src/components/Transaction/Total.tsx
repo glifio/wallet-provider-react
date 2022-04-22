@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { FilecoinNumber } from '@glif/filecoin-number'
-import { FILECOIN_NUMBER_PROPTYPE } from '../../customPropTypes'
+import { FILECOIN_NUMBER_PROPTYPE } from '@glif/react-components'
 
 const Footer = styled.footer`
   display: flex;
