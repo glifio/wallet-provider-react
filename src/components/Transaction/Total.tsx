@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { FilecoinNumber } from '@glif/filecoin-number'
 import { FILECOIN_NUMBER_PROPTYPE } from '@glif/react-components'
 
-const Footer = styled.footer`
+const Total = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,10 +15,13 @@ const Footer = styled.footer`
 
 export const TransactionTotal = ({ total }: TransactionTotalProps) => {
   return (
-    <Footer>
-      <span>Total</span>
-      <span>{total.toFil()} FIL</span>
-    </Footer>
+    <footer>
+      <hr />
+      <Total>
+        <span>Total</span>
+        <span>{total.toFil()} FIL</span>
+      </Total>
+    </footer>
   )
 }
 
