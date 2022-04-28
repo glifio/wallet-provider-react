@@ -77,7 +77,7 @@ Helper.propTypes = {
   dirty: PropTypes.bool.isRequired,
   setGasInfoWMaxFee: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
-  estimatedTransactionFee: FILECOIN_NUMBER_PROP
+  estimatedTransactionFee: FILECOIN_NUMBER_PROPTYPE
 }
 
 const insufficientMsigFundsErr =
