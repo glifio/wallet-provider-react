@@ -81,7 +81,7 @@ Helper.propTypes = {
 }
 
 const insufficientMsigFundsErr =
-  'The Signing account on your Ledger device does not have sufficient funds to pay this transaction fee.'
+  'Your Safe owner account does not have sufficient funds to pay this transaction fee.'
 const insufficientSendFundsErr =
   'This account does not have enough FIL to pay for this transaction + the transaction fee.'
 
