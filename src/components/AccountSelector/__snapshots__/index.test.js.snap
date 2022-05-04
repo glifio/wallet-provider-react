@@ -237,19 +237,35 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  font-size: 1.5rem;
+}
+
+.c17 {
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .c18 {
   min-width: 0;
   box-sizing: border-box;
-  color: #E0D7FE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  grid-gap: 0.25em;
+}
+
+.c20 {
+  min-width: 0;
+  box-sizing: border-box;
+  color: var(--white);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -260,7 +276,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   align-items: center;
 }
 
-.c24 {
+.c26 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -280,7 +296,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   align-items: flex-end;
 }
 
-.c27 {
+.c29 {
   min-width: 0;
   box-sizing: border-box;
   border: 1px solid;
@@ -305,7 +321,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   justify-content: space-between;
 }
 
-.c28 {
+.c30 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -329,10 +345,10 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   justify-content: center;
 }
 
-.c30 {
+.c32 {
   min-width: 0;
   box-sizing: border-box;
-  color: #5E26FF;
+  color: var(--purple-medium);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -343,7 +359,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   align-items: center;
 }
 
-.c32 {
+.c34 {
   min-width: 0;
   box-sizing: border-box;
   border: 1px solid;
@@ -372,12 +388,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   justify-content: space-between;
 }
 
-.c34 {
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-.c35 {
+.c36 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -397,7 +408,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   justify-content: center;
 }
 
-.c39 {
+.c40 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -410,7 +421,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   justify-content: flex-start;
 }
 
-.c43 {
+.c44 {
   min-width: 0;
   box-sizing: border-box;
   width: 100%;
@@ -453,7 +464,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   margin-bottom: 0;
 }
 
-.c33 {
+.c35 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -478,7 +489,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   margin-top: 8px;
 }
 
-.c25 {
+.c27 {
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.4;
@@ -487,7 +498,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   margin-bottom: 0;
 }
 
-.c42 {
+.c43 {
   font-size: 15px;
   font-weight: 400;
   line-height: 1.4;
@@ -498,7 +509,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   margin-top: 4px;
 }
 
-.c36 {
+.c37 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1;
@@ -507,7 +518,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   margin: 0;
 }
 
-.c26 {
+.c28 {
   cursor: pointer;
   border: 1px solid #E0D7FE;
   background-color: transparent;
@@ -526,11 +537,11 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   border-radius: 4px;
 }
 
-.c26:hover {
+.c28:hover {
   opacity: 0.8;
 }
 
-.c31 {
+.c33 {
   cursor: pointer;
   border: 1px solid #262626;
   background-color: transparent;
@@ -549,16 +560,16 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   border-radius: 4px;
 }
 
-.c31:hover {
+.c33:hover {
   opacity: 0.8;
 }
 
-.c21 {
+.c23 {
   width: 24;
   height: 24;
 }
 
-.c20 {
+.c22 {
   height: auto;
   cursor: pointer;
   opacity: 1;
@@ -583,61 +594,42 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   outline: none;
 }
 
-.c23 {
+.c25 {
   -webkit-transition: 0.24s ease-in-out;
   transition: 0.24s ease-in-out;
 }
 
-.c19:hover .c22 {
+.c21:hover .c24 {
   -webkit-transform: scale(1.25);
   -ms-transform: scale(1.25);
   transform: scale(1.25);
 }
 
-.c8 {
+.c19 {
+  color: var(--white);
   -webkit-text-decoration: none;
   text-decoration: none;
-  -webkit-transition: 0.18s ease-in-out;
-  transition: 0.18s ease-in-out;
-  border-bottom: 2px solid #5E26FF00;
-  color: #5E26FF;
-  font-size: 1.125rem;
-  margin-left: 8px;
 }
 
-.c8:hover {
-  border-bottom: 2px solid #5E26FF;
+.c19:hover {
+  color: var(--white);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
-.c17 {
+.c31 {
+  color: var(--purple-medium);
   -webkit-text-decoration: none;
   text-decoration: none;
-  -webkit-transition: 0.18s ease-in-out;
-  transition: 0.18s ease-in-out;
-  border-bottom: 2px solid #5E26FF00;
-  color: #E0D7FE;
-  font-size: 1.5rem;
 }
 
-.c17:hover {
-  border-bottom: 2px solid #5E26FF;
+.c31:hover {
+  color: var(--purple-medium);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
-.c29 {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: 0.18s ease-in-out;
-  transition: 0.18s ease-in-out;
-  border-bottom: 2px solid #5E26FF00;
-  color: #5E26FF;
-  font-size: 1.5rem;
-}
-
-.c29:hover {
-  border-bottom: 2px solid #5E26FF;
-}
-
-.c37 {
+.c38 {
   min-width: 0;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -660,28 +652,28 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   border-color: #999999;
 }
 
-.c37:hover {
+.c38:hover {
   background: #bacbf7;
   cursor: text;
 }
 
-.c37:focus {
+.c38:focus {
   box-shadow: 0;
   outline: 0;
   background: #bacbf7;
 }
 
-.c38 {
+.c39 {
   -moz-appearance: textfield;
 }
 
-.c38::-webkit-outer-spin-button,
-.c38::-webkit-inner-spin-button {
+.c39::-webkit-outer-spin-button,
+.c39::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.c40 {
+.c41 {
   background: #1AD08F;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
@@ -715,7 +707,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   padding-bottom: 4px;
 }
 
-.c40:hover {
+.c41:hover {
   -webkit-transform: translateY(-4px);
   -ms-transform: translateY(-4px);
   transform: translateY(-4px);
@@ -723,7 +715,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   background: props.theme.colors.input.background.valid;
 }
 
-.c41 {
+.c42 {
   background: #E4EBFC;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
@@ -757,12 +749,27 @@ exports[`AccountSelector it renders the wallets in state with the title and help
   padding-bottom: 4px;
 }
 
-.c41:hover {
+.c42:hover {
   -webkit-transform: translateY(-4px);
   -ms-transform: translateY(-4px);
   transform: translateY(-4px);
   cursor: pointer;
   background: props.theme.colors.input.background.valid;
+}
+
+.c8 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-bottom: 2px solid #5E26FF00;
+  color: #5E26FF;
+  font-size: 1.125rem;
+  margin-left: 8px;
+}
+
+.c8:hover {
+  border-bottom: 2px solid #5E26FF;
 }
 
 .c9 {
@@ -882,55 +889,64 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
+        <div
           class="c17"
-          color="card.account.color"
-          font-size="4"
-          href="undefined/actor/?address=t1z225tguggx4onbauimqvxzutopzdr2m4s6z6wgi"
-          target="_blank"
         >
-          t1z22 ... 6z6wgi
-        </a>
-        <div
-          class="c18"
-          color="card.account.color"
-          display="flex"
-        >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c19"
+              href="https://explorer-calibration.glif.link/actor/?address=t1z225tguggx4onbauimqvxzutopzdr2m4s6z6wgi"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1z225 ... 6z6wgi
+            </a>
+            <div
+              class="c20"
+              color="var(--white)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -938,7 +954,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -956,7 +972,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           </h2>
         </div>
         <button
-          class="c26"
+          class="c28"
           font-size="3"
           height="6"
           type="button"
@@ -966,7 +982,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       </div>
     </div>
     <div
-      class="c27"
+      class="c29"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -978,7 +994,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
         display="flex"
       >
         <div
-          class="c28"
+          class="c30"
           color="colors.core.black"
           display="flex"
           size="6"
@@ -1011,55 +1027,64 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
-          class="c29"
-          color="core.primary"
-          font-size="4"
-          href="undefined/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb1uq"
-          target="_blank"
-        >
-          t1mbk ... icb1uq
-        </a>
         <div
-          class="c30"
-          color="core.primary"
-          display="flex"
+          class="c17"
         >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c31"
+              href="https://explorer-calibration.glif.link/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb1uq"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1mbk7 ... icb1uq
+            </a>
+            <div
+              class="c32"
+              color="var(--purple-medium)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -1067,7 +1092,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -1085,7 +1110,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           </h2>
         </div>
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -1095,7 +1120,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       </div>
     </div>
     <div
-      class="c27"
+      class="c29"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -1107,7 +1132,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
         display="flex"
       >
         <div
-          class="c28"
+          class="c30"
           color="colors.core.black"
           display="flex"
           size="6"
@@ -1140,55 +1165,64 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
-          class="c29"
-          color="core.primary"
-          font-size="4"
-          href="undefined/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb2uq"
-          target="_blank"
-        >
-          t1mbk ... icb2uq
-        </a>
         <div
-          class="c30"
-          color="core.primary"
-          display="flex"
+          class="c17"
         >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c31"
+              href="https://explorer-calibration.glif.link/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb2uq"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1mbk7 ... icb2uq
+            </a>
+            <div
+              class="c32"
+              color="var(--purple-medium)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -1196,7 +1230,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -1214,7 +1248,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           </h2>
         </div>
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -1224,7 +1258,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       </div>
     </div>
     <div
-      class="c27"
+      class="c29"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -1236,7 +1270,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
         display="flex"
       >
         <div
-          class="c28"
+          class="c30"
           color="colors.core.black"
           display="flex"
           size="6"
@@ -1269,55 +1303,64 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
-          class="c29"
-          color="core.primary"
-          font-size="4"
-          href="undefined/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb3uq"
-          target="_blank"
-        >
-          t1mbk ... icb3uq
-        </a>
         <div
-          class="c30"
-          color="core.primary"
-          display="flex"
+          class="c17"
         >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c31"
+              href="https://explorer-calibration.glif.link/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb3uq"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1mbk7 ... icb3uq
+            </a>
+            <div
+              class="c32"
+              color="var(--purple-medium)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -1325,7 +1368,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -1343,7 +1386,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           </h2>
         </div>
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -1353,7 +1396,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       </div>
     </div>
     <div
-      class="c27"
+      class="c29"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -1365,7 +1408,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
         display="flex"
       >
         <div
-          class="c28"
+          class="c30"
           color="colors.core.black"
           display="flex"
           size="6"
@@ -1398,55 +1441,64 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
-          class="c29"
-          color="core.primary"
-          font-size="4"
-          href="undefined/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb4uq"
-          target="_blank"
-        >
-          t1mbk ... icb4uq
-        </a>
         <div
-          class="c30"
-          color="core.primary"
-          display="flex"
+          class="c17"
         >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c31"
+              href="https://explorer-calibration.glif.link/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb4uq"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1mbk7 ... icb4uq
+            </a>
+            <div
+              class="c32"
+              color="var(--purple-medium)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -1454,7 +1506,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -1472,7 +1524,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           </h2>
         </div>
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -1482,7 +1534,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       </div>
     </div>
     <div
-      class="c32"
+      class="c34"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -1490,7 +1542,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
       width="100%"
     >
       <h2
-        class="c33"
+        class="c35"
         font-family="RT-Alias-Grotesk"
         font-size="4"
         font-weight="400"
@@ -1498,14 +1550,14 @@ exports[`AccountSelector it renders the wallets in state with the title and help
         Create new account
       </h2>
       <div
-        class="c34"
+        class="c17"
       >
         <div
-          class="c35"
+          class="c36"
           display="flex"
         >
           <h4
-            class="c36"
+            class="c37"
             font-family="RT-Alias-Grotesk"
             font-size="2"
             font-weight="400"
@@ -1514,7 +1566,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
             Account index
           </h4>
           <input
-            class="c37 c38"
+            class="c38 c39"
             display="inline-block"
             height="6"
             value="5"
@@ -1524,14 +1576,14 @@ exports[`AccountSelector it renders the wallets in state with the title and help
         
       </div>
       <div
-        class="c34"
+        class="c17"
       >
         <div
-          class="c39"
+          class="c40"
           display="flex"
         >
           <button
-            class="c40"
+            class="c41"
             display="flex"
             font-family="RT-Alias-Grotesk"
             font-size="1"
@@ -1542,7 +1594,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
             Legacy address
           </button>
           <button
-            class="c41"
+            class="c42"
             display="flex"
             font-family="RT-Alias-Grotesk"
             font-size="1"
@@ -1554,7 +1606,7 @@ exports[`AccountSelector it renders the wallets in state with the title and help
           </button>
         </div>
         <p
-          class="c42"
+          class="c43"
           font-family="RT-Alias-Grotesk"
           font-size="15px"
           font-weight="400"
@@ -1563,12 +1615,12 @@ exports[`AccountSelector it renders the wallets in state with the title and help
         </p>
       </div>
       <div
-        class="c43"
+        class="c44"
         display="flex"
         width="100%"
       >
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -1737,19 +1789,35 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  font-size: 1.5rem;
+}
+
+.c17 {
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .c18 {
   min-width: 0;
   box-sizing: border-box;
-  color: #E0D7FE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  grid-gap: 0.25em;
+}
+
+.c20 {
+  min-width: 0;
+  box-sizing: border-box;
+  color: var(--white);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1760,7 +1828,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   align-items: center;
 }
 
-.c24 {
+.c26 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -1780,7 +1848,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   align-items: flex-end;
 }
 
-.c27 {
+.c29 {
   min-width: 0;
   box-sizing: border-box;
   border: 1px solid;
@@ -1805,7 +1873,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   justify-content: space-between;
 }
 
-.c28 {
+.c30 {
   min-width: 0;
   box-sizing: border-box;
   border-width: 0.1875rem;
@@ -1829,10 +1897,10 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   justify-content: center;
 }
 
-.c30 {
+.c32 {
   min-width: 0;
   box-sizing: border-box;
-  color: #5E26FF;
+  color: var(--purple-medium);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1843,7 +1911,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   align-items: center;
 }
 
-.c32 {
+.c34 {
   min-width: 0;
   box-sizing: border-box;
   border: 1px solid;
@@ -1872,12 +1940,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   justify-content: space-between;
 }
 
-.c34 {
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-.c35 {
+.c36 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -1897,7 +1960,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   justify-content: center;
 }
 
-.c39 {
+.c40 {
   min-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
@@ -1910,7 +1973,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   justify-content: flex-start;
 }
 
-.c43 {
+.c44 {
   min-width: 0;
   box-sizing: border-box;
   width: 100%;
@@ -1953,7 +2016,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   margin-bottom: 0;
 }
 
-.c33 {
+.c35 {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -1978,7 +2041,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   margin-top: 8px;
 }
 
-.c25 {
+.c27 {
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.4;
@@ -1987,7 +2050,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   margin-bottom: 0;
 }
 
-.c42 {
+.c43 {
   font-size: 15px;
   font-weight: 400;
   line-height: 1.4;
@@ -1998,7 +2061,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   margin-top: 4px;
 }
 
-.c36 {
+.c37 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1;
@@ -2007,7 +2070,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   margin: 0;
 }
 
-.c26 {
+.c28 {
   cursor: pointer;
   border: 1px solid #E0D7FE;
   background-color: transparent;
@@ -2026,11 +2089,11 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   border-radius: 4px;
 }
 
-.c26:hover {
+.c28:hover {
   opacity: 0.8;
 }
 
-.c31 {
+.c33 {
   cursor: pointer;
   border: 1px solid #262626;
   background-color: transparent;
@@ -2049,16 +2112,16 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   border-radius: 4px;
 }
 
-.c31:hover {
+.c33:hover {
   opacity: 0.8;
 }
 
-.c21 {
+.c23 {
   width: 24;
   height: 24;
 }
 
-.c20 {
+.c22 {
   height: auto;
   cursor: pointer;
   opacity: 1;
@@ -2083,61 +2146,42 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   outline: none;
 }
 
-.c23 {
+.c25 {
   -webkit-transition: 0.24s ease-in-out;
   transition: 0.24s ease-in-out;
 }
 
-.c19:hover .c22 {
+.c21:hover .c24 {
   -webkit-transform: scale(1.25);
   -ms-transform: scale(1.25);
   transform: scale(1.25);
 }
 
-.c8 {
+.c19 {
+  color: var(--white);
   -webkit-text-decoration: none;
   text-decoration: none;
-  -webkit-transition: 0.18s ease-in-out;
-  transition: 0.18s ease-in-out;
-  border-bottom: 2px solid #5E26FF00;
-  color: #5E26FF;
-  font-size: 1.125rem;
-  margin-left: 8px;
 }
 
-.c8:hover {
-  border-bottom: 2px solid #5E26FF;
+.c19:hover {
+  color: var(--white);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
-.c17 {
+.c31 {
+  color: var(--purple-medium);
   -webkit-text-decoration: none;
   text-decoration: none;
-  -webkit-transition: 0.18s ease-in-out;
-  transition: 0.18s ease-in-out;
-  border-bottom: 2px solid #5E26FF00;
-  color: #E0D7FE;
-  font-size: 1.5rem;
 }
 
-.c17:hover {
-  border-bottom: 2px solid #5E26FF;
+.c31:hover {
+  color: var(--purple-medium);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
-.c29 {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: 0.18s ease-in-out;
-  transition: 0.18s ease-in-out;
-  border-bottom: 2px solid #5E26FF00;
-  color: #5E26FF;
-  font-size: 1.5rem;
-}
-
-.c29:hover {
-  border-bottom: 2px solid #5E26FF;
-}
-
-.c37 {
+.c38 {
   min-width: 0;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -2160,28 +2204,28 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   border-color: #999999;
 }
 
-.c37:hover {
+.c38:hover {
   background: #bacbf7;
   cursor: text;
 }
 
-.c37:focus {
+.c38:focus {
   box-shadow: 0;
   outline: 0;
   background: #bacbf7;
 }
 
-.c38 {
+.c39 {
   -moz-appearance: textfield;
 }
 
-.c38::-webkit-outer-spin-button,
-.c38::-webkit-inner-spin-button {
+.c39::-webkit-outer-spin-button,
+.c39::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.c40 {
+.c41 {
   background: #1AD08F;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
@@ -2215,7 +2259,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   padding-bottom: 4px;
 }
 
-.c40:hover {
+.c41:hover {
   -webkit-transform: translateY(-4px);
   -ms-transform: translateY(-4px);
   transform: translateY(-4px);
@@ -2223,7 +2267,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   background: props.theme.colors.input.background.valid;
 }
 
-.c41 {
+.c42 {
   background: #E4EBFC;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
@@ -2257,12 +2301,27 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
   padding-bottom: 4px;
 }
 
-.c41:hover {
+.c42:hover {
   -webkit-transform: translateY(-4px);
   -ms-transform: translateY(-4px);
   transform: translateY(-4px);
   cursor: pointer;
   background: props.theme.colors.input.background.valid;
+}
+
+.c8 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: 0.18s ease-in-out;
+  transition: 0.18s ease-in-out;
+  border-bottom: 2px solid #5E26FF00;
+  color: #5E26FF;
+  font-size: 1.125rem;
+  margin-left: 8px;
+}
+
+.c8:hover {
+  border-bottom: 2px solid #5E26FF;
 }
 
 .c9 {
@@ -2382,55 +2441,64 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
+        <div
           class="c17"
-          color="card.account.color"
-          font-size="4"
-          href="undefined/actor/?address=t1z225tguggx4onbauimqvxzutopzdr2m4s6z6wgi"
-          target="_blank"
         >
-          t1z22 ... 6z6wgi
-        </a>
-        <div
-          class="c18"
-          color="card.account.color"
-          display="flex"
-        >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c19"
+              href="https://explorer-calibration.glif.link/actor/?address=t1z225tguggx4onbauimqvxzutopzdr2m4s6z6wgi"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1z225 ... 6z6wgi
+            </a>
+            <div
+              class="c20"
+              color="var(--white)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -2438,7 +2506,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -2456,7 +2524,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           </h2>
         </div>
         <button
-          class="c26"
+          class="c28"
           font-size="3"
           height="6"
           type="button"
@@ -2466,7 +2534,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       </div>
     </div>
     <div
-      class="c27"
+      class="c29"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -2478,7 +2546,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
         display="flex"
       >
         <div
-          class="c28"
+          class="c30"
           color="colors.core.black"
           display="flex"
           size="6"
@@ -2511,55 +2579,64 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
-          class="c29"
-          color="core.primary"
-          font-size="4"
-          href="undefined/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb1uq"
-          target="_blank"
-        >
-          t1mbk ... icb1uq
-        </a>
         <div
-          class="c30"
-          color="core.primary"
-          display="flex"
+          class="c17"
         >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c31"
+              href="https://explorer-calibration.glif.link/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb1uq"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1mbk7 ... icb1uq
+            </a>
+            <div
+              class="c32"
+              color="var(--purple-medium)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -2567,7 +2644,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -2585,7 +2662,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           </h2>
         </div>
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -2595,7 +2672,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       </div>
     </div>
     <div
-      class="c27"
+      class="c29"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -2607,7 +2684,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
         display="flex"
       >
         <div
-          class="c28"
+          class="c30"
           color="colors.core.black"
           display="flex"
           size="6"
@@ -2640,55 +2717,64 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
-          class="c29"
-          color="core.primary"
-          font-size="4"
-          href="undefined/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb2uq"
-          target="_blank"
-        >
-          t1mbk ... icb2uq
-        </a>
         <div
-          class="c30"
-          color="core.primary"
-          display="flex"
+          class="c17"
         >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c31"
+              href="https://explorer-calibration.glif.link/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb2uq"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1mbk7 ... icb2uq
+            </a>
+            <div
+              class="c32"
+              color="var(--purple-medium)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -2696,7 +2782,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -2714,7 +2800,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           </h2>
         </div>
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -2724,7 +2810,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       </div>
     </div>
     <div
-      class="c27"
+      class="c29"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -2736,7 +2822,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
         display="flex"
       >
         <div
-          class="c28"
+          class="c30"
           color="colors.core.black"
           display="flex"
           size="6"
@@ -2769,55 +2855,64 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
-          class="c29"
-          color="core.primary"
-          font-size="4"
-          href="undefined/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb3uq"
-          target="_blank"
-        >
-          t1mbk ... icb3uq
-        </a>
         <div
-          class="c30"
-          color="core.primary"
-          display="flex"
+          class="c17"
         >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c31"
+              href="https://explorer-calibration.glif.link/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb3uq"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1mbk7 ... icb3uq
+            </a>
+            <div
+              class="c32"
+              color="var(--purple-medium)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -2825,7 +2920,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -2843,7 +2938,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           </h2>
         </div>
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -2853,7 +2948,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       </div>
     </div>
     <div
-      class="c27"
+      class="c29"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -2865,7 +2960,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
         display="flex"
       >
         <div
-          class="c28"
+          class="c30"
           color="colors.core.black"
           display="flex"
           size="6"
@@ -2898,55 +2993,64 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       <div
         class="c16"
         display="flex"
+        font-size="4"
       >
-        <a
-          class="c29"
-          color="core.primary"
-          font-size="4"
-          href="undefined/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb4uq"
-          target="_blank"
-        >
-          t1mbk ... icb4uq
-        </a>
         <div
-          class="c30"
-          color="core.primary"
-          display="flex"
+          class="c17"
         >
-          <button
-            class="c19 c20"
+          <div
+            class="c18"
             display="flex"
-            role="button"
-            type="button"
           >
-            <svg
-              class="c21 c22 c23"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              class="c31"
+              href="https://explorer-calibration.glif.link/actor/?address=t1mbk7q6gm4rjlndfqw6f2vkfgqotres3fgicb4uq"
+              rel="noreferrer noopener"
+              target="_blank"
             >
-              <rect
-                fill="#1A0066"
-                height="12"
-                width="12"
-                x="8"
-                y="4"
-              />
-              <rect
-                fill="#E0D7FE"
-                height="12"
-                width="12"
-                x="4"
-                y="8"
-              />
-            </svg>
-          </button>
+              t1mbk7 ... icb4uq
+            </a>
+            <div
+              class="c32"
+              color="var(--purple-medium)"
+              display="flex"
+            >
+              <button
+                class="c21 c22"
+                display="flex"
+                role="button"
+                type="button"
+              >
+                <svg
+                  class="c23 c24 c25"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#1A0066"
+                    height="12"
+                    width="12"
+                    x="8"
+                    y="4"
+                  />
+                  <rect
+                    fill="#E0D7FE"
+                    height="12"
+                    width="12"
+                    x="4"
+                    y="8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="c24"
+        class="c26"
         display="flex"
       >
         <div
@@ -2954,7 +3058,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           display="flex"
         >
           <p
-            class="c25"
+            class="c27"
             font-family="RT-Alias-Grotesk"
             font-size="3"
             font-weight="400"
@@ -2972,7 +3076,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           </h2>
         </div>
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
@@ -2982,7 +3086,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       </div>
     </div>
     <div
-      class="c32"
+      class="c34"
       color="colors.core.black"
       display="flex"
       height="11"
@@ -2990,7 +3094,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
       width="100%"
     >
       <h2
-        class="c33"
+        class="c35"
         font-family="RT-Alias-Grotesk"
         font-size="4"
         font-weight="400"
@@ -2998,14 +3102,14 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
         Create new account
       </h2>
       <div
-        class="c34"
+        class="c17"
       >
         <div
-          class="c35"
+          class="c36"
           display="flex"
         >
           <h4
-            class="c36"
+            class="c37"
             font-family="RT-Alias-Grotesk"
             font-size="2"
             font-weight="400"
@@ -3014,7 +3118,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
             Account index
           </h4>
           <input
-            class="c37 c38"
+            class="c38 c39"
             display="inline-block"
             height="6"
             value="5"
@@ -3024,14 +3128,14 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
         
       </div>
       <div
-        class="c34"
+        class="c17"
       >
         <div
-          class="c39"
+          class="c40"
           display="flex"
         >
           <button
-            class="c40"
+            class="c41"
             display="flex"
             font-family="RT-Alias-Grotesk"
             font-size="1"
@@ -3042,7 +3146,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
             Legacy address
           </button>
           <button
-            class="c41"
+            class="c42"
             display="flex"
             font-family="RT-Alias-Grotesk"
             font-size="1"
@@ -3054,7 +3158,7 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
           </button>
         </div>
         <p
-          class="c42"
+          class="c43"
           font-family="RT-Alias-Grotesk"
           font-size="15px"
           font-weight="400"
@@ -3063,12 +3167,12 @@ exports[`AccountSelector it renders the wallets in state, and an option to creat
         </p>
       </div>
       <div
-        class="c43"
+        class="c44"
         display="flex"
         width="100%"
       >
         <button
-          class="c31"
+          class="c33"
           font-size="3"
           height="6"
           type="button"
